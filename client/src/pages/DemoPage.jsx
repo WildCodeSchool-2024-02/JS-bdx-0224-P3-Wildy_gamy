@@ -1,5 +1,5 @@
 function DemoPage() {
-  return <div>DemoPage</div>;
+  return <section>DemoPage</section>;
 }
 
 export default DemoPage;

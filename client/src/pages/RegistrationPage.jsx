@@ -1,5 +1,5 @@
 function RegistrationPage() {
-  return <div>RegistrationPage</div>;
+  return <section>RegistrationPage</section>;
 }
 
 export default RegistrationPage;

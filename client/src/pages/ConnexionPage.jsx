@@ -1,5 +1,5 @@
 function ConnexionPage() {
-  return <div>ConnexionPage</div>;
+  return <section>ConnexionPage</section>;
 }
 
 export default ConnexionPage;

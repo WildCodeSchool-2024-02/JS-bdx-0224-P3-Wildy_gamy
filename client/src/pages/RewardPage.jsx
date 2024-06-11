@@ -1,5 +1,5 @@
 function RewardPage() {
-  return <div>RewardPage</div>;
+  return <section>RewardPage</section>;
 }
 
 export default RewardPage;

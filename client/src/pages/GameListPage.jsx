@@ -1,5 +1,5 @@
 function GameListPage() {
-  return <div>GameListPage</div>;
+  return <section>GameListPage</section>;
 }
 
 export default GameListPage;

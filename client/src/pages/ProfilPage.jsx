@@ -1,5 +1,5 @@
 function ProfilPage() {
-  return <div>ProfilPage</div>;
+  return <section>ProfilPage</section>;
 }
 
 export default ProfilPage;
