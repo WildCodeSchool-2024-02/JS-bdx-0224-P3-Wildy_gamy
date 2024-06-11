@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS wildy_gamy;
+USE wildy_gamy;
+
 CREATE TABLE user (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     created_at TIMESTAMP NOT NULL,
@@ -7,7 +10,7 @@ CREATE TABLE user (
     pseudo VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(250) NOT NULL,
-    role VARCHAR(50) NOT NULL,  
+    role VARCHAR(50) NOT NULL  
 );
 
 CREATE TABLE game (
@@ -45,7 +48,7 @@ CREATE TABLE party (
 	CONSTRAINT fk_party_user      
         FOREIGN KEY (user_id) REFERENCES user(id),
         CONSTRAINT fk_party_game      
-        FOREIGN KEY (game_id) REFERENCES game(id),
+        FOREIGN KEY (game_id) REFERENCES game(id)
 );
 
 CREATE TABLE obtaining (
@@ -55,7 +58,7 @@ CREATE TABLE obtaining (
 	CONSTRAINT fk_obtaining_user      
         FOREIGN KEY (user_id) REFERENCES user(id),
         CONSTRAINT fk_obtaining_reward      
-        FOREIGN KEY (reward_id) REFERENCES reward(id),
+        FOREIGN KEY (reward_id) REFERENCES reward(id)
 );
 
 CREATE TABLE favorite (
@@ -66,5 +69,5 @@ CREATE TABLE favorite (
 	CONSTRAINT fk_favorite_user      
         FOREIGN KEY (user_id) REFERENCES user(id),
         CONSTRAINT fk_favorite_game      
-        FOREIGN KEY (game_id) REFERENCES game(id),
+        FOREIGN KEY (game_id) REFERENCES game(id)
 );
