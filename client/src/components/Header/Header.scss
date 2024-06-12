@@ -1,0 +1,61 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+
+.top-page {
+  background-color: $black-color;
+  border-bottom: 0.1rem solid $secondary-color;
+  box-shadow: 0 0.25rem 0.5rem rgba($secondary-color, 0.5);
+  font-family: $content-font;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 3.8rem;
+  position: relative;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.link-logo-wg-written {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo-wg-written {
+  height: 3.5rem;
+}
+
+.add-user-icon {
+  width: 2.5rem;
+  position: absolute;
+  right: 0.5rem;
+}
+
+.nav-link {
+  color: $white-color;
+  text-decoration: none;
+  font-size: 1.8rem;
+  margin: 0 0.5rem;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+.nav-link {
+  display: none;
+}
+
+@include for-desktop-up {
+  .nav-link {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
