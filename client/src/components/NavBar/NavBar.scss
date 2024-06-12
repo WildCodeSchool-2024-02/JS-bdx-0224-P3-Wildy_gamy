@@ -1,4 +1,5 @@
 @import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
 
 .navbar-bottom {
   background-color: $black-color;
@@ -12,42 +13,49 @@
   align-items: center;
   padding-top: 0.3rem;
   box-shadow: 0 -0.25rem 0.5rem rgba($secondary-color, 0.5);
+
+  @include for-desktop-up {
+    display: none;
+  }
 }
 
 .navbar-list {
   list-style: none;
   display: flex;
   width: 100%;
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
 }
 
 .navbar-item {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding-bottom: 0.3rem;
 }
 
 .navbar-link {
   display: flex;
   flex-direction: column;
+  align-items: center;
   color: $white-color;
   text-decoration: none;
+  font-size: 0.9rem;
+  font-family: $content-font;
+  font-weight: 500;
 }
 
 .icon-footer {
   width: 1.8rem;
-  display: block;
-  margin: auto;
+  margin-bottom: 0.2rem;
 }
 
 .catalog-icon {
   width: 1.5rem;
-  margin-top: 0.18rem;
-  padding-bottom: 0.1rem;
-}
-
-.title-footer {
-  color: $white-color;
-  font-size: 0.9rem;
-  font-family: $content-font;
-  text-decoration: none;
   margin-top: 0.2rem;
+  padding-bottom: 0.1rem;
 }
