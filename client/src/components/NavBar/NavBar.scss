@@ -1,0 +1,53 @@
+@import "../../scss/variables.scss";
+
+.navbar-bottom {
+  background-color: $black-color;
+  position: fixed;
+  width: 100%;
+  height: 3.8rem;
+  bottom: 0;
+  border-top: 0.1rem solid $secondary-color;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0.3rem;
+  box-shadow: 0 -0.25rem 0.5rem rgba($secondary-color, 0.5);
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+  width: 100%;
+}
+
+.navbar-item {
+  flex: 1;
+  text-align: center;
+}
+
+.navbar-link {
+  display: flex;
+  flex-direction: column;
+  color: $white-color;
+  text-decoration: none;
+}
+
+.icon-footer {
+  width: 1.8rem;
+  display: block;
+  margin: auto;
+}
+
+.catalog-icon {
+  width: 1.5rem;
+  margin-top: 0.18rem;
+  padding-bottom: 0.1rem;
+}
+
+.title-footer {
+  color: $white-color;
+  font-size: 0.9rem;
+  font-family: $content-font;
+  text-decoration: none;
+  margin-top: 0.2rem;
+}
