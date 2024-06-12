@@ -6,26 +6,22 @@ function NavBar() {
     <nav className="navbar-bottom" aria-label="Barre de navigation">
       <ul className="navbar-list">
         <li className="navbar-item">
-          <img className="icon-footer" src="" alt="" />
-          <Link to="/" className="navbar-link">
+          <Link to="/" className="navbar-link home">
             Accueil
           </Link>
         </li>
         <li className="navbar-item">
-          <img className="icon-footer catalog-icon" src="" alt="" />
-          <Link to="/catalog" className="navbar-link">
+          <Link to="/catalog" className="navbar-link catalog">
             Catalogue
           </Link>
         </li>
         <li className="navbar-item">
-          <img className="icon-footer" src="" alt="" />
-          <Link to="/demo" className="navbar-link">
+          <Link to="/demo" className="navbar-link demo">
             Démo
           </Link>
         </li>
         <li className="navbar-item">
-          <img className="icon-footer" src="" alt="" />
-          <Link to="/reward" className="navbar-link">
+          <Link to="/reward" className="navbar-link reward">
             Prix
           </Link>
         </li>

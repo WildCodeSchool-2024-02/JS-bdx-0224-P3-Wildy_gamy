@@ -8,10 +8,7 @@
   height: 3.8rem;
   bottom: 0;
   border-top: 0.1rem solid $secondary-color;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 0.3rem;
+  padding-top: 0.4rem;
   box-shadow: 0 -0.25rem 0.5rem rgba($secondary-color, 0.5);
 
   @include for-desktop-up {
@@ -25,37 +22,51 @@
   width: 100%;
   padding: 0;
   margin: 0;
-  justify-content: space-around;
 }
 
 .navbar-item {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  padding-bottom: 0.3rem;
 }
 
 .navbar-link {
   display: flex;
   flex-direction: column;
-  align-items: center;
   color: $white-color;
   text-decoration: none;
   font-size: 0.9rem;
   font-family: $content-font;
-  font-weight: 500;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
 }
 
-.icon-footer {
+.navbar-link::before {
+  content: "";
+  display: block;
   width: 1.8rem;
+  height: 1.8rem;
+  margin: auto;
   margin-bottom: 0.2rem;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.catalog-icon {
+.home::before {
+  background-image: url("@harmonia/server/public/assets/images/icon/icons8-home.png");
+}
+
+.catalog::before {
+  background-image: url("@harmonia/server/public/assets/images/icon/icons8-catalog.png");
   width: 1.5rem;
-  margin-top: 0.2rem;
-  padding-bottom: 0.1rem;
+  height: 1.5rem;
+  padding-top: 0.2rem;
+}
+
+.demo::before {
+  background-image: url("@harmonia/server/public/assets/images/icon/icons8-space-invaders.png");
+}
+
+.reward::before {
+  background-image: url("@harmonia/server/public/assets/images/icon/icons8-trophy.png");
 }
