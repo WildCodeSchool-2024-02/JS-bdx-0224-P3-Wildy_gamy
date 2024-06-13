@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import GameListPage from "./pages/GameListPage";
 import DemoPage from "./pages/DemoPage";
 import RewardPage from "./pages/RewardPage";
+import LoginPage from "./pages/LoginPage";
 
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 
@@ -15,10 +16,6 @@ const router = createBrowserRouter([
   {
     element: <App />,
     children: [
-      {
-        path: "*",
-        element: <ErrorPage404 />,
-      },
       { path: "/", element: <HomePage /> },
       {
         path: "/catalogue",
@@ -31,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/prix",
         element: <RewardPage />,
+      },
+      {
+        path: "/connection",
+        element: <LoginPage />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage404 />,
       },
     ],
   },

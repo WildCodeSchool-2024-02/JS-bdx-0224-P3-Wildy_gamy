@@ -10,10 +10,10 @@ function Header() {
   return (
     <header className="top-page">
       <nav className="navigation">
-        <Link to="/catalog" className="nav-link">
+        <Link to="/catalogue" className="nav-link">
           Catalogue
         </Link>
-        <Link to="/reward" className="nav-link">
+        <Link to="/prix" className="nav-link">
           Prix
         </Link>
         <Link to="/" className="link-logo-wg-written">
@@ -22,10 +22,10 @@ function Header() {
         <Link to="/demo" className="nav-link">
           Démo
         </Link>
-        <Link to="/login" className="nav-link">
+        <Link to="/connection" className="nav-link">
           Compte
         </Link>
-        <Link to="/login">
+        <Link to="/connection">
           <img src={addUserIcon} alt="" className="add-user-icon" />
         </Link>
       </nav>
