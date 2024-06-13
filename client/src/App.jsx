@@ -1,7 +1,11 @@
-import "./scss/index.scss";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  return <h1>coucou</h1>;
+  return (
+    <main>
+      <Outlet />
+    </main>
+  );
 }
 
 export default App;
