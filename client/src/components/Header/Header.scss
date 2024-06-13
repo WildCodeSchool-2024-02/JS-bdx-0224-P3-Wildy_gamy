@@ -1,52 +1,30 @@
-@import "../../scss/variables.scss";
-@import "../../scss/mixins.scss";
+@import "../../scss/index.scss";
 
 .top-page {
   background-color: $black-color;
   border-bottom: 0.1rem solid $secondary-color;
   box-shadow: 0 0.25rem 0.5rem rgba($secondary-color, 0.5);
   font-family: $content-font;
-  font-weight: 700;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
   height: 3.8rem;
-  position: relative;
+  padding: 0 0.5rem;
 }
 
 .navigation {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  padding-top: 0.3rem;
 }
 
-.link-logo-wg-written {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.logo-wg-written {
-  height: 3.5rem;
-}
-
-.add-user-icon {
-  width: 2.5rem;
-  position: absolute;
-  right: 0.5rem;
-}
-
-.nav-link {
+.wg-written {
   color: $white-color;
   text-decoration: none;
-  font-size: 1.8rem;
-  margin: 0 0.5rem;
-
-  &:hover {
-    color: $secondary-color;
-  }
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0.15rem 0.15rem $pink-logo;
+  font-family: $title-font;
+  font-size: 3rem;
 }
 
 .nav-link {
@@ -54,8 +32,23 @@
 }
 
 @include for-desktop-up {
+  .navigation {
+    margin: 0 1.5rem;
+  }
+
+  .wg-written {
+    margin: 0 3rem;
+  }
+
   .nav-link {
+    color: $white-color;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
     display: flex;
-    justify-content: space-evenly;
+
+    &:hover {
+      color: $secondary-color;
+    }
   }
 }
