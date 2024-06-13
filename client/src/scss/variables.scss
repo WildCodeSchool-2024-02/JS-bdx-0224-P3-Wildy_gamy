@@ -9,3 +9,10 @@ $blue-logo: #0ebcd6;
 
 $content-font: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $title-font: "Jersey 20", "Arial Black", sans-serif;
+
+$font-stroke:
+  -0.025rem -0.025rem $black-color,
+  0.025rem -0.025rem $black-color,
+  -0.025rem 0.025rem $black-color,
+  0.025rem 0.025rem $black-color,
+  0.05rem 0.05rem $black-color;

@@ -11,7 +11,7 @@ function NavBar() {
           </Link>
         </li>
         <li className="navbar-item">
-          <Link to="/catalog" className="navbar-link catalog">
+          <Link to="/catalogue" className="navbar-link catalog">
             Catalogue
           </Link>
         </li>
@@ -21,7 +21,7 @@ function NavBar() {
           </Link>
         </li>
         <li className="navbar-item">
-          <Link to="/reward" className="navbar-link reward">
+          <Link to="/prix" className="navbar-link reward">
             Prix
           </Link>
         </li>
