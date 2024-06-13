@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 
+import HomePage from "./pages/HomePage";
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 
 const router = createBrowserRouter([
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {path: "/",
+        element: <HomePage />
       },
       {
         path: "*",

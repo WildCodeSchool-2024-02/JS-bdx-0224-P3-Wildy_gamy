@@ -1,5 +1,7 @@
+import HomeSlider from "../components/HomeSlider/HomeSlider";
+
 function HomePage() {
-  return <section>HomePage</section>;
+  return <HomeSlider />;
 }
 
 export default HomePage;
