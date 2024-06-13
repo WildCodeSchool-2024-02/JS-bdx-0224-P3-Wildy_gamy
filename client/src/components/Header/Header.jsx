@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
-// import logoWGWritten from "@harmonia/server/public/assets/images/logo/logo-written-wg2.svg";
-// import addUserIcon from "@harmonia/server/public/assets/images/icon/icons8-add-user.png";
+
+const BASE_URL_LOGO = "http://localhost:3000/static/assets/images/logo";
+const BASE_URL_ICON = "http://localhost:3000/static/assets/images/icon";
+const logoWGWritten2 = `${BASE_URL_LOGO}/logo-written-wg2.svg`;
+const addUserIcon = `${BASE_URL_ICON}/icons8-add-user.png`;
 
 function Header() {
   return (
@@ -14,7 +17,7 @@ function Header() {
           Prix
         </Link>
         <Link to="/" className="link-logo-wg-written">
-          <img src="" alt="" className="logo-wg-written" />
+          <img src={logoWGWritten2} alt="" className="logo-wg-written" />
         </Link>
         <Link to="/demo" className="nav-link">
           Démo
@@ -23,7 +26,7 @@ function Header() {
           Compte
         </Link>
         <Link to="/login">
-          <img src="" alt="" className="add-user-icon" />
+          <img src={addUserIcon} alt="" className="add-user-icon" />
         </Link>
       </nav>
     </header>
