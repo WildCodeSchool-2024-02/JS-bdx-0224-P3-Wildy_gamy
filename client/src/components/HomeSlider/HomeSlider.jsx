@@ -18,10 +18,11 @@ import arcade5 from "../../assets/images/arcade-picture/arcade-room5.jpg";
 function HomeSlider() {
   return (
     <Swiper
-      spaceBetween={30}
+      spaceBetween={0}
       centeredSlides
+      speed={1500}
       autoplay={{
-        delay: 3000,
+        delay: 2500,
         disableOnInteraction: false,
       }}
       pagination={{
