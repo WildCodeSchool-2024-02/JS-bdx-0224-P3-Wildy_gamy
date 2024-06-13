@@ -7,33 +7,32 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+}
 
-  .game-image {
-    width: calc(40% - 8px);
-    max-width: 250px;
-    cursor: pointer;
+.game-image {
+  width: calc(40% - 8px);
+  max-width: 250px;
+  object-fit: cover;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
     transition: transform 0.3s;
-    border: none;
-    padding: 0;
-    background: none;
+    overflow: hidden;
+  }
 
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba($secondary-color, 0.7);
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba($secondary-color, 0.7);
   }
 }
 
-h1 {
+h2 {
   text-align: center;
   margin: 2rem;
   font-family: $title-font;
+  color: $white-color;
 }
 
 section {
