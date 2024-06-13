@@ -8,15 +8,24 @@
   justify-content: center;
   gap: 2rem;
 
-  img {
+  .game-image {
     width: calc(40% - 8px);
     max-width: 250px;
     cursor: pointer;
     transition: transform 0.3s;
+    border: none;
+    padding: 0;
+    background: none;
 
     &:hover {
       transform: scale(1.05);
       box-shadow: 0 0 30px rgba($secondary-color, 0.7);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
   }
 }
