@@ -15,6 +15,7 @@ import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 const router = createBrowserRouter([
   {
     element: <App />,
+    errorElement: <ErrorPage404 />,
     children: [
       { path: "/", element: <HomePage /> },
       {
