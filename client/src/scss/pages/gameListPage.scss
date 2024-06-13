@@ -1,0 +1,32 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+@import "../../scss/index.scss";
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+
+  img {
+    width: calc(40% - 8px);
+    max-width: 250px;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba($secondary-color, 0.7);
+    }
+  }
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem;
+  font-family: $title-font;
+}
+
+section {
+  padding: 0 16px;
+}

@@ -1,2 +1,27 @@
 @import "./variables";
 @import "./mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $primary-color;
+}
+
+h1 {
+  color: $white-color;
+  text-align: center;
+  font-family: $content-font;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $secondary-color;
+  border-radius: 6px;
+}
