@@ -9,7 +9,7 @@ function ClickableLogo() {
         Rejoignez notre communauté de joueurs passionnés et découvrez nos bornes
         d'arcade !
       </h2>
-      <Link to="/GameList">
+      <Link to="/Catalogue">
         {" "}
         <img
           src={LogoSrc}

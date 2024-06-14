@@ -1,6 +1,14 @@
 @import "./variables";
 @import "./mixins";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: $primary;
+  font-family: $content-font;
+  background-color: $primary-color;
+  color: $white-color;
 }
