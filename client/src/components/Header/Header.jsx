@@ -20,6 +20,9 @@ function Header() {
         <Link to="/connection" className="nav-link">
           Compte
         </Link>
+        <Link to="/connection" className="nav-icon">
+          <img src="iconAddUser" alt="" className="img-icon"/>
+        </Link>
       </nav>
     </header>
   );

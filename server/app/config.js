@@ -112,8 +112,8 @@ app.use("/api", apiRouter);
 
 
 
-const reactBuildPath = path.join(__dirname, "/../../client/dist");
-const publicFolderPath = path.join(__dirname, "/../public");
+const reactBuildPath = path.join(__dirname, "/../../client/");
+const publicFolderPath = path.join(__dirname, "/../public/assets/images");
 
 // Serve react resources
 
