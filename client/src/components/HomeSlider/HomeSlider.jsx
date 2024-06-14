@@ -9,11 +9,15 @@ import "./Homeslider.scss";
 
 import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 
-import arcade1 from "../../assets/images/arcade-picture/arcade-room1.jpg";
-import arcade2 from "../../assets/images/arcade-picture/arcade-room2.jpg";
-import arcade3 from "../../assets/images/arcade-picture/arcade-room3.jpg";
-import arcade4 from "../../assets/images/arcade-picture/arcade-room4.jpg";
-import arcade5 from "../../assets/images/arcade-picture/arcade-room5.jpg";
+const baseUrl = "http://localhost:3310/arcade-picture/";
+
+const imageFiles = [
+  "arcade-room1.jpg",
+  "arcade-room2.jpg",
+  "arcade-room3.jpg",
+  "arcade-room4.jpg",
+  "arcade-room5.jpg",
+];
 
 function HomeSlider() {
   return (
@@ -35,21 +39,11 @@ function HomeSlider() {
         modules={[Autoplay, Pagination, Navigation, A11y]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img src={arcade1} alt="salle d'arcade 1" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={arcade2} alt="salle d'arcade 2" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={arcade3} alt="salle d'arcade 3" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={arcade4} alt="salle d'arcade 4" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={arcade5} alt="salle d'arcade 5" />
-        </SwiperSlide>
+        {imageFiles.map((file) => (
+          <SwiperSlide key={file}>
+            <img src={`${baseUrl}${file}`} alt={`salle d'arcade ${file}`} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
