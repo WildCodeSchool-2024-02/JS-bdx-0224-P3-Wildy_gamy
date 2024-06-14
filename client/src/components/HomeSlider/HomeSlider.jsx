@@ -16,15 +16,6 @@ import arcade4 from "../../assets/images/arcade-picture/arcade-room4.jpg";
 import arcade5 from "../../assets/images/arcade-picture/arcade-room5.jpg";
 
 function HomeSlider() {
-  //   const [images, setImages] = useState([]);
-
-  //   useEffect(() => {
-  //     fetch("http://localhost:3310/api/images")
-  //       .then((response) => response.json())
-  //       .then((data) => setImages(data))
-  //       .catch((error) => console.error("Error fetching images:", error));
-  //   }, []);
-
   return (
     <Swiper
       spaceBetween={0}
@@ -42,12 +33,6 @@ function HomeSlider() {
       modules={[Autoplay, Pagination, Navigation, A11y]}
       className="mySwiper"
     >
-      {" "}
-      {/* {images.map((image, index) => (
-        <SwiperSlide key={index}>
-          <img src={image} alt={`slide ${index}`} />
-        </SwiperSlide>
-      ))} */}
       <SwiperSlide>
         <img src={arcade1} alt="salle d'arcade 1" />
       </SwiperSlide>
