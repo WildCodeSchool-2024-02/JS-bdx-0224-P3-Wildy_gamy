@@ -5,10 +5,10 @@ import "./ClickableLogo.scss";
 function ClickableLogo() {
   return (
     <>
-      <h2>
+      <h1>
         Rejoignez notre communauté de joueurs passionnés et découvrez nos bornes
         d'arcade !
-      </h2>
+      </h1>
       <Link to="/Catalogue">
         {" "}
         <img
