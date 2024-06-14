@@ -8,7 +8,9 @@
 }
 
 body {
+  font-family: $content-font;
   background-color: $primary-color;
+  color: $white-color;
 }
 
 h1 {

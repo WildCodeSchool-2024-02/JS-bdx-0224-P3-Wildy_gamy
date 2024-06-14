@@ -1,10 +1,13 @@
-import GameListPage from './pages/GameListPage'; // Importez votre composant GameListPage
+import { Outlet } from "react-router-dom";
+import "./scss/index.scss"
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   return (
-    <section className="App">
-      <GameListPage /> 
-    </section>
+    <main>
+      <Outlet />
+      <NavBar />
+    </main>
   );
 }
 
