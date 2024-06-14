@@ -17,38 +17,41 @@ import arcade5 from "../../assets/images/arcade-picture/arcade-room5.jpg";
 
 function HomeSlider() {
   return (
-    <Swiper
-      spaceBetween={0}
-      centeredSlides
-      speed={1500}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
-      pagination={{
-        clickable: true,
-        draggable: true,
-      }}
-      navigation
-      modules={[Autoplay, Pagination, Navigation, A11y]}
-      className="mySwiper"
-    >
-      <SwiperSlide>
-        <img src={arcade1} alt="salle d'arcade 1" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={arcade2} alt="salle d'arcade 2" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={arcade3} alt="salle d'arcade 3" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={arcade4} alt="salle d'arcade 4" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={arcade5} alt="salle d'arcade 5" />
-      </SwiperSlide>
-    </Swiper>
+    <>
+      <h2>🕹️ Soyez borné, venez jouer ! 🕹️</h2>
+      <Swiper
+        spaceBetween={0}
+        centeredSlides
+        speed={1500}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+          draggable: true,
+        }}
+        navigation
+        modules={[Autoplay, Pagination, Navigation, A11y]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src={arcade1} alt="salle d'arcade 1" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={arcade2} alt="salle d'arcade 2" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={arcade3} alt="salle d'arcade 3" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={arcade4} alt="salle d'arcade 4" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={arcade5} alt="salle d'arcade 5" />
+        </SwiperSlide>
+      </Swiper>
+    </>
   );
 }
 

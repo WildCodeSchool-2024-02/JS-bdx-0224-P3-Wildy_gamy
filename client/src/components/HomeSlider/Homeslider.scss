@@ -1,5 +1,10 @@
 @import "../../scss/index.scss";
 
+h2 {
+  color: $white-color;
+  text-align: center;
+  margin: 2rem;
+}
 .swiper {
   width: 100%;
   height: 100%;
@@ -36,7 +41,7 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: $secondary;
+  color: $secondary-color;
   width: 2rem;
   height: 2rem;
 }
