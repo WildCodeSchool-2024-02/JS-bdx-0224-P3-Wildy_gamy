@@ -15,15 +15,15 @@ body {
 
 h1 {
   color: $white-color;
-  text-align: center;
-  font-family: $content-font;
+  font-family: $title-font;
+  font-weight: 400;
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: $secondary-color;
-  border-radius: 6px;
+  border-radius: 0.5rem;
 }

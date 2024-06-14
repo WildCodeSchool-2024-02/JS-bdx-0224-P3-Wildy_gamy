@@ -10,8 +10,8 @@
 }
 
 .game-image {
-  width: calc(40% - 8px);
-  max-width: 250px;
+  width: calc(40% - 0.5rem);
+  max-width: 15rem;
   object-fit: cover;
 
   img {
@@ -24,17 +24,16 @@
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba($secondary-color, 0.7);
+    box-shadow: 0 0 1.9rem rgba($secondary-color, 0.7);
   }
 }
 
-h2 {
+h1 {
   text-align: center;
   margin: 2rem;
-  font-family: $title-font;
-  color: $white-color;
+  font-size: 1.5rem;
 }
 
 section {
-  padding: 0 16px;
+  padding: 0 1rem;
 }
