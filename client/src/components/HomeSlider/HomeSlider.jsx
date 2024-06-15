@@ -9,7 +9,8 @@ import "./Homeslider.scss";
 
 import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 
-const baseUrl = "http://localhost:3310/arcade-picture/";
+const BASE_URL = import.meta.env.VITE_API_URL;
+const arcadeUrl = `${BASE_URL}/arcade-picture/`;
 
 const imageFiles = [
   "arcade-room1.jpg",
@@ -41,7 +42,7 @@ function HomeSlider() {
       >
         {imageFiles.map((file) => (
           <SwiperSlide key={file}>
-            <img src={`${baseUrl}${file}`} alt={`salle d'arcade ${file}`} />
+            <img src={`${arcadeUrl}${file}`} alt={`salle d'arcade ${file}`} />
           </SwiperSlide>
         ))}
       </Swiper>

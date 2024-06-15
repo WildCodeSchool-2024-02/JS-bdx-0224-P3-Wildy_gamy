@@ -39,9 +39,8 @@ h2 {
 
 .swiper-pagination-bullet-active {
   background-color: transparent;
-  background-image: url("../../assets/images/pacman-svgrepo-com.svg");
+  background-image: url("@harmonia/server/public/assets/images/icon/pacman-svgrepo-com.svg");
   background-size: cover;
-  background-position: center;
   width: 1.2rem;
   height: 1.2rem;
   transform: translateY(0);
