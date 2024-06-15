@@ -22,7 +22,7 @@ function Header() {
         </Link>
         <Link to="/connection" className="nav-link account-link">
           Compte
-          <img src={iconAddUser} alt="" className="account-icon"/>
+          <img src={iconAddUser} alt="Icône compte utilisateur" className="account-icon"/>
         </Link>
       </nav>
     </header>

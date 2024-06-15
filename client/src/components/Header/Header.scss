@@ -15,6 +15,41 @@
 .navigation {
   display: flex;
   align-items: center;
+
+  @include for-desktop-up {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    align-self: center;
+  }
+}
+
+.nav-link {
+  display: none;
+
+  @include for-desktop-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white-color;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 1rem;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+@include for-desktop-up {
+  .nav-link:nth-child(n + 2) {
+    justify-self: start;
+  }
+
+  .nav-link:nth-last-child(-n + 2) {
+    justify-self: end;
+  }
 }
 
 .wg-written {
@@ -25,65 +60,35 @@
   text-shadow: 0.15rem 0.15rem $pink-logo;
   font-family: $title-font;
   font-size: 3rem;
+
+  @include for-desktop-up {
+    grid-column: 3 / 9;
+  }
 }
 
-.nav-link,
 .account-link {
-  display: none;
-  color: $white-color;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
+  display: flex;
+  font-size: 0.01rem;
+  color: $black-color;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.9rem 0.8rem;
 
-.account-icon {
-  display: block;
-}
-
-// .account-link {
-// display: flex;
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   padding: 0.9rem 0.8rem;
-// }
-
-// .account-icon {
-//   width: 2rem;
-// }
-
-@include for-desktop-up {
-  .top-page {
-    padding: 0 2.5rem;
+  .account-icon {
+    width: 2rem;
   }
 
-  .navigation {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    place-self: center;
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-      color: $secondary-color;
-    }
-  }
-
-  .wg-written {
-    grid-column: 3/5;
-  }
-
-  .account-link {
-    grid-column: 6/7;
-  }
-
-  .nav-icon {
-    //  position: relative;
-    grid-column: 6/7;
+  @include for-desktop-up {
+    position: relative;
+    color: $white-color;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
     padding: 0;
+
+    // .account-icon {
+    //   margin-left: 0.5rem;
+    // }
   }
 }
