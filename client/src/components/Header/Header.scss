@@ -35,9 +35,16 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0 1rem;
+    transition: all 1s ease 0s;
+
+    &.active {
+      color: $secondary-color;
+    }
 
     &:hover {
+      transform: translateY(-0.1rem);
       color: $secondary-color;
+      filter: $secondary-filter;
     }
   }
 }
@@ -60,6 +67,12 @@
   text-shadow: 0.15rem 0.15rem $pink-logo;
   font-family: $title-font;
   font-size: 3rem;
+  transition: all 0.4s ease 0s;
+
+  &:hover {
+    color: $pink-logo;
+    text-shadow: -0.15rem -0.15rem 0.5rem rgba($pink-logo, 0.6);
+  }
 
   @include for-desktop-up {
     grid-column: 3 / 9;
@@ -77,6 +90,11 @@
 
   .account-icon {
     width: 2rem;
+
+    &.active {
+      filter: $secondary-filter;
+      transition: all 0.4s ease 0s;
+    }
   }
 
   @include for-desktop-up {

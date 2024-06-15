@@ -5,6 +5,9 @@ $black-color: #232323;
 $pink-logo: #ff0068;
 $blue-logo: #0ebcd6;
 
+$secondary-filter: brightness(0) saturate(100%) invert(83%) sepia(68%)
+  saturate(1590%) hue-rotate(325deg) brightness(101%) contrast(98%);
+
 $content-font: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $title-font: "Jersey20", "Arial Black", sans-serif;
 
