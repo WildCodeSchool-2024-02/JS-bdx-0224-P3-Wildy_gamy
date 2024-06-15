@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+const iconAddUser = `${BASE_URL}/icon/icons8-add-user.png`;
+
 function Header() {
   return (
     <header className="top-page">
@@ -17,11 +20,9 @@ function Header() {
         <Link to="/demo" className="nav-link">
           Démo
         </Link>
-        <Link to="/connection" className="nav-link">
+        <Link to="/connection" className="nav-link account-link">
           Compte
-        </Link>
-        <Link to="/connection" className="nav-icon">
-          <img src="iconAddUser" alt="" className="img-icon"/>
+          <img src={iconAddUser} alt="" className="account-icon"/>
         </Link>
       </nav>
     </header>
