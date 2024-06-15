@@ -1,30 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./NavBar.scss";
 
 function NavBar() {
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
+
+  const navLinks = [
+    { to: "/", label: "Accueil", className: "home" },
+    { to: "/catalogue", label: "Catalogue", className: "catalog" },
+    { to: "/demo", label: "Démo", className: "demo" },
+    { to: "/prix", label: "Prix", className: "reward" },
+  ];
+
   return (
     <nav className="navbar-bottom" aria-label="Barre de navigation">
       <ul className="navbar-list">
-        <li className="navbar-item">
-          <Link to="/" className="navbar-link home">
-            Accueil
-          </Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/catalogue" className="navbar-link catalog">
-            Catalogue
-          </Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/demo" className="navbar-link demo">
-            Démo
-          </Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/prix" className="navbar-link reward">
-            Prix
-          </Link>
-        </li>
+        {navLinks.map((link) => (
+          <li key={link.to} className="navbar-item">
+            <Link
+              to={link.to}
+              className={`navbar-link ${link.className} ${isActive(link.to) ? "active" : ""}`}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

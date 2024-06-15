@@ -11,6 +11,7 @@ import DemoPage from "./pages/DemoPage";
 import RewardPage from "./pages/RewardPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import LoginPage from "./pages/LoginPage";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/infos",
         element: <AboutUsPage />,
+      },
+      {
+        path: "/connection",
+        element: <LoginPage />,
       },
     ],
   },

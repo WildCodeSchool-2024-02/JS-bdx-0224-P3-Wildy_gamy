@@ -1,5 +1,4 @@
-@import "../../scss/variables.scss";
-@import "../../scss/mixins.scss";
+@import "../../scss/index.scss";
 
 .navbar-bottom {
   background-color: $black-color;
@@ -38,17 +37,26 @@
   font-weight: 600;
   width: 100%;
   height: 100%;
-}
 
-.navbar-link::before {
-  content: "";
-  display: block;
-  width: 1.8rem;
-  height: 1.8rem;
-  margin: auto;
-  margin-bottom: 0.2rem;
-  background-repeat: no-repeat;
-  background-size: contain;
+  &.active {
+    color: $secondary-color;
+
+    &::before {
+      transition: all 0.4s ease 0s;
+      filter: $secondary-filter;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: auto;
+    margin-bottom: 0.2rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
 
 .home::before {
