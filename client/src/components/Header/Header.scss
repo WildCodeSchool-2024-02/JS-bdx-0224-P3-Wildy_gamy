@@ -35,7 +35,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0 1rem;
-    transition: all 1s ease 0s;
+    transition: all 0.3s ease 0s;
 
     &.active {
       color: $secondary-color;
@@ -67,7 +67,7 @@
   text-shadow: 0.15rem 0.15rem $pink-logo;
   font-family: $title-font;
   font-size: 3rem;
-  transition: all 0.4s ease 0s;
+  transition: all 1s ease 0s;
 
   &:hover {
     color: $pink-logo;
