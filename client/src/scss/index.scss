@@ -2,6 +2,10 @@
 @import "./mixins";
 @import "./fonts";
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,5 +19,14 @@ body {
 }
 
 h1 {
+  font-family: $title-font;
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-align: center;
   text-shadow: $font-stroke;
+  margin: 2rem;
+}
+
+h2 {
+  @extend h1;
 }
