@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Space Invaders",
+    "src": "/catalog/space_invaders.png",
+    "alt": "Space Invaders Image"
+  },
+  {
+    "name": "Pac-man",
+    "src": "/catalog/pac_man.png",
+    "alt": "Pac Man Image"
+  },
+  {
+    "name": "Galaga",
+    "src": "/catalog/galaga.png",
+    "alt": "Galaga Image"
+  },
+  {
+    "name": "Donkey Kong",
+    "src": "/catalog/donkey_kong.png",
+    "alt": "Donkey Kong Image"
+  },
+  {
+    "name": "Street Fighter II",
+    "src": "/catalog/street-fighter.png",
+    "alt": "Street Fighter II Image"
+  },
+  {
+    "name": "Kung Fu Master",
+    "src": "/catalog/kung_fu_master.png",
+    "alt": "Kung Fu Master Image"
+  },
+  {
+    "name": "Centipede",
+    "src": "/catalog/centipede.png",
+    "alt": "Centipede Image"
+  },
+  {
+    "name": "Fantasy Zone",
+    "src": "/catalog/fantasy_zone.png",
+    "alt": "Fantasy Zone Image"
+  },
+  {
+    "name": "Tetris",
+    "src": "/catalog/tetris.png",
+    "alt": "Tetris Image"
+  },
+  {
+    "name": "King of Dragons",
+    "src": "/catalog/the_king_of_dragons.png",
+    "alt": "The King of the Dragons Image"
+  }
+]
