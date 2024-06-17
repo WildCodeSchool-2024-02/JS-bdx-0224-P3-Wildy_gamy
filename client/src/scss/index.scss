@@ -13,3 +13,14 @@ body {
   background-color: $primary-color;
   color: $white-color;
 }
+
+h1 {
+  font-family: $title-font;
+  text-align: center;
+  color: $white-color;
+}
+
+h2 {
+  @extend h1;
+  font-size: clamp(1.2rem, 4vw, 2.4rem);
+}
