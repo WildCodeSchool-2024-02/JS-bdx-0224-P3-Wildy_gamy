@@ -22,7 +22,7 @@ function GameListPage() {
 
     setSelectedGame({
       title: foundGame.title,
-      date_de_sortie: foundGame.date_de_sortie,
+      release_date: foundGame.release_date,
       description: foundGame.description,
       image_demo: foundGame.image_demo,
       demoLink: foundGame.demoLink,
@@ -52,7 +52,7 @@ function GameListPage() {
       </section>
 
       <GameListModal
-        open={showModal}
+        isOpen={showModal}
         onClose={closeModal}
         game={selectedGame}
       />

@@ -5,8 +5,8 @@ import { Form } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
-function GameListModal({ open, onClose, game }) {
-  if (!open || !game) return null;
+function GameListModal({ isOpen, onClose, game }) {
+  if (!isOpen || !game) return null;
 
   return (
     <section className="modal-open">
@@ -36,7 +36,7 @@ function GameListModal({ open, onClose, game }) {
           className="demo-image"
         />
         <h2 className="title-modal">{game.title}</h2>
-        <p>Date de sortie : {game.date_de_sortie}</p>
+        <p>Date de sortie : {game.release_date}</p>
         <p>{game.description}</p>
         {game.demoLink && (
           <a href={game.demoLink} target="_blank" rel="noreferrer">
@@ -49,12 +49,12 @@ function GameListModal({ open, onClose, game }) {
 }
 
 GameListModal.propTypes = {
-  open: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   game: PropTypes.shape({
     image_demo: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    date_de_sortie: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     demoLink: PropTypes.string,
   }).isRequired,
