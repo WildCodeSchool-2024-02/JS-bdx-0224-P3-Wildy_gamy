@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import GameListPage from "./pages/GameListPage";
 import DemoPage from "./pages/DemoPage";
 import RewardPage from "./pages/RewardPage";
