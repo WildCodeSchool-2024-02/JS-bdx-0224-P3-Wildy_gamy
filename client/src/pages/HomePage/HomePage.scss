@@ -1,5 +1,27 @@
 @import "../../scss/index.scss";
 
+.firstSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.clickableLogo {
+  display: block;
+  margin: auto;
+  width: calc(100% - 1rem);
+  max-width: 100%;
+
+  @include for-desktop-up {
+    width: calc(100% - 1rem);
+    max-width: 100%;
+  }
+}
+@import "../../scss/index.scss";
+
 .title-section2 {
   color: $white-color;
   text-align: center;
