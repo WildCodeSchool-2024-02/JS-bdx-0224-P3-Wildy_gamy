@@ -1,8 +1,4 @@
-@import "../../scss/variables.scss";
-@import "../../scss/mixins.scss";
 @import "../../scss/index.scss";
-
-// GameListModal.scss
 
 .modal-open {
   position: fixed;
@@ -47,10 +43,8 @@
 }
 
 .close-button {
-  top: 0.5rem;
-  left: 1rem;
   margin: 0 1rem 2rem;
-  font-size: 2rem;
+  font-size: 3rem;
   background: none;
   border: none;
   color: $black-color;
@@ -59,8 +53,8 @@
 
 .favorite-container {
   position: absolute;
-  top: 0.5rem;
-  right: -1rem;
+  top: 1.5rem;
+  right: 1rem;
   margin: 1rem 2rem;
   cursor: pointer;
 
@@ -101,10 +95,9 @@
   transition: transform 0.3s ease;
 }
 
-h2 {
-  font-family: $title-font;
+.title-modal {
   font-size: 2.5rem;
-  margin: 1rem;
+  margin-bottom: 1rem;
 }
 
 p {

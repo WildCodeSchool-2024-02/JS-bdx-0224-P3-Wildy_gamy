@@ -35,7 +35,7 @@ function GameListModal({ open, onClose, game }) {
           alt={`Demo de ${game.title}`}
           className="demo-image"
         />
-        <h2>{game.title}</h2>
+        <h2 className="title-modal">{game.title}</h2>
         <p>Date de sortie : {game.date_de_sortie}</p>
         <p>{game.description}</p>
         {game.demoLink && (
