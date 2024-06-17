@@ -1,7 +1,6 @@
 // Load the express module to create a web application
 
 const express = require("express");
-const path = require("path");
 
 const app = express();
 
@@ -35,7 +34,7 @@ app.use(
       process.env.CLIENT_URL, // keep this one, after checking the value in `server/.env`
       "http://mysite.com",
       "http://another-domain.com",
-    ],
+    ]
   })
 );
 */
@@ -55,7 +54,7 @@ app.use(
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
-app.use(express.json());
+// app.use(express.json());
 // app.use(express.urlencoded());
 // app.use(express.text());
 // app.use(express.raw());
@@ -108,8 +107,11 @@ app.use("/api", apiRouter);
 // 1. Uncomment the lines related to serving static files and redirecting unhandled requests.
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
-const reactBuildPath = path.join(__dirname, "/../../client/");
-const publicFolderPath = path.join(__dirname, "/../public/assets/images");
+/*
+const path = require("path");
+
+const reactBuildPath = path.join(__dirname, "/../../client/dist");
+const publicFolderPath = path.join(__dirname, "/../public");
 
 // Serve react resources
 
@@ -124,6 +126,8 @@ app.get("*.*", express.static(publicFolderPath, { maxAge: "1y" }));
 app.get("*", (_, res) => {
   res.sendFile(path.join(reactBuildPath, "/index.html"));
 });
+*/
+
 /* ************************************************************************* */
 
 // Middleware for Error Logging (Uncomment to enable)
