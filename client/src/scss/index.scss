@@ -14,13 +14,18 @@ body {
 }
 
 h1 {
-  color: $white-color;
   font-family: $title-font;
+  text-align: center;
+  color: $white-color;
   font-weight: 400;
 }
 
 h2 {
-  font-family: $title-font;
+  @extend h1;
+
+  @include for-desktop-up {
+    font-size: 1.5rem;
+  }
 }
 
 ::-webkit-scrollbar {
