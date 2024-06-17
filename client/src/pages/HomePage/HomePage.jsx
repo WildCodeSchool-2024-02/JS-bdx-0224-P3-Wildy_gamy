@@ -1,23 +1,22 @@
 /* eslint-disable import/no-unresolved */
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "./Homeslider.scss";
+import "./HomePage.scss";
 
-import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
+const imageFiles = ["salle1", "salle2", "salle3", "salle4", "salle5"];
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 const arcadeUrl = `${BASE_URL}/arcade-picture/`;
 
-const imageFiles = ["salle1", "salle2", "salle3", "salle4", "salle5"];
-
-function HomeSlider() {
+function HomePage() {
   return (
-    <>
-      <h2>🕹️ Soyez borné, venez jouer ! 🕹️</h2>
+    <section className="section2">
+      <h2 className="title-section2">🕹️ Soyez borné, venez jouer ! 🕹️</h2>
       <Swiper
         spaceBetween={0}
         centeredSlides
@@ -40,8 +39,8 @@ function HomeSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </section>
   );
 }
 
-export default HomeSlider;
+export default HomePage;

@@ -1,13 +1,11 @@
 @import "../../scss/index.scss";
 
-h2 {
+.section2 {
+}
+.title-section2 {
   color: $white-color;
   text-align: center;
   margin: 2rem;
-  font-size: larger;
-  @include for-desktop-up {
-    font-size: xx-large;
-  }
 }
 
 .swiper {
