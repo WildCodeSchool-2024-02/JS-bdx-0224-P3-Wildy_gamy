@@ -1,29 +1,20 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
+import navLinks from "../../data/navLinks.json";
 
 function NavBar() {
-  const location = useLocation();
-
-  const isActive = (path) => location.pathname === path;
-
-  const navLinks = [
-    { to: "/", label: "Accueil", className: "home" },
-    { to: "/catalogue", label: "Catalogue", className: "catalog" },
-    { to: "/demo", label: "Démo", className: "demo" },
-    { to: "/prix", label: "Prix", className: "reward" },
-  ];
-
   return (
     <nav className="navbar-bottom" aria-label="Barre de navigation">
       <ul className="navbar-list">
-        {navLinks.map((link) => (
+        {navLinks.navbar.map((link) => (
           <li key={link.to} className="navbar-item">
-            <Link
+            <NavLink
               to={link.to}
-              className={`navbar-link ${link.className} ${isActive(link.to) ? "active" : ""}`}
+              className={`navbar-link ${link.className}`}
+              activeClassName="active"
             >
               {link.label}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>

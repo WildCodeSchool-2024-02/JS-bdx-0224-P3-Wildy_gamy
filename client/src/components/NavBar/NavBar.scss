@@ -59,20 +59,20 @@
 }
 
 .home::before {
-  background-image: url("@harmonia/server/public/assets/images/icon/icons8-home.png");
+  background-image: url($homeIcon);
 }
 
 .catalog::before {
-  background-image: url("@harmonia/server/public/assets/images/icon/icons8-catalog.png");
+  background-image: url($catalogIcon);
   width: 1.5rem;
   height: 1.5rem;
   padding-top: 0.2rem;
 }
 
 .demo::before {
-  background-image: url("@harmonia/server/public/assets/images/icon/icons8-space-invaders.png");
+  background-image: url($spaceInvadersIcon);
 }
 
 .reward::before {
-  background-image: url("@harmonia/server/public/assets/images/icon/icons8-trophy.png");
+  background-image: url($trophyIcon);
 }

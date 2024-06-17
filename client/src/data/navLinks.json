@@ -1,0 +1,24 @@
+{
+  "header": [
+    { "to": "/catalogue", "label": "Catalogue", "className": "nav-link" },
+    { "to": "/prix", "label": "Prix", "className": "nav-link" },
+    { "to": "/", "label": "Wildy Gamy", "className": "wg-written" },
+    { "to": "/demo", "label": "Démo", "className": "nav-link" },
+    {
+      "to": "/connection",
+      "label": "Compte",
+      "className": "nav-link account-link",
+      "icon": {
+        "src": "icon/icons8-add-user.png",
+        "alt": "",
+        "className": "account-icon"
+      }
+    }
+  ],
+  "navbar": [
+    { "to": "/", "label": "Accueil", "className": "home" },
+    { "to": "/catalogue", "label": "Catalogue", "className": "catalog" },
+    { "to": "/demo", "label": "Démo", "className": "demo" },
+    { "to": "/prix", "label": "Prix", "className": "reward" }
+  ]
+}

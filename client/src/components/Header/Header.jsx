@@ -1,8 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "./Header.scss";
+import navLinks from "../../data/navLinks.json";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
-const iconAddUser = `${BASE_URL}/icon/icons8-add-user.png`;
 
 function Header() {
   const location = useLocation();
@@ -12,38 +12,23 @@ function Header() {
   return (
     <header className="top-page">
       <nav className="navigation">
-        <Link
-          to="/catalogue"
-          className={`nav-link ${isActive("/catalogue") ? "active" : ""}`}
-        >
-          Catalogue
-        </Link>
-        <Link
-          to="/prix"
-          className={`nav-link ${isActive("/prix") ? "active" : ""}`}
-        >
-          Prix
-        </Link>
-        <Link to="/" className={`wg-written ${isActive("/") ? "active" : ""}`}>
-          Wildy Gamy
-        </Link>
-        <Link
-          to="/demo"
-          className={`nav-link ${isActive("/demo") ? "active" : ""}`}
-        >
-          Démo
-        </Link>
-        <Link
-          to="/connection"
-          className={`nav-link account-link ${isActive("/connection") ? "active" : ""}`}
-        >
-          Compte
-          <img
-            src={iconAddUser}
-            alt="Icône compte utilisateur"
-            className={`account-icon ${isActive("/connection") ? "active" : ""}`}
-          />
-        </Link>
+        {navLinks.header.map((link) => (
+          <NavLink
+            key={link.to}
+            to={link.to}
+            className={`${link.className}`}
+            activeClassName="active"
+          >
+            {link.label}
+            {link.icon && (
+              <img
+                src={`${BASE_URL}/${link.icon.src}`}
+                alt={link.icon.alt}
+                className={`${link.icon.className} ${isActive(link.to) ? "active" : ""}`}
+              />
+            )}
+          </NavLink>
+        ))}
       </nav>
     </header>
   );
