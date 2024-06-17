@@ -1,6 +1,6 @@
 @import "../../scss/index.scss";
 
-section {
+.firstSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@ section {
   text-align: center;
 }
 
-img {
+.clickableLogo {
   display: block;
   margin: auto;
   width: calc(100% - 1rem);

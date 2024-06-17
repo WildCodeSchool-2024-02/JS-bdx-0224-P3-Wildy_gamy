@@ -9,14 +9,14 @@ const logoWildyGamyWg = `${BASE_URL}/logo/logo-wildy-gamy-wg.svg`;
 
 function HomePage() {
   return (
-    <section>
+    <section className="firstSection">
       <h1>
         Rejoignez notre communauté de joueurs passionnés et découvrez nos bornes
         d'arcade !
       </h1>
       <Link to="/catalogue">
         {" "}
-        <img src={logoWildyGamyWg} alt="aller à la page catalogue" />{" "}
+        <img src={logoWildyGamyWg} alt="aller à la page catalogue" className="clickableLogo"/>{" "}
       </Link>
       <h2>Cliquez pour accéder à notre catalogue de jeux</h2>
     </section>
