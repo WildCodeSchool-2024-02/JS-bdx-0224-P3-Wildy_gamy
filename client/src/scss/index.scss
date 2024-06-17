@@ -21,8 +21,5 @@ h1 {
 
 h2 {
   @extend h1;
-
-  @include for-desktop-up {
-    font-size: 1.5rem;
-  }
+  font-size: clamp(1.2rem, 4vw, 2.4rem);
 }
