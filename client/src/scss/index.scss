@@ -19,6 +19,10 @@ h1 {
   font-weight: 400;
 }
 
+h2 {
+  font-family: $title-font;
+}
+
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
