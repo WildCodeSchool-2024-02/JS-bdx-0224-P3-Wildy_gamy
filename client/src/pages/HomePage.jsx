@@ -14,7 +14,7 @@ function HomePage() {
         Rejoignez notre communauté de joueurs passionnés et découvrez nos bornes
         d'arcade !
       </h1>
-      <Link to="/Catalogue">
+      <Link to="/catalogue">
         {" "}
         <img src={logoWildyGamyWg} alt="aller à la page catalogue" />{" "}
       </Link>
