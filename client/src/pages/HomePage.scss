@@ -1,18 +1,33 @@
 @import "../scss/index.scss";
 @import "../scss/mixins.scss";
 
-img {
-  display: block;
-  margin: auto;
-  width: calc(100% - 1rem);
-
-  @include for-desktop-up {
-    width: calc(35% - 1rem);
-  }
-}
-
 p {
   font-family: $title-font;
   text-align: center;
   color: $white-color;
+
+  @include for-desktop-up {
+    font-size: 1.5rem;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: auto;
+  width: calc(100% - 1rem);
+  max-width: 100%;
+
+  @include for-desktop-up {
+    width: calc(100% - 1rem);
+    max-width: 100%;
+  }
 }
