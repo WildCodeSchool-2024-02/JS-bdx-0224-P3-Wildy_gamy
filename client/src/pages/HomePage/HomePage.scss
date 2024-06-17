@@ -1,16 +1,6 @@
 @import "../scss/index.scss";
 @import "../scss/mixins.scss";
 
-p {
-  font-family: $title-font;
-  text-align: center;
-  color: $white-color;
-
-  @include for-desktop-up {
-    font-size: 1.5rem;
-  }
-}
-
 section {
   display: flex;
   flex-direction: column;

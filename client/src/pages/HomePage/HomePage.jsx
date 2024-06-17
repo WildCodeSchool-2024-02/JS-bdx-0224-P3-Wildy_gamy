@@ -1,4 +1,4 @@
-import "../scss/index.scss";
+import "../../scss/index.scss";
 import "./HomePage.scss"
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ function HomePage() {
         {" "}
         <img src={logoWildyGamyWg} alt="aller à la page catalogue" />{" "}
       </Link>
-      <p>Cliquez pour accéder à notre catalogue de jeux</p>
+      <h2>Cliquez pour accéder à notre catalogue de jeux</h2>
     </section>
   );
 }

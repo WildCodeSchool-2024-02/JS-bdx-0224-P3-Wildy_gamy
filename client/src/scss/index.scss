@@ -18,3 +18,13 @@ h1 {
   text-align: center;
   color: $white-color;
 }
+
+h2 {
+  font-family: $title-font;
+  text-align: center;
+  color: $white-color;
+
+  @include for-desktop-up {
+    font-size: 1.5rem;
+  }
+}
