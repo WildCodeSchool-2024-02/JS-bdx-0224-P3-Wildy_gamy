@@ -36,7 +36,7 @@ function HomeSlider() {
       >
         {imageFiles.map((file) => (
           <SwiperSlide key={file}>
-            <img src={`${arcadeUrl}${file}`} alt={`Wildy Gamy ${file}`} />
+            <img src={`${arcadeUrl}${file}.jpg`} alt={`Wildy Gamy ${file}`} />
           </SwiperSlide>
         ))}
       </Swiper>
