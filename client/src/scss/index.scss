@@ -20,10 +20,11 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-  width: 1rem;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: $secondary-color;
   border-radius: 0.5rem;
+  overflow-x: none;
 }
