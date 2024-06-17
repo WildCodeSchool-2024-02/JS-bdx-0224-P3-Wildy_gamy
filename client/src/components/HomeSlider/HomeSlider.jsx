@@ -12,13 +12,7 @@ import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 const BASE_URL = import.meta.env.VITE_API_URL;
 const arcadeUrl = `${BASE_URL}/arcade-picture/`;
 
-const imageFiles = [
-  "arcade-room1.jpg",
-  "arcade-room2.jpg",
-  "arcade-room3.jpg",
-  "arcade-room4.jpg",
-  "arcade-room5.jpg",
-];
+const imageFiles = ["salle1", "salle2", "salle3", "salle4", "salle5"];
 
 function HomeSlider() {
   return (
@@ -42,7 +36,7 @@ function HomeSlider() {
       >
         {imageFiles.map((file) => (
           <SwiperSlide key={file}>
-            <img src={`${arcadeUrl}${file}`} alt={`salle d'arcade ${file}`} />
+            <img src={`${arcadeUrl}${file}`} alt={`Wildy Gamy ${file}`} />
           </SwiperSlide>
         ))}
       </Swiper>
