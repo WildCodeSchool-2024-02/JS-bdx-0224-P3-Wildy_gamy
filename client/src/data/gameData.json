@@ -1,77 +1,77 @@
 [
   {
     "title": "Space Invaders",
-    "date_de_sortie": "1978",
+    "release_date": "1978",
     "description": "Space Invaders est un jeu d'arcade emblématique où vous contrôlez un vaisseau spatial et combattez une armée d'extraterrestres envahisseurs. Avec des graphismes simples mais efficaces et un gameplay addictif, Space Invaders est un pilier de l'ère des salles d'arcade.",
     "image_demo": "/demo/space_invaders_demo.png",
     "demoLink": ""
   },
   {
     "title": "Pac-man",
-    "date_de_sortie": "1980",
+    "release_date": "1980",
     "description": "Pac-Man est un jeu de labyrinthe classique où vous contrôlez le personnage Pac-Man, mangeant des pac-gommes tout en évitant les fantômes. Avec son concept simple mais captivant, Pac-Man est l'un des jeux d'arcade les plus réussis et reconnaissables de tous les temps.",
     "image_demo": "/demo/pac_man_demo.gif",
     "demoLink": "https://www.toupty.com/jeupacman.html#gsc.tab=0"
   },
   {
     "title": "Galaga",
-    "date_de_sortie": "1981",
+    "release_date": "1981",
     "description": "Galaga est un jeu d'arcade de tir spatial où vous pilotez un vaisseau spatial contre des vagues d'ennemis extraterrestres. Avec ses améliorations par rapport à son prédécesseur Galaxian, Galaga est devenu un favori des salles d'arcade du monde entier.",
     "image_demo": "/demo/galaga_Demo.png",
     "demoLink": ""
   },
   {
     "title": "Donkey Kong",
-    "date_de_sortie": "1981",
+    "release_date": "1981",
     "description": "Donkey Kong est un jeu de plateforme où vous incarnez Jumpman, plus tard connu sous le nom de Mario, alors qu'il tente de sauver la princesse Pauline des griffes de Donkey Kong. Avec ses mécanismes de jeu simples mais difficiles, Donkey Kong a marqué le début de la carrière de Mario.",
     "image_demo": "/demo/donkeyKong_demo.png",
     "demoLink": ""
   },
   {
     "title": "Tetris",
-    "date_de_sortie": "1984",
+    "release_date": "1984",
     "description": "Tetris est un jeu de puzzle addictif où vous devez empiler des formes géométriques tombant du haut de l'écran pour former des lignes complètes. Avec sa simplicité et sa jouabilité intemporelle, Tetris est devenu l'un des jeux d'arcade les plus populaires de tous les temps.",
     "image_demo": "/demo/tetris-demo-2.png",
     "demoLink": ""
   },
   {
     "title": "Street Fighter II",
-    "date_de_sortie": "1991",
+    "release_date": "1991",
     "description": "Street Fighter II est un jeu de combat emblématique qui a établi les normes du genre des jeux de combat. Choisissez parmi une variété de combattants et affrontez des adversaires du monde entier dans des duels en un contre un. Avec son gameplay fluide et ses mouvements spéciaux, Street Fighter II a dominé les salles d'arcade des années 90.",
     "image_demo": "/demo/street_fighter_demo.png",
     "demoLink": ""
   },
   {
     "title": "Mortal Kombat",
-    "date_de_sortie": "1992",
+    "release_date": "1992",
     "description": "Mortal Kombat est un jeu de combat brutal qui a attiré l'attention pour ses graphismes sanglants et ses mouvements de finition choquants. Choisissez parmi une liste de combattants et affrontez vos adversaires dans des batailles féroces. Mortal Kombat a déclenché des débats sur la violence dans les jeux vidéo et est devenu un incontournable des salles d'arcade.",
     "image_demo": "/demo/mortal_kombat_demo.png",
     "demoLink": ""
   },
   {
     "title": "Kung Fu Master",
-    "date_de_sortie": "1984",
+    "release_date": "1984",
     "description": "Kung Fu Master est un jeu d'arcade où vous incarnez Thomas, un maître en arts martiaux, tentant de sauver sa bien-aimée Sylvia des griffes d'une organisation criminelle. Affrontez des ennemis à travers une série de niveaux tout en maîtrisant diverses techniques de combat.",
     "image_demo": "/demo/kungfu_master _demo.png",
     "demoLink": ""
   },
   {
     "title": "Centipede",
-    "date_de_sortie": "1981",
+    "release_date": "1981",
     "description": "Centipede est un jeu d'arcade classique où vous contrôlez un petit pistolet pour tirer sur un centipède se déplaçant de haut en bas de l'écran. Le but est de détruire le centipède avant qu'il n'atteigne le bas de l'écran, tout en évitant les autres créatures dangereuses comme les araignées et les scorpions. Avec ses graphismes colorés et son gameplay rapide, Centipede est devenu un favori des salles d'arcade et a marqué son époque comme l'un des jeux les plus populaires de sa génération.",
     "image_demo": "/demo/centipede_demo.png",
     "demoLink": ""
   },
   {
     "title": "Fantasy Zone",
-    "date_de_sortie": "1986",
+    "release_date": "1986",
     "description": "Fantasy Zone est un jeu d'arcade coloré et dynamique où vous contrôlez un vaisseau spatial dans un monde fantastique. Votre mission consiste à éliminer des vagues d'ennemis et de boss redoutables tout en collectant des pièces pour améliorer votre vaisseau. Avec ses graphismes vibrants, son ambiance entraînante et son gameplay addictif, Fantasy Zone est devenu un incontournable des salles d'arcade, captivant les joueurs du monde entier.",
     "image_demo": "/demo/fantasy_zone_demo.png",
     "demoLink": ""
   },
   {
     "title": "King of Dragons",
-    "date_de_sortie": "1991",
+    "release_date": "1991",
     "description": "King of Dragons est un jeu d'arcade de type beat'em up médiéval-fantastique. Incarnez l'un des cinq héros disponibles et combattez à travers des niveaux remplis de monstres, de pièges et de boss redoutables. Utilisez une variété d'attaques et de compétences pour terrasser vos ennemis et collectez des trésors pour améliorer votre personnage. Avec des graphismes impressionnants, une bande-son épique et un gameplay passionnant, King of Dragons est un classique du genre qui a enchanté des générations de joueurs.",
     "image_demo": "/demo/the_king_of_dragons_demo.png",
     "demoLink": ""
