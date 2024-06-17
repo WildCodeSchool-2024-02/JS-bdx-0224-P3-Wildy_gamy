@@ -1,6 +1,7 @@
 // Load the express module to create a web application
 
 const express = require("express");
+const path = require("path");
 
 const app = express();
 
@@ -83,8 +84,6 @@ app.use(
 // const username = req.cookies.username;
 
 /* ************************************************************************* */
-
-const path = require("path");
 
 // Import the API router
 const apiRouter = require("./routers/api/router");
