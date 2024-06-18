@@ -40,7 +40,7 @@ function GameListModal({ isOpen, onClose, game }) {
         <p className="game-description">{game.description}</p>
         {game.demoLink && (
           <a
-            className="demo-link "
+            className="demo-link"
             href={game.demoLink}
             target="_blank"
             rel="noreferrer"
