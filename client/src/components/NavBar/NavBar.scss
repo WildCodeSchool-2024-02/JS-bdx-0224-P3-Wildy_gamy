@@ -14,61 +14,63 @@
   @include for-desktop-up {
     display: none;
   }
-}
 
-.navbar-list {
-  list-style: none;
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
+  ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 
-.navbar-list > li {
-  flex: 1;
-}
+    li {
+      flex: 1;
+      display: flex;
+      justify-content: center;
 
-.navbar-list > li > a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: $white-color;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-family: $content-font;
-  font-weight: 600;
-  width: 100%;
-  height: 100%;
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $white-color;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-family: $content-font;
+        font-weight: 600;
+        width: 100%;
+        height: 100%;
 
-  &.active {
-    color: $secondary-color;
+        &.active {
+          color: $secondary-color;
 
-    &::before {
-      transition: all 0.4s ease;
-      filter: $secondary-filter;
+          &::before {
+            transition: all 0.4s ease;
+            filter: $secondary-filter;
+          }
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          margin: auto;
+          margin-bottom: 0.2rem;
+        }
+
+        &.home::before {
+          @include icon($homeIcon);
+        }
+
+        &.catalog::before {
+          @include icon($catalogIcon, 1.6rem, 1.6rem);
+          padding-bottom: 0.2rem;
+        }
+
+        &.demo::before {
+          @include icon($spaceInvadersIcon);
+        }
+
+        &.reward::before {
+          @include icon($trophyIcon);
+        }
+      }
     }
   }
-
-  &::before {
-    content: "";
-    display: block;
-    margin: auto;
-    margin-bottom: 0.2rem;
-  }
-}
-
-.home::before {
-  @include icon($homeIcon);
-}
-
-.catalog::before {
-  @include icon($catalogIcon, 1.6rem, 1.6rem);
-  padding-bottom: 0.2rem;
-}
-
-.demo::before {
-  @include icon($spaceInvadersIcon);
-}
-
-.reward::before {
-  @include icon($trophyIcon);
 }

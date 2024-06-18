@@ -4,27 +4,36 @@
   background-color: $black-color;
   border-bottom: 0.1rem solid $secondary-color;
   box-shadow: 0 0.25rem 0.5rem rgba($secondary-color, 0.5);
-  font-family: $content-font;
   width: 100%;
   height: 3.8rem;
-  padding: 0 0.5rem;
+  padding: 0 2rem;
   display: flex;
   justify-content: center;
   z-index: 1;
-
-  @include for-desktop-up {
-    position: fixed;
-  }
 }
 
 .navigation {
   display: flex;
-  align-items: center;
 
-  @include for-desktop-up {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+  ul {
+    list-style: none;
     align-self: center;
+
+    @include for-desktop-up {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+    }
+
+    li {
+      align-self: center;
+
+      &:nth-child(3) {
+        @include for-desktop-up {
+          grid-column: 3 / 9;
+          text-align: center;
+        }
+      }
+    }
   }
 }
 
@@ -33,41 +42,28 @@
 
   @include for-desktop-up {
     display: flex;
-    align-items: center;
-    justify-content: center;
     color: $white-color;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0 1rem;
-    transition: all 1s ease 0s;
+    transition: all 0.4s ease 0s;
 
     &.active {
+      filter: $secondary-filter;
       color: $secondary-color;
     }
 
     &:hover {
       transform: translateY(-0.1rem);
-      color: $secondary-color;
       filter: $secondary-filter;
     }
   }
 }
 
-@include for-desktop-up {
-  .nav-link:nth-child(n + 2) {
-    justify-self: start;
-  }
-
-  .nav-link:nth-last-child(-n + 2) {
-    justify-self: end;
-  }
-}
-
-.wg-written {
+.wg-link {
   color: $white-color;
   text-decoration: none;
-  text-align: center;
   text-transform: uppercase;
   text-shadow: 0.15rem 0.15rem $pink-logo;
   font-family: $title-font;
@@ -78,36 +74,37 @@
     color: $pink-logo;
     text-shadow: -0.15rem -0.15rem 0.5rem rgba($pink-logo, 0.6);
   }
-
-  @include for-desktop-up {
-    grid-column: 3 / 9;
-  }
 }
 
 .account-link {
+  font-size: 0;
+  margin-left: 0;
   display: flex;
-  font-size: 0.01rem;
-  color: $black-color;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.9rem 0.8rem;
 
-  .account-icon {
+  @include for-desktop-up {
+    font-size: 1.5rem;
+  }
+
+  &::after {
+    content: "";
+    @include icon($addUserIcon);
+    background-size: contain;
     width: 2rem;
+    height: 2rem;
+    display: block;
+    position: absolute;
+    top: 0.9rem;
+    right: 0.5rem;
 
-    &.active {
-      filter: $secondary-filter;
-      transition: all 0.4s ease 0s;
+    @include for-desktop-up {
+      position: relative;
+      top: 0;
+      right: 0;
     }
   }
 
-  @include for-desktop-up {
-    position: relative;
-    color: $white-color;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 700;
-    padding: 0;
+  &.active::after {
+    transition: all 0.4s ease;
+    filter: $secondary-filter;
   }
 }

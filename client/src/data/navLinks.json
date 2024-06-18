@@ -2,7 +2,7 @@
   "header": [
     { "to": "/catalogue", "label": "Catalogue", "className": "nav-link" },
     { "to": "/prix", "label": "Prix", "className": "nav-link" },
-    { "to": "/", "label": "Wildy Gamy", "className": "wg-written" },
+    { "to": "/", "label": "Wildy Gamy", "className": "wg-link" },
     { "to": "/demo", "label": "Démo", "className": "nav-link" },
     {
       "to": "/connection",
