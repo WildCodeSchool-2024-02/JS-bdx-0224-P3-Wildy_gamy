@@ -10,6 +10,11 @@
   padding: 0 0.5rem;
   display: flex;
   justify-content: center;
+  z-index: 1;
+
+  @include for-desktop-up {
+    position: fixed;
+  }
 }
 
 .navigation {
