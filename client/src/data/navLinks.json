@@ -7,12 +7,7 @@
     {
       "to": "/connection",
       "label": "Compte",
-      "className": "nav-link account-link",
-      "icon": {
-        "src": "icon/icons8-add-user.png",
-        "alt": "",
-        "className": "account-icon"
-      }
+      "className": "nav-link account-link"
     }
   ],
   "navbar": [

@@ -23,7 +23,11 @@
   justify-content: space-around;
 }
 
-.navbar-list > a {
+.navbar-list > li {
+  flex: 1;
+}
+
+.navbar-list > li > a {
   display: flex;
   flex-direction: column;
   align-items: center;
