@@ -3,68 +3,67 @@ import "./RegistrationPage.scss";
 function RegistrationPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const userNameInput = event.target.elements.username;
-    const username = userNameInput.value;
     event.target.reset();
-
-    alert(`${username} Votre formulaire à bien été envoyé !`);
   };
   return (
     <>
-      <h2 className="contactTitle">Inscription </h2>
-      <form className="ContactForm" onSubmit={handleSubmit}>
-        <label className="labelContact" htmlFor="firstname">
+      <h2 className="registration-title">Inscription </h2>
+      <form className="registration-form" onSubmit={handleSubmit}>
+        <label className="label-registration" htmlFor="firstname">
           Prénom
         </label>
         <input
-          className="inputContact"
+          className="input-registration"
           type="text"
           minLength="5"
           id="firstname"
           required
         />
-        <label className="labelContact" htmlFor="lastname">
+        <label className="label-registration" htmlFor="lastname">
           Nom
         </label>
         <input
-          className="inputContact"
+          className="input-registration"
           type="text"
           minLength="5"
           id="lastname"
           required
         />
-        <label className="labelContact" htmlFor="Alias">
+        <label className="label-registration" htmlFor="Alias">
           Pseudo
         </label>
         <input
-          className="inputContact"
+          className="input-registration"
           type="text"
           minLength="5"
           id="Alias"
           required
         />
-        <label className="labelContact" htmlFor="email">
+        <label className="label-registration" htmlFor="email">
           Email
         </label>
         <input
-          className="inputContact"
+          className="input-registration"
           type="email"
           id="email"
           pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
           required
         />
-        <label className="labelContact" htmlFor="password">
+        <label className="label-registration" htmlFor="password">
           Mot de passe
         </label>
         <input
-          className="inputContact"
+          className="input-registration"
           type="text"
           minLength="5"
           id="password"
           required
         />
-        <button className="contactButton" type="submit" aria-label="submit">
+        <button
+          className="validation-button"
+          type="submit"
+          aria-label="validation"
+        >
           Valider
         </button>
       </form>

@@ -1,36 +1,41 @@
+import { Link } from "react-router-dom";
 import "./LoginPage.scss";
 
 function LoginPage() {
   return (
     <>
-      <h2 className="contactTitle">Connexion </h2>
-      <form className="ContactForm">
-        <label className="labelContact" htmlFor="email">
+      <h2 className="connexion-title">Connexion </h2>
+      <form className="connexion-form">
+        <label className="label-connexion" htmlFor="email">
           Email
         </label>
         <input
-          className="inputContact"
+          className="input-connexion"
           type="email"
           id="email"
           pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
           required
         />
-        <label className="labelContact" htmlFor="password">
+        <label className="label-connexion" htmlFor="password">
           Mot de passe
         </label>
         <input
-          className="inputContact"
+          className="input-connexion"
           type="text"
           minLength="5"
           id="password"
           required
         />
-        <button className="contactButton" type="submit" aria-label="Se connecter">
+        <button
+          className="login-button"
+          type="submit"
+          aria-label="Se connecter"
+        >
           Se connecter
         </button>
-        <button className="contactButton" type="submit" aria-label="Créer un compte">
-          Créer un compte
-        </button>
+        <Link to="/inscription" className="link-registration">
+          <p>Créer un compte</p>
+        </Link>
       </form>
     </>
   );
