@@ -10,11 +10,15 @@ import "swiper/css/navigation";
 import "../../scss/index.scss";
 import "./HomePage.scss";
 
-const imageFiles = ["salle1", "salle2", "salle3", "salle4", "salle5"];
+import salle1 from "../../assets/images/arcade-picture/salle1.jpg";
+import salle2 from "../../assets/images/arcade-picture/salle2.jpg";
+import salle3 from "../../assets/images/arcade-picture/salle3.jpg";
+import salle4 from "../../assets/images/arcade-picture/salle4.jpg";
+import salle5 from "../../assets/images/arcade-picture/salle5.jpg";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
-const arcadeUrl = `${BASE_URL}/arcade-picture/`;
-const logoWildyGamyWg = `${BASE_URL}/logo/logo-wildy-gamy-wg.svg`;
+import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy-wg.svg";
+
+const imageFiles = [salle1, salle2, salle3, salle4, salle5];
 
 function HomePage() {
   return (
@@ -54,7 +58,7 @@ function HomePage() {
         >
           {imageFiles.map((file) => (
             <SwiperSlide key={file}>
-              <img src={`${arcadeUrl}${file}.jpg`} alt={`Wildy Gamy ${file}`} />
+              <img src={file} alt={`Wildy Gamy ${file}`} />
             </SwiperSlide>
           ))}
         </Swiper>
