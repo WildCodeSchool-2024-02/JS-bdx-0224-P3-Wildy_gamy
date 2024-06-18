@@ -36,10 +36,15 @@ function GameListModal({ isOpen, onClose, game }) {
           className="demo-image"
         />
         <h2 className="title-modal">{game.title}</h2>
-        <p>Date de sortie : {game.release_date}</p>
-        <p>{game.description}</p>
+        <p className="game-description">Date de sortie : {game.release_date}</p>
+        <p className="game-description">{game.description}</p>
         {game.demoLink && (
-          <a href={game.demoLink} target="_blank" rel="noreferrer">
+          <a
+            className="demo-link"
+            href={game.demoLink}
+            target="_blank"
+            rel="noreferrer"
+          >
             Voir la démo
           </a>
         )}
