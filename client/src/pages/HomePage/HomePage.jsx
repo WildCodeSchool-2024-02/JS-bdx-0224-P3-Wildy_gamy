@@ -4,11 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 import { Link } from "react-router-dom";
 
-import "../../scss/index.scss";
-import "./HomePage.scss"
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "../../scss/index.scss";
+import "./HomePage.scss"
 
 const imageFiles = ["salle1", "salle2", "salle3", "salle4", "salle5"];
 
