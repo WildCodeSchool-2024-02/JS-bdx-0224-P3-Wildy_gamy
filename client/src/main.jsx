@@ -10,6 +10,8 @@ import DemoPage from "./pages/DemoPage";
 import RewardPage from "./pages/RewardPage";
 
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "/prix",
         element: <RewardPage />,
+      },
+      {
+        path: "/connexion",
+        element: <LoginPage />,
+      },
+      {
+        path: "/inscription",
+        element: <RegistrationPage />,
       },
     ],
   },
