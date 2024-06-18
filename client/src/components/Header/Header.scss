@@ -82,6 +82,7 @@
   display: flex;
 
   @include for-desktop-up {
+    margin-top: 0.2rem;
     font-size: 1.5rem;
   }
 
