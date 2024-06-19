@@ -10,8 +10,10 @@
 }
 
 .game-image {
-  width: calc(40% - 0.5rem);
+  width: 40%;
+  min-width: 1rem;
   max-width: 15rem;
+  height: auto;
   object-fit: cover;
 
   img {
