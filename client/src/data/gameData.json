@@ -75,5 +75,131 @@
     "description": "King of Dragons est un jeu d'arcade de type beat'em up médiéval-fantastique. Incarnez l'un des cinq héros disponibles et combattez à travers des niveaux remplis de monstres, de pièges et de boss redoutables. Utilisez une variété d'attaques et de compétences pour terrasser vos ennemis et collectez des trésors pour améliorer votre personnage. Avec des graphismes impressionnants, une bande-son épique et un gameplay passionnant, King of Dragons est un classique du genre qui a enchanté des générations de joueurs.",
     "image_demo": "/demo/the_king_of_dragons_demo.png",
     "demoLink": ""
+  },
+  {
+    "title": "Alien Vs Predator",
+    "release_date": "1994",
+    "description": "Alien Vs Predator est un jeu d'arcade de type beat'em up où vous pouvez choisir de jouer comme un Alien, un Predator ou un humain pour combattre des hordes d'ennemis dans un environnement intense et dynamique.",
+    "image_demo": "/demo/alien_vs_predator_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Breakers Revenge",
+    "release_date": "1996",
+    "description": "Breakers Revenge est un jeu de combat 2D où vous choisissez parmi une sélection de combattants dotés de compétences uniques. Affrontez vos adversaires dans des duels intenses en utilisant des combos et des mouvements spéciaux.",
+    "image_demo": "/demo/breakers_revenge_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Captain Commando",
+    "release_date": "1991",
+    "description": "Captain Commando est un jeu d'arcade de type beat'em up où vous incarnez l'un des quatre héros, chacun avec des capacités spéciales, pour affronter des ennemis à travers des niveaux variés et dynamiques.",
+    "image_demo": "/demo/captain_commando_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Darius Gaiden",
+    "release_date": "1994",
+    "description": "Darius Gaiden est un jeu d'arcade de tir à défilement horizontal où vous pilotez un vaisseau spatial pour combattre des vagues d'ennemis extraterrestres dans un univers graphique riche et coloré.",
+    "image_demo": "/demo/darius_gaiden_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "DoDonPachi",
+    "release_date": "1997",
+    "description": "DoDonPachi est un jeu d'arcade de tir à défilement vertical connu pour son gameplay intense et ses vagues d'ennemis massives. Testez vos compétences et réflexes dans ce classique du genre 'bullet hell'.",
+    "image_demo": "/demo/dodonpachi_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Fatal Fury 2",
+    "release_date": "1992",
+    "description": "Fatal Fury 2 est un jeu de combat emblématique où vous choisissez parmi une variété de personnages et affrontez des adversaires dans des combats en un contre un. Maîtrisez les techniques et les combos pour devenir le champion.",
+    "image_demo": "/demo/fatal_fury_2_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Frogger",
+    "release_date": "1981",
+    "description": "Frogger est un jeu d'arcade classique où vous contrôlez une grenouille tentant de traverser une route très fréquentée et une rivière dangereuse pour atteindre sa maison. Avec son gameplay simple mais addictif, Frogger est un favori des salles d'arcade.",
+    "image_demo": "/demo/frogger_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Ghosts 'n Goblins",
+    "release_date": "1985",
+    "description": "Ghosts 'n Goblins est un jeu de plateforme difficile où vous incarnez Sir Arthur, un chevalier devant sauver une princesse en combattant des hordes de créatures surnaturelles. Ce jeu est connu pour sa difficulté impitoyable.",
+    "image_demo": "/demo/ghosts_n_goblins_demo.webp",
+    "demoLink": ""
+  },
+  {
+    "title": "Golden Axe",
+    "release_date": "1989",
+    "description": "Golden Axe est un jeu de type beat'em up où vous choisissez parmi trois héros pour affronter des ennemis dans un monde de fantasy. Utilisez des attaques spéciales et des sorts magiques pour vaincre vos adversaires.",
+    "image_demo": "/demo/golden_axe_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Gradius",
+    "release_date": "1985",
+    "description": "Gradius est un jeu de tir à défilement horizontal où vous pilotez un vaisseau spatial armé de diverses armes pour combattre des ennemis extraterrestres. Le jeu est connu pour son système de power-ups et ses niveaux variés.",
+    "image_demo": "/demo/gradius_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Knights of the Round",
+    "release_date": "1991",
+    "description": "Knights of the Round est un jeu de type beat'em up basé sur la légende du roi Arthur. Incarnez l'un des chevaliers de la Table Ronde et combattez pour restaurer la paix dans le royaume.",
+    "image_demo": "/demo/knights_of_the_round_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Out Run",
+    "release_date": "1986",
+    "description": "Out Run est un jeu de course où vous pilotez une voiture de sport à travers des paysages variés tout en évitant les obstacles et en essayant de battre le temps. Avec ses graphismes vibrants et sa musique entraînante, Out Run est un classique des jeux d'arcade.",
+    "image_demo": "/demo/outrun_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Pong",
+    "release_date": "1972",
+    "description": "Pong est l'un des premiers jeux d'arcade, un simple jeu de tennis en 2D où vous contrôlez une raquette pour renvoyer une balle contre un adversaire. Avec son gameplay simple mais addictif, Pong a posé les bases des jeux vidéo modernes.",
+    "image_demo": "/demo/pong_demo.gif",
+    "demoLink": ""
+  },
+  {
+    "title": "Rainbow Islands",
+    "release_date": "1987",
+    "description": "Rainbow Islands est un jeu de plateforme coloré où vous incarnez Bubby, un garçon capable de créer des arcs-en-ciel pour attaquer des ennemis et atteindre de nouvelles plateformes. Explorez des îles remplies de trésors et de créatures mystérieuses.",
+    "image_demo": "/demo/rainbow_island_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Shock Troopers",
+    "release_date": "1997",
+    "description": "Shock Troopers est un jeu d'arcade de tir run-and-gun où vous choisissez parmi plusieurs personnages et combattez des ennemis dans divers environnements. Utilisez une variété d'armes et de compétences pour survivre aux vagues d'ennemis.",
+    "image_demo": "/demo/shock_troopers_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "The Last Blade 2",
+    "release_date": "1998",
+    "description": "The Last Blade 2 est un jeu de combat 2D avec une atmosphère de samouraï. Choisissez parmi une variété de personnages dotés de styles de combat uniques et affrontez des adversaires dans des duels épiques.",
+    "image_demo": "/demo/the_last_blade_2_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Samurai Shodown",
+    "release_date": "1993",
+    "description": "Samurai Shodown est un jeu de combat 2D où vous incarnez des guerriers samouraïs et ninjas. Utilisez des attaques précises et des mouvements spéciaux pour vaincre vos adversaires dans des combats stratégiques.",
+    "image_demo": "/demo/samurai_shodown_demo.png",
+    "demoLink": ""
+  },
+  {
+    "title": "Tekken 3",
+    "release_date": "1997",
+    "description": "Tekken 3 est un jeu de combat 3D qui a révolutionné le genre avec ses graphismes impressionnants et son gameplay fluide. Choisissez parmi une large sélection de combattants et maîtrisez leurs techniques pour devenir le champion du tournoi.",
+    "image_demo": "/demo/tekken_demo.png",
+    "demoLink": ""
   }
 ]

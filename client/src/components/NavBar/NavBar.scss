@@ -51,20 +51,20 @@
 }
 
 .home::before {
-  background-image: url("@harmonia/server/public/assets/images/icon/icons8-home.png");
+  background-image: url("../../assets/icon/icons8-home.png");
 }
 
 .catalog::before {
-  background-image: url("@harmonia/server/public/assets/images/icon/icons8-catalog.png");
+  background-image: url("../../assets/icon/icons8-catalog.png");
   width: 1.5rem;
   height: 1.5rem;
   padding-top: 0.2rem;
 }
 
 .demo::before {
-  background-image: url("@harmonia/server/public/assets/images/icon/icons8-space-invaders.png");
+  background-image: url("../../assets/icon/icons8-space-invaders.png");
 }
 
 .reward::before {
-  background-image: url("@harmonia/server/public/assets/images/icon/icons8-trophy.png");
+  background-image: url("../../assets/icon/icons8-trophy.png");
 }

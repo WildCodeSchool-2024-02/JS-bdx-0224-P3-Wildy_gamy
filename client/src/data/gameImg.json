@@ -48,5 +48,96 @@
     "name": "King of Dragons",
     "src": "/catalog/the_king_of_dragons.png",
     "alt": "The King of the Dragons Image"
+  },
+  {
+    "name": "Alien Vs Predator",
+    "src": "/catalog/alien_vs_predator.png",
+    "alt": "Alien Vs Predator Image"
+  },
+  {
+    "name": "Breakers Revenge",
+    "src": "/catalog/breakers_revenge.png",
+    "alt": "Breakers Revenge Image"
+  },
+  {
+    "name": "Captain Commando",
+    "src": "/catalog/captain_commando.png",
+    "alt": "Captain Commando Image"
+  },
+  {
+    "name": "Darius Gaiden",
+    "src": "/catalog/darius_gaiden.png",
+    "alt": "Darius Gaiden Image"
+  },
+  {
+    "name": "DoDonPachi",
+    "src": "/catalog/dodonpachi.png",
+    "alt": "DoDonPachi Image"
+  },
+  {
+    "name": "Fatal Fury 2",
+    "src": "/catalog/fatal_fury_2.png",
+    "alt": "Fatal Fury 2 Image"
+  },
+  {
+    "name": "Frogger",
+    "src": "/catalog/frogger.png",
+    "alt": "Frogger Image"
+  },
+  {
+    "name": "Ghosts 'n Goblins",
+    "src": "/catalog/ghosts_n_goblins.png",
+    "alt": "Ghosts 'n Goblins Image"
+  },
+  {
+    "name": "Golden Axe",
+    "src": "/catalog/golden_axe.png",
+    "alt": "Golden Axe Image"
+  },
+  {
+    "name": "Gradius",
+    "src": "/catalog/gradius.png",
+    "alt": "Gradius Image"
+  },
+  {
+    "name": "Knights of the Round",
+    "src": "/catalog/knights_of_the_round.png",
+    "alt": "Knights of the Round Image"
+  },
+  {
+    "name": "Out Run",
+    "src": "/catalog/outrun.png",
+    "alt": "Out Run Image"
+  },
+  {
+    "name": "Pong",
+    "src": "/catalog/pong.png",
+    "alt": "Pong Image"
+  },
+  {
+    "name": "Rainbow Islands",
+    "src": "/catalog/rainbow_island.png",
+    "alt": "Rainbow Islands Image"
+  },
+  {
+    "name": "Shock Troopers",
+    "src": "/catalog/shock_troopers.png",
+    "alt": "Shock Troopers Image"
+  },
+  {
+    "name": "The Last Blade 2",
+    "src": "/catalog/the_last_blade_2.png",
+    "alt": "The Last Blade 2 Image"
+  },
+  {
+    "name": "Samurai Shodown",
+    "src": "/catalog/samurai_shodown.jpg",
+    "alt": "Samurai Shodown Image"
+  },
+  {
+    "name": "Tekken 3",
+    "src": "/catalog/tekken_3.jpg",
+    "alt": "Tekken 3 Image"
   }
 ]
+
