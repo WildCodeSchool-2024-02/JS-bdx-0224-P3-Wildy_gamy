@@ -23,46 +23,42 @@ const imageFiles = [salle1, salle2, salle3, salle4, salle5];
 function HomePage() {
   return (
     <>
-      <section className="firstSection">
-        <h1>
-          Rejoignez notre communauté de joueurs passionnés et découvrez nos
-          bornes d'arcade !
-        </h1>
-        <Link to="/catalogue">
-          {" "}
-          <img
-            src={logoWildyGamyWg}
-            alt="aller à la page catalogue"
-            className="clickableLogo"
-          />{" "}
-        </Link>
-        <h2>Cliquez pour accéder à notre catalogue de jeux</h2>
-      </section>
-      <section className="section2">
-        <h2 className="title-section2">🕹️ Soyez borné, venez jouer ! 🕹️</h2>
-        <Swiper
-          spaceBetween={0}
-          centeredSlides
-          speed={1500}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-            draggable: true,
-          }}
-          navigation
-          modules={[Autoplay, Pagination, Navigation, A11y]}
-          className="mySwiper"
-        >
-          {imageFiles.map((file) => (
-            <SwiperSlide key={file}>
-              <img src={file} alt={`Wildy Gamy ${file}`} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
+      <h1>
+        Rejoignez notre communauté de joueurs passionnés et découvrez nos bornes
+        d'arcade !
+      </h1>
+      <Link to="/catalogue" className="logo-link">
+        {" "}
+        <img
+          src={logoWildyGamyWg}
+          alt="aller à la page catalogue"
+          className="clickableLogo"
+        />{" "}
+      </Link>
+      <h2>Cliquez pour accéder à notre catalogue de jeux</h2>
+      <h2>🕹️ Soyez borné, venez jouer ! 🕹️</h2>
+      <Swiper
+        spaceBetween={0}
+        centeredSlides
+        speed={1500}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+          draggable: true,
+        }}
+        navigation
+        modules={[Autoplay, Pagination, Navigation, A11y]}
+        className="mySwiper"
+      >
+        {imageFiles.map((file) => (
+          <SwiperSlide key={file}>
+            <img src={file} alt={`Wildy Gamy ${file}`} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </>
   );
 }
