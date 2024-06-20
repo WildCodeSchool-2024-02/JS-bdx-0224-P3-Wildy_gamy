@@ -1,6 +1,6 @@
 @import "../../scss/index.scss";
 
-.modal-open {
+.modal-active {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,10 +18,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.5);
-  width: calc(90% - 0.5rem);
+  transform: translate(-50%, -50%);
+  width: 90%;
+  min-width: 20rem;
   max-width: 30rem;
-  max-height: 40rem;
+  max-height: 38rem;
   overflow-y: auto;
   padding: 2rem;
   border-radius: 0.5rem;
