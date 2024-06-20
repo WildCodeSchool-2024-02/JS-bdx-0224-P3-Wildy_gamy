@@ -1,6 +1,6 @@
 @import "../../scss/index.scss";
 
-.top-page {
+header {
   background-color: $black-color;
   border-bottom: 0.1rem solid $secondary-color;
   box-shadow: 0 0.25rem 0.5rem rgba($secondary-color, 0.5);
@@ -10,27 +10,27 @@
   display: flex;
   justify-content: center;
   z-index: 1;
-}
 
-.navigation {
-  display: flex;
+  nav {
+    display: flex;
 
-  ul {
-    list-style: none;
-    align-self: center;
-
-    @include for-desktop-up {
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-    }
-
-    li {
+    ul {
+      list-style: none;
       align-self: center;
 
-      &:nth-child(3) {
-        @include for-desktop-up {
-          grid-column: 3 / 9;
-          text-align: center;
+      @include for-desktop-up {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+      }
+
+      li {
+        align-self: center;
+
+        &:nth-child(3) {
+          @include for-desktop-up {
+            grid-column: 3 / 9;
+            text-align: center;
+          }
         }
       }
     }

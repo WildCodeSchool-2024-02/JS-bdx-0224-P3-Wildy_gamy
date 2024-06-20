@@ -11,9 +11,9 @@
     }
   ],
   "navbar": [
-    { "to": "/", "label": "Accueil", "className": "home" },
-    { "to": "/catalogue", "label": "Catalogue", "className": "catalog" },
-    { "to": "/demo", "label": "Démo", "className": "demo" },
-    { "to": "/prix", "label": "Prix", "className": "reward" }
+    { "to": "/", "label": "Accueil" },
+    { "to": "/catalogue", "label": "Catalogue" },
+    { "to": "/demo", "label": "Démo" },
+    { "to": "/prix", "label": "Prix" }
   ]
 }

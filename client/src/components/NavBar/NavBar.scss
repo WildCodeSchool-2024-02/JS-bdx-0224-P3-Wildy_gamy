@@ -24,6 +24,23 @@
     li {
       flex: 1;
 
+      &:nth-child(1) > a::before {
+        @include icon($homeIcon);
+      }
+
+      &:nth-child(2) > a::before {
+        @include icon($catalogIcon, 1.6rem, 1.6rem);
+        padding-bottom: 0.2rem;
+      }
+
+      &:nth-child(3) > a::before {
+        @include icon($spaceInvadersIcon);
+      }
+
+      &:nth-child(4) > a::before {
+        @include icon($trophyIcon);
+      }
+
       a {
         display: flex;
         flex-direction: column;
@@ -50,23 +67,6 @@
           display: block;
           margin: auto;
           margin-bottom: 0.2rem;
-        }
-
-        &.home::before {
-          @include icon($homeIcon);
-        }
-
-        &.catalog::before {
-          @include icon($catalogIcon, 1.6rem, 1.6rem);
-          padding-bottom: 0.2rem;
-        }
-
-        &.demo::before {
-          @include icon($spaceInvadersIcon);
-        }
-
-        &.reward::before {
-          @include icon($trophyIcon);
         }
       }
     }

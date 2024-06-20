@@ -4,8 +4,8 @@ import NavigationMenu from "../NavigationMenu/NavigationMenu";
 
 function Header() {
   return (
-    <header className="top-page">
-      <nav className="navigation">
+    <header>
+      <nav>
         <NavigationMenu links={navLinks.header} />
       </nav>
     </header>
