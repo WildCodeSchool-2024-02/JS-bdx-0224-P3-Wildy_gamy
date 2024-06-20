@@ -2,15 +2,12 @@ import "./Header.scss";
 import { NavLink } from "react-router-dom";
 
 const links = [
-  { to: "/", label: "Accueil", className: "home" },
-  { to: "/catalogue", label: "Catalogue", className: "catalog" },
-  { to: "/demo", label: "Démo", className: "demo" },
-  { to: "/prix", label: "Prix", className: "reward" },
-];
-
-const topLinks = [
   { to: "/", label: "Wildy Gamy", className: "wg-link" },
-  { to: "/connection", label: "Compte", className: "account-link" },
+  { to: "/connection", label: "Compte", className: "nav-link account-link" },
+  { to: "/", label: "Accueil", className: "nav-link" },
+  { to: "/catalogue", label: "Catalogue", className: "nav-link" },
+  { to: "/demo", label: "Démo", className: "nav-link" },
+  { to: "/prix", label: "Prix", className: "nav-link" },
 ];
 
 function Header() {
@@ -19,7 +16,7 @@ function Header() {
       <header>
         <nav>
           <ul>
-            {topLinks.map((link) => (
+            {links.map((link) => (
               <li key={link.to}>
                 <NavLink
                   to={link.to}
