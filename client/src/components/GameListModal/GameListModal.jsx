@@ -9,15 +9,9 @@ function GameListModal({ isOpen, onClose, game }) {
   if (!isOpen || !game) return null;
 
   return (
-    <section className="modal-active">
+    <dialog className="modal-active">
       <article className="modal-content">
-        <button
-          type="button"
-          className="close-button"
-          onClick={onClose}
-          aria-label="modal fermée"
-          title="fermé"
-        >
+        <button type="button" className="close-button" onClick={onClose}>
           ×
         </button>
         <Form method="POST">
@@ -25,7 +19,6 @@ function GameListModal({ isOpen, onClose, game }) {
             className="favorite-container"
             htmlFor="favoriteCheckbox"
             aria-label="favoris"
-            title="Ajouter aux favoris"
           >
             <input
               type="checkbox"
@@ -56,7 +49,7 @@ function GameListModal({ isOpen, onClose, game }) {
           </a>
         )}
       </article>
-    </section>
+    </dialog>
   );
 }
 
