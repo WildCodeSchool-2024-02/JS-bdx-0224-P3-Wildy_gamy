@@ -29,7 +29,14 @@
   box-shadow: 0 0 1.5rem rgba($secondary-color, 0.7);
   background-color: $white-color;
   color: $black-color;
-  animation: modal-zoom-in 0.3s ease forwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: modal-zoom-in 0.3s ease forwards;
+  }
 }
 
 @keyframes modal-zoom-in {

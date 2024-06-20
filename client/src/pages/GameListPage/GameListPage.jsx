@@ -38,18 +38,20 @@ function GameListPage() {
   return (
     <>
       <h1>Découvrez la liste des jeux disponibles dans nos salles</h1>
-      <section className="image-list">
+      <ul className="image-list">
         {gameImg.map((image) => (
-          <button
-            type="button"
-            key={image.name}
-            className="game-image"
-            onClick={() => openModal(image.name)}
-          >
-            <img src={`${BASE_URL}/${image.src}`} alt={image.alt} />
-          </button>
+          <li key={image.name} className="game-image-item">
+            <button
+              type="button"
+              className="game-image"
+              onClick={() => openModal(image.name)}
+            >
+              <img src={`${BASE_URL}/${image.src}`} alt={image.alt} />
+            </button>
+          </li>
         ))}
-      </section>
+      </ul>
+      
 
       <GameListModal
         isOpen={showModal}
