@@ -6,8 +6,8 @@ import NavBar from "./components/NavBar/NavBar";
 function App() {
   return (
     <main>
-      <Outlet />
       <NavBar />
+      <Outlet />
     </main>
   );
 }

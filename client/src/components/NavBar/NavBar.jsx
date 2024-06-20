@@ -2,15 +2,16 @@ import "./NavBar.scss";
 import { NavLink } from "react-router-dom";
 
 const links = [
-  { to: "/", label: "Wildy Gamy", className: "wg-link" },
-  { to: "/connection", label: "Compte", className: "nav-link account-link" },
   { to: "/", label: "Accueil", className: "nav-link" },
   { to: "/catalogue", label: "Catalogue", className: "nav-link" },
   { to: "/demo", label: "Démo", className: "nav-link" },
   { to: "/prix", label: "Prix", className: "nav-link" },
+  { to: "/", label: "Wildy Gamy", className: "wg-link" },
+  { to: "/connection", label: "Compte", className: "nav-link account-link" },
 ];
 
-const bottomNavLinks = links.slice(2);
+const bottomNavLinks = links.slice(0, 4);
+const topNavLinks = links.slice(1);
 
 function NavBar() {
   return (
@@ -18,7 +19,7 @@ function NavBar() {
       <header>
         <nav>
           <ul>
-            {links.map((link) => (
+            {topNavLinks.map((link) => (
               <li key={link.to}>
                 <NavLink
                   to={link.to}
