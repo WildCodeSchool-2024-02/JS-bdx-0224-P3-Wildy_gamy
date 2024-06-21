@@ -1,16 +1,22 @@
 import { Outlet } from "react-router-dom";
 
 import "./scss/index.scss";
-import NavBar from "./components/NavBar/NavBar";
+import Header from "./components/Header/Header";
+
+const links = [
+  { to: "/", label: "Accueil", className: "nav-link" },
+  { to: "/catalogue", label: "Catalogue", className: "nav-link" },
+  { to: "/demo", label: "Démo", className: "nav-link" },
+  { to: "/prix", label: "Prix", className: "nav-link" },
+];
 
 function App() {
   return (
     <main>
-      <NavBar />
+      <Header links={links} />
       <Outlet />
     </main>
   );
 }
 
 export default App;
-
