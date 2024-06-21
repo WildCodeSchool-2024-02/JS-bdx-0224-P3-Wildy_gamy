@@ -12,7 +12,7 @@
 }
 
 .mySwiper {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 .swiper {
@@ -56,4 +56,16 @@
   color: $secondary-color;
   width: 2rem;
   height: 2rem;
+}
+
+.chevron {
+  display: block;
+  margin: auto;
+
+  width: 3rem;
+  animation: bounce 2s infinite;
+
+  @include for-desktop-up {
+    width: 5rem;
+  }
 }
