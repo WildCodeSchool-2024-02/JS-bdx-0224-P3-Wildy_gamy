@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 
 import App from "./App";
 import HomePage from "./pages/HomePage/HomePage";
@@ -11,6 +15,7 @@ import RewardPage from "./pages/RewardPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
+import { sendData } from "./services/api.service";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +43,32 @@ const router = createBrowserRouter([
       {
         path: "/inscription",
         element: <RegistrationPage />,
-        
+        action: async ({ request }) => {
+          try {
+            const formData = await request.formData();
+            const data = Object.fromEntries(formData.entries());
+            console.info(data);
+
+            const { firstname, lastname, pseudo, email, password } = data;
+
+            if (!firstname || !lastname || !pseudo || !email || !password) {
+              throw new Error("All fields are required");
+            }
+
+            const url = "/api/registration";
+
+            const response = await sendData(url, data, "POST");
+
+            if (response && response.ok) {
+              return redirect(`/profile/${pseudo}`);
+            }
+
+            throw new Error("Invalid response from server");
+          } catch (error) {
+            console.error("Error submitting form:", error);
+            return { error: error.message };
+          }
+        },
       },
     ],
   },
