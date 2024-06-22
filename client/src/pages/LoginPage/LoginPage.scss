@@ -1,1 +1,46 @@
 @import "../../scss/index.scss";
+
+.connexion-title {
+  text-align: center;
+}
+.connexion-form {
+  display: flex;
+  flex-direction: column;
+  margin: 1.2rem;
+  border-radius: 0.4rem;
+}
+.label-connexion {
+  font-weight: 700;
+  margin: 0.5rem;
+}
+.input-connexion {
+  margin: 0.1rem 0.4rem 1rem 0.4rem;
+  padding: 0.8rem;
+  border: 0.2rem outset $secondary-color;
+  border-radius: 0.2rem;
+  height: 1.5rem;
+}
+.login-button {
+  margin: 1rem auto;
+  border: 0.2rem outset $secondary-color;
+  border-radius: 0.7rem;
+  width: 10rem;
+  height: 1.6rem;
+}
+.link-registration {
+  text-align: center;
+  text-decoration: none;
+  color: $black-color;
+  background-color: $white-color;
+  margin: 1rem auto;
+  padding-top: 0.15rem;
+  border: 0.2rem outset $secondary-color;
+  border-radius: 0.7rem;
+  width: 10rem;
+  height: 1.6rem;
+  font-size: 0.8rem;
+  font-weight: 450;
+}
+.link-registration:hover {
+  background-color: rgb(221, 221, 221);
+}

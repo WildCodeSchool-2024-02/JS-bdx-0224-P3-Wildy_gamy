@@ -55,10 +55,10 @@ function LoginPage() {
         >
           Se connecter
         </button>
+        <Link to="/inscription" className="link-registration">
+          Créer un compte
+        </Link>
       </Form>
-      <Link to="/inscription" className="link-registration">
-        <p>Créer un compte</p>
-      </Link>
     </>
   );
 }
