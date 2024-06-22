@@ -13,23 +13,24 @@ class UserRepository extends AbstractRepository {
     console.info(user);
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (created_at,
+      `INSERT INTO ${this.table} (
+        created_at,
         firstname,
         lastname,
         avatar_image,
         pseudo,
         email,
         password,
-        role,) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+        role) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
-        user.created_at,
+        new Date(),
         user.firstname,
         user.lastname,
-        user.avatar_image,
+        user.avatar_image || '',
         user.pseudo,
         user.email,
         user.password,
-        user.role,
+        user.role || 'user',
       ]
     );
 

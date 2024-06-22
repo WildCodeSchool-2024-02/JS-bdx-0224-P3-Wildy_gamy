@@ -39,6 +39,7 @@ const router = createBrowserRouter([
       {
         path: "/connexion",
         element: <LoginPage />,
+        
       },
       {
         path: "/inscription",
@@ -47,7 +48,6 @@ const router = createBrowserRouter([
           try {
             const formData = await request.formData();
             const data = Object.fromEntries(formData.entries());
-            console.info(data);
 
             const { firstname, lastname, pseudo, email, password } = data;
 
@@ -55,12 +55,12 @@ const router = createBrowserRouter([
               throw new Error("All fields are required");
             }
 
-            const url = "/api/registration";
+            const url = "/api/users";
 
-            const response = await sendData(url, data, "POST");
+            const response = await sendData(url, data, "post");
 
             if (response && response.ok) {
-              return redirect(`/profile/${pseudo}`);
+              return redirect("/connexion");
             }
 
             throw new Error("Invalid response from server");
