@@ -1,0 +1,59 @@
+@import "../../scss/index.scss";
+
+.logo-link {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+}
+
+.clickableLogo {
+  width: 70vw;
+  max-height: 70vh;
+}
+
+.mySwiper {
+  margin-bottom: 5rem;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  background: $white-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  @include for-desktop-up {
+    height: 35rem;
+  }
+}
+.swiper-pagination-bullet {
+  background-color: $white-color;
+  opacity: 1;
+  transform: translateY(-0.3rem);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: transparent;
+  background-image: url("../../assets/images/icon/pacman-svgrepo-com.svg");
+  background-size: cover;
+  width: 1.2rem;
+  height: 1.2rem;
+  transform: translateY(0);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: $secondary-color;
+  width: 2rem;
+  height: 2rem;
+}

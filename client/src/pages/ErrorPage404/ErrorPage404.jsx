@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./ErrorPage404.scss" ;
 
 function ErrorPage404() {
   return (
