@@ -5,15 +5,11 @@ import PropTypes from "prop-types";
 function Header({ links }) {
   return (
     <header>
-      <nav>
+      <nav role="navigation">
         <ul>
           {links.map((link) => (
             <li key={link.to}>
-              <NavLink
-                to={link.to}
-                activeClassName="active"
-                className={link.className}
-              >
+              <NavLink to={link.to} className={link.className}>
                 {link.label}
               </NavLink>
             </li>
@@ -21,11 +17,7 @@ function Header({ links }) {
         </ul>
       </nav>
       <span className="wg-written">Wildy Gamy</span>
-      <NavLink
-        to="/connexion"
-        activeClassName="active"
-        className="account-link"
-      >
+      <NavLink to="/connexion" className="account-link">
         Compte
       </NavLink>
     </header>

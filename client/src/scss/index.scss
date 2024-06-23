@@ -9,6 +9,14 @@
   box-sizing: border-box;
 }
 
+main {
+  padding-bottom: $nav-mobile-height;
+  @include for-desktop-up {
+    padding-top: $header-height;
+    padding-bottom: 0;
+  }
+}
+
 body {
   font-family: $content-font;
   background-color: $primary-color;
@@ -20,13 +28,23 @@ h1 {
   text-align: center;
   color: $white-color;
   font-weight: 400;
-  margin: 1.5rem;
-  font-size: 1.5rem;
+  margin: 1rem;
+  font-size: clamp($mobile-title, 4vw, $desktop-title);
+  text-shadow: $font-stroke;
 }
 
 h2 {
   @extend h1;
-  font-size: clamp(1.2rem, 4vw, 2.4rem);
+}
+
+p {
+  font-family: $content-font;
+  color: $white-color;
+  font-weight: 400;
+  font-size: clamp($mobile-content, 4vw, $desktop-content);
+  text-shadow: $font-stroke;
+  line-height: 1.5;
+  text-align: left;
 }
 
 ::-webkit-scrollbar {

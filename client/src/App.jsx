@@ -4,10 +4,10 @@ import "./scss/index.scss";
 import Header from "./components/Header/Header";
 
 const links = [
-  { to: "/", label: "Accueil", className: "nav-link" },
-  { to: "/catalogue", label: "Catalogue", className: "nav-link" },
-  { to: "/demo", label: "Démo", className: "nav-link" },
-  { to: "/prix", label: "Prix", className: "nav-link" },
+  { to: "/", label: "Accueil", className: "nav-link home" },
+  { to: "/catalogue", label: "Catalogue", className: "nav-link catalog" },
+  { to: "/demo", label: "Démo", className: "nav-link demo" },
+  { to: "/prix", label: "Prix", className: "nav-link reward" },
 ];
 
 function App() {
