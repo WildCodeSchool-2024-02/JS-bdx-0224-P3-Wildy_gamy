@@ -28,12 +28,12 @@ body {
 }
 
 h1 {
+  @include clamp-title;
   font-family: $title-font;
   text-align: center;
   color: $white-color;
   font-weight: 400;
   margin: 1rem;
-  font-size: clamp($mobile-title, 4vw, $desktop-title);
   text-shadow: $font-stroke;
 }
 
@@ -42,10 +42,10 @@ h2 {
 }
 
 p {
+  @include clamp-content;
   font-family: $content-font;
   color: $white-color;
   font-weight: 400;
-  font-size: clamp($mobile-content, 4vw, $desktop-content);
   text-shadow: $font-stroke;
   line-height: 1.5;
   text-align: left;

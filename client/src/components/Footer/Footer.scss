@@ -6,17 +6,11 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 0.7rem 0;
-  width: 100%;
   background-color: $black-color;
-  margin-bottom: 3.8rem;
-
-  @include for-desktop-up {
-    margin: 0;
-  }
 
   .footer-link {
-    font-size: 0.9rem;
-    font-weight: 600;
+    @include clamp-content;
+    font-weight: 500;
     color: $white-color;
     text-decoration: none;
     padding: 0 0.5rem;
@@ -30,7 +24,6 @@ footer {
     }
 
     @include for-desktop-up {
-      font-size: 1.1rem;
       padding: 0 2rem;
     }
   }

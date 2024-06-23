@@ -11,3 +11,11 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+@mixin clamp-title {
+  font-size: clamp(#{$mobile-title}, 3vw, #{$desktop-title});
+}
+
+@mixin clamp-content {
+  font-size: clamp(#{$mobile-content}, 2vw, #{$desktop-content});
+}
