@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         element: <AboutUsPage />,
       },
       {
-        path: "/connection",
+        path: "/connexion",
         element: <LoginPage />,
       },
     ],
