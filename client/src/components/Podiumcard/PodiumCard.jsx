@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
 
-import "./PodiumGoldCard.scss";
+import "./PodiumCard.scss";
 
-function PodiumGoldCard({card}) {
+function PodiumCard({card}) {
   return (
     <figure className="podiumCard">
       <img src={card.ornLeft} alt="decoration gauche" />
@@ -18,7 +18,7 @@ function PodiumGoldCard({card}) {
   );
 }
 
-PodiumGoldCard.propTypes = {
+PodiumCard.propTypes = {
   card: PropTypes.shape({
     ornLeft: PropTypes.string.isRequired,
     orn: PropTypes.string.isRequired,
@@ -29,5 +29,5 @@ PodiumGoldCard.propTypes = {
   }).isRequired,
 };
 
-export default PodiumGoldCard;
+export default PodiumCard;
 

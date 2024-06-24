@@ -11,7 +11,7 @@ import "../../scss/index.scss";
 import "./HomePage.scss";
 
 import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy-wg.svg";
-import PodiumGoldCard from "../../components/Podiumcard/PodiumGoldCard";
+import PodiumCard from "../../components/Podiumcard/PodiumCard";
 
 import salle1 from "../../assets/images/arcade-picture/salle1.jpg";
 import salle2 from "../../assets/images/arcade-picture/salle2.jpg";
@@ -29,6 +29,7 @@ import chevronDown from "../../assets/images/icon/chevron-down.svg";
 import chevronUp from "../../assets/images/icon/chevron-up.svg";
 
 const imageFiles = [salle1, salle2, salle3, salle4, salle5];
+const podiumImages = [goldImages, silverImages, bronzeImages]
 
 function HomePage() {
   return (
@@ -74,9 +75,9 @@ function HomePage() {
       <img src={chevronDown} alt="" className="chevron" />
       <img src={chevronUp} alt="" className="chevron" />
       <h2>Meilleurs joueurs en ligne</h2>
-      <PodiumGoldCard classeName="podiumGoldCard" card={goldImages} />
-      <PodiumGoldCard classeName="podiumSilverCard" card={silverImages} />
-      <PodiumGoldCard classeName="podiumBronzeCard" card={bronzeImages} />
+      {podiumImages.map((podiumImage) => 
+      <PodiumCard key={podiumImage} card={podiumImage} />
+      )}
     </>
   );
 }
