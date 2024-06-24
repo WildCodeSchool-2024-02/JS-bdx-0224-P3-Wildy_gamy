@@ -57,3 +57,22 @@
   width: 2rem;
   height: 2rem;
 }
+
+.chevron {
+  display: block;
+  margin: auto;
+
+  width: 3rem;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: bounce 2s infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+
+  @include for-desktop-up {
+    width: 5rem;
+  }
+}
