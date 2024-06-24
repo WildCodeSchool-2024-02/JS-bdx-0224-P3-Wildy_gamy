@@ -23,7 +23,7 @@ import {
   goldImages,
   silverImages,
   bronzeImages,
-} from "../../assets/images/importPodiumCard";
+} from "../../services/importPodiumCard";
 
 import chevronDown from "../../assets/images/icon/chevron-down.svg";
 import chevronUp from "../../assets/images/icon/chevron-up.svg";
