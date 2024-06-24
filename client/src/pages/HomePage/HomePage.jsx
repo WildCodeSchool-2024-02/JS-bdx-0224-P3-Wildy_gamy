@@ -10,13 +10,16 @@ import "swiper/css/navigation";
 import "../../scss/index.scss";
 import "./HomePage.scss";
 
+import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy-wg.svg";
+import PodiumGoldCard from "../../components/Podiumcard/PodiumGoldCard";
+
 import salle1 from "../../assets/images/arcade-picture/salle1.jpg";
 import salle2 from "../../assets/images/arcade-picture/salle2.jpg";
 import salle3 from "../../assets/images/arcade-picture/salle3.jpg";
 import salle4 from "../../assets/images/arcade-picture/salle4.jpg";
 import salle5 from "../../assets/images/arcade-picture/salle5.jpg";
 
-import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy-wg.svg";
+import { goldImages, silverImages, bronzeImages } from "../../assets/images/importPodiumCard"
 
 const imageFiles = [salle1, salle2, salle3, salle4, salle5];
 
@@ -63,6 +66,10 @@ function HomePage() {
           ))}
         </Swiper>
       </section>
+      <h2>Meilleurs joueurs en ligne</h2>
+      <PodiumGoldCard classeName="podiumGoldCard" card={goldImages}/>
+      <PodiumGoldCard classeName="podiumSilverCard" card={silverImages}/>
+      <PodiumGoldCard classeName="podiumBronzeCard" card={bronzeImages}/>
     </>
   );
 }

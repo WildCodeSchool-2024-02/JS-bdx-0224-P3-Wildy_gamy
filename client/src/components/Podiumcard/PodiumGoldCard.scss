@@ -1,0 +1,16 @@
+@import "../../scss/index.scss";
+
+.podiumCard {
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  background-color: $white-color; /* Background color for the card */
+  padding: 1.25rem; /* Padding inside the card */
+  border-radius: 0.63rem; /* Rounded corners */
+  width: 15rem;
+  height: 15rem;
+}
+
+.podiumCardText {
+  color: $black-color;
+}
