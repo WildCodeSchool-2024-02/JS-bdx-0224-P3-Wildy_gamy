@@ -63,7 +63,14 @@
   margin: auto;
 
   width: 3rem;
-  animation: bounce 2s infinite;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: bounce 2s infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 
   @include for-desktop-up {
     width: 5rem;
