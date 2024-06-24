@@ -12,10 +12,14 @@ function RegistrationPage() {
   });
 
   const handleRegistrationChange = (event) => {
-    setFormRegistration({ ...formRegistration, [event.target.name]: event.target.value });
+    setFormRegistration({
+      ...formRegistration,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  const postRegistration = () => {
+  const postRegistration = (event) => {
+    event.preventDefault();
     console.info(formRegistration);
   };
 

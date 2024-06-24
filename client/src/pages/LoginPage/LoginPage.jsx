@@ -12,7 +12,8 @@ function LoginPage() {
     setFormLogin({ ...formLogin, [event.target.name]: event.target.value });
   };
 
-  const postLogin = () => {
+  const postLogin = (event) => {
+    event.preventDefault();
     console.info(formLogin);
   };
 

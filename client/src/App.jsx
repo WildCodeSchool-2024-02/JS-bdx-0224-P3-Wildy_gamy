@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
 
-import "./scss/index.scss";
+import { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
+import "./scss/index.scss";
 
 function App() {
+  const [user, setUser] = useState();
   return (
     <main>
-      <Outlet />
+      <Outlet context={{ user, setUser }} />
       <NavBar />
     </main>
   );
