@@ -54,7 +54,14 @@ header {
             color: $secondary-color;
 
             &::before {
-              transition: all 0.4s ease;
+              @media (prefers-reduced-motion: no-preference) {
+                transition: all 0.4s ease;
+              }
+
+              @media (prefers-reduced-motion: reduce) {
+                transition: none;
+              }
+
               filter: $secondary-filter;
             }
           }
@@ -115,7 +122,14 @@ header {
             min-width: 5rem;
             font-size: $desktop-content;
             &.active {
-              transition: all 0.4s ease;
+              @media (prefers-reduced-motion: no-preference) {
+                transition: all 0.4s ease;
+              }
+
+              @media (prefers-reduced-motion: reduce) {
+                transition: none;
+              }
+
               filter: $secondary-filter;
             }
           }
@@ -163,7 +177,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s ease 0s;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: all 0.4s ease 0s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &:hover {
     color: $pink-logo;
@@ -190,13 +211,27 @@ header {
     font-size: $desktop-content;
     font-family: $content-font;
     font-weight: 600;
-    transition: all 0.4s ease;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all 0.4s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
 
     &.active {
       filter: $secondary-filter;
 
       &::before {
-        transition: all 0.4s ease;
+        @media (prefers-reduced-motion: no-preference) {
+          transition: all 0.4s ease;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
+
         filter: $secondary-filter;
       }
     }
@@ -221,7 +256,14 @@ header {
   }
 
   &.active::after {
-    transition: all 0.4s ease;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all 0.4s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
     filter: $secondary-filter;
   }
 }
