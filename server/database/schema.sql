@@ -24,6 +24,7 @@ CREATE TABLE game (
 
 CREATE TABLE reward (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
 	description TEXT NOT NULL,
 	remaining_quantity INT NOT NULL,
 	price INT NOT NULL,

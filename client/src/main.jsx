@@ -7,9 +7,12 @@ import App from "./App";
 import HomePage from "./pages/HomePage/HomePage";
 import GameListPage from "./pages/GameListPage/GameListPage";
 import DemoPage from "./pages/DemoPage";
-import RewardPage from "./pages/RewardPage";
+import RewardPage from "./pages/RewardPage/RewardPage";
 
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
+import { fetchApi } from "./services/api.service";
+
+const baseUrlReward = "/api/rewards";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/prix",
         element: <RewardPage />,
+        loader: () => fetchApi(`${baseUrlReward}`),
       },
     ],
   },
