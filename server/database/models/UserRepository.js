@@ -26,11 +26,11 @@ class UserRepository extends AbstractRepository {
         new Date(),
         user.firstname,
         user.lastname,
-        user.avatar_image || '',
+        user.avatar_image || "",
         user.pseudo,
         user.email,
         user.password,
-        user.role || 'user',
+        user.role || "user",
       ]
     );
 
@@ -59,6 +59,16 @@ class UserRepository extends AbstractRepository {
     return rows;
   }
 
+  async readByEmail(email) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [email]
+    );
+
+    // Return the first row of the result, which represents the user
+    return rows[0];
+  }
   // The U of CRUD - Update operation
 
   async update(user) {

@@ -14,7 +14,6 @@ const read = async (req, res, next) => {
   try {
     const user = await tables.user.read(req.params.id);
 
-    console.info(user);
     if (user == null) {
       res.sendStatus(404);
     } else {
