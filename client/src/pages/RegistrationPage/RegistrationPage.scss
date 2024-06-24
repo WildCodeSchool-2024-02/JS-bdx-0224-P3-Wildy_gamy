@@ -1,1 +1,33 @@
 @import "../../scss/index.scss";
+
+.registration-title {
+  text-align: center;
+}
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  margin: 1.2rem;
+  border-radius: 0.4rem;
+  background-image: url("../../assets/images/arcade-picture/salle4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.label-registration {
+  font-weight: 700;
+  margin: 0.5rem;
+}
+.input-registration {
+  margin: 0.1rem 0.4rem 1rem 0.4rem;
+  padding: 0.8rem;
+  border: 0.2rem outset $secondary-color;
+  border-radius: 0.2rem;
+  height: 1.5rem;
+}
+.validation-button {
+  margin: 1rem auto;
+  border: 0.2rem outset $secondary-color;
+  border-radius: 0.7rem;
+  width: 10rem;
+  height: 1.6rem;
+}

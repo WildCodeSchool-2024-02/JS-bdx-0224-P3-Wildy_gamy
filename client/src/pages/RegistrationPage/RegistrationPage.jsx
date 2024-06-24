@@ -36,6 +36,7 @@ function RegistrationPage() {
           minLength="5"
           id="firstname"
           name="firstname"
+          placeholder="Prénom"
           value={formRegistration.firstname}
           required
           onChange={handleRegistrationChange}
@@ -49,6 +50,7 @@ function RegistrationPage() {
           minLength="5"
           id="lastname"
           name="lastname"
+          placeholder="Nom"
           value={formRegistration.lastname}
           required
           onChange={handleRegistrationChange}
@@ -62,6 +64,7 @@ function RegistrationPage() {
           minLength="5"
           id="pseudo"
           name="pseudo"
+          placeholder="Pseudo"
           value={formRegistration.pseudo}
           required
           onChange={handleRegistrationChange}
@@ -74,6 +77,7 @@ function RegistrationPage() {
           type="email"
           id="email"
           name="email"
+          placeholder="Email"
           value={formRegistration.email}
           pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
           required
@@ -88,6 +92,7 @@ function RegistrationPage() {
           minLength="5"
           id="password"
           name="password"
+          placeholder="Mot de passe"
           value={formRegistration.password}
           required
           onChange={handleRegistrationChange}

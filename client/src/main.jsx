@@ -79,9 +79,9 @@ const router = createBrowserRouter([
               throw new Error("All fields are required");
             }
 
-            const url = "/api/registration";
+            const url = "/api/users";
 
-            const response = await sendData(url, data, "POST");
+            const response = await sendData(url, data, "post");
 
             if (response && response.ok) {
               return redirect(`/connexion`);
