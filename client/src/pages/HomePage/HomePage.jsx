@@ -29,7 +29,7 @@ import chevronDown from "../../assets/images/icon/chevron-down.svg";
 import chevronUp from "../../assets/images/icon/chevron-up.svg";
 
 const imageFiles = [salle1, salle2, salle3, salle4, salle5];
-const podiumImages = [goldImages, silverImages, bronzeImages]
+const podiumImages = [goldImages, silverImages, bronzeImages];
 
 function HomePage() {
   return (
@@ -75,9 +75,13 @@ function HomePage() {
       <img src={chevronDown} alt="" className="chevron" />
       <img src={chevronUp} alt="" className="chevron" />
       <h2>Meilleurs joueurs en ligne</h2>
-      {podiumImages.map((podiumImage) => 
-      <PodiumCard key={podiumImage} card={podiumImage} />
-      )}
+      <ul className="podium">
+        {podiumImages.map((podiumImage) => (
+          <li key={podiumImage} className="podiumCard">
+            <PodiumCard card={podiumImage} />
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
