@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import GameListPage from "./pages/GameListPage/GameListPage";
 import DemoPage from "./pages/DemoPage";
 import RewardPage from "./pages/RewardPage/RewardPage";
+import LoginPage from "./pages/LoginPage";
 
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 import { fetchApi } from "./services/api.service";
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "/prix",
         element: <RewardPage />,
         loader: () => fetchApi(`${baseUrlReward}`),
+      },
+      {
+        path: "/connexion",
+        element: <LoginPage />,
       },
     ],
   },
