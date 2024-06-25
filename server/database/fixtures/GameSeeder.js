@@ -29,7 +29,7 @@ class GameSeeder extends AbstractSeeder {
         name: "Galaga",
         description:
           "Galaga est un jeu d'arcade de tir spatial où vous pilotez un vaisseau spatial contre des vagues d'ennemis extraterrestres. Avec ses améliorations par rapport à son prédécesseur Galaxian, Galaga est devenu un favori des salles d'arcade du monde entier.",
-        image_demo: "/demo/galaga_Demo.png",
+        image_demo: "/demo/Galaga.gif",
         image_game: "/catalog/galaga.png",
         is_playable: 0,
         release_date: 1981,
