@@ -17,6 +17,8 @@ import salle4 from "../../assets/images/arcade-picture/salle4.jpg";
 import salle5 from "../../assets/images/arcade-picture/salle5.jpg";
 
 import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy-wg.svg";
+import chevronDown from "../../assets/images/icon/chevron-down.svg";
+import chevronUp from "../../assets/images/icon/chevron-up.svg";
 
 const imageFiles = [salle1, salle2, salle3, salle4, salle5];
 
@@ -36,6 +38,8 @@ function HomePage() {
         />{" "}
       </Link>
       <h2>Cliquez pour accéder à notre catalogue de jeux</h2>
+      <img src={chevronDown} alt="" className="chevron"/>
+      <img src={chevronUp} alt="" className="chevron"/>
       <h2>🕹️ Soyez borné, venez jouer ! 🕹️</h2>
       <Swiper
         spaceBetween={0}
@@ -59,6 +63,8 @@ function HomePage() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <img src={chevronDown} alt="" className="chevron"/>
+      <img src={chevronUp} alt="" className="chevron"/>
     </>
   );
 }
