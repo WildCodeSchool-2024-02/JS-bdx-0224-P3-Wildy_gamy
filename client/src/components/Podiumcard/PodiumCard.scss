@@ -36,13 +36,8 @@
 }
 
 .podiumCardText {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   color: $black-color;
   font-size: 1.5rem;
-}
-
-.podiumCardText::after {
-  content: "2000 points";
-  display: block;
 }
