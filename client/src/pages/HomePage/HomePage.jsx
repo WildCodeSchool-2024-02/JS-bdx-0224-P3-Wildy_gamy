@@ -37,7 +37,7 @@ function HomePage() {
           className="clickableLogo"
         />{" "}
       </Link>
-      <h2>Cliquez pour accéder à notre catalogue de jeux</h2>
+      <p className="instruction-homepage">Cliquez pour accéder à notre catalogue de jeux</p>
       <img src={chevronDown} alt="" className="chevron"/>
       <img src={chevronUp} alt="" className="chevron"/>
       <h2>🕹️ Soyez borné, venez jouer ! 🕹️</h2>
