@@ -7,15 +7,15 @@ function PodiumCard({card}) {
   return (
     <>
       <figure>
-        <img src={card.ornLeft} alt="decoration gauche" />
-        <img src={card.orn} alt="decoration" />
-        <img src={card.ornRight} alt="decoration droite" />
+        <img src={card.ornLeft} alt="" />
+        <img src={card.orn} alt="" />
+        <img src={card.ornRight} alt="" />
         <figcaption className="podiumCardText">John Doe</figcaption>
       </figure>
       <figure>
-        <img src={card.flowerLeft} alt="fleur gauche" />
-        <img src={card.trophy} alt="trophée" />
-        <img src={card.flowerRight} alt="fleur droite" />
+        <img src={card.flowerLeft} alt="" />
+        <img src={card.trophy} alt="" />
+        <img src={card.flowerRight} alt="" />
         <figcaption className="podiumCardText">2000 points</figcaption>
       </figure>
     </>
