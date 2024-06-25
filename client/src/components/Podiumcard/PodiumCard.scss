@@ -1,0 +1,36 @@
+@import "../../scss/index.scss";
+
+.podium {
+  list-style-type: none;
+  @include for-desktop-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+.podiumCard {
+  margin: auto;
+  margin-bottom: 2rem;
+  text-align: center;
+  background-color: $white-color;
+  padding: 1.25rem;
+  border-radius: 0.63rem;
+  border: 0.25rem solid $secondary-color;
+  box-shadow: 0 0 0.3rem 0.2rem $secondary-color;
+  width: 14.25rem;
+
+  &:nth-child(2) {
+    @include custom-border($silver-color, 0 0 0.3rem 0.2rem $silver-color);
+  }
+
+  &:last-of-type {
+    @include custom-border($bronze-color, 0 0 0.3rem 0.2rem $bronze-color);
+  }
+
+  .podiumCardText {
+    padding: 1rem 0;
+    color: $black-color;
+    font-size: 1.5rem;
+  }
+}
