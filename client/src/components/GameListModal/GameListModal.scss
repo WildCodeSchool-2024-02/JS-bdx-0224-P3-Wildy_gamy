@@ -30,10 +30,6 @@
   background-color: $white-color;
   color: $black-color;
 
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-
   @media (prefers-reduced-motion: no-preference) {
     animation: modal-zoom-in 0.3s ease forwards;
   }
@@ -104,17 +100,12 @@
 }
 
 .title-modal {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: $black-color;
-  text-align: left;
+  font-size: $desktop-title;
+  background-color: $black-color;
   margin: 1rem 0;
 }
 
 .game-description {
-  font-family: $content-font;
-  font-size: 1.2rem;
-  line-height: 1.6;
   margin-bottom: 1rem;
 }
 
