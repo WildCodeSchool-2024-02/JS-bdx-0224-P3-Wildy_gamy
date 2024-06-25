@@ -3,3 +3,21 @@
     @content;
   }
 }
+
+@mixin icon($icon-url, $width: 1.8rem, $height: 1.8rem) {
+  background-image: url($icon-url);
+  width: $width;
+  height: $height;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+}
