@@ -10,17 +10,26 @@ import "swiper/css/navigation";
 import "../../scss/index.scss";
 import "./HomePage.scss";
 
+import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy-wg.svg";
+import PodiumCard from "../../components/Podiumcard/PodiumCard";
+
 import salle1 from "../../assets/images/arcade-picture/salle1.jpg";
 import salle2 from "../../assets/images/arcade-picture/salle2.jpg";
 import salle3 from "../../assets/images/arcade-picture/salle3.jpg";
 import salle4 from "../../assets/images/arcade-picture/salle4.jpg";
 import salle5 from "../../assets/images/arcade-picture/salle5.jpg";
 
-import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy-wg.svg";
+import {
+  goldImages,
+  silverImages,
+  bronzeImages,
+} from "../../services/importPodiumCard";
+
 import chevronDown from "../../assets/images/icon/chevron-down.svg";
 import chevronUp from "../../assets/images/icon/chevron-up.svg";
 
 const imageFiles = [salle1, salle2, salle3, salle4, salle5];
+const podiumImages = [goldImages, silverImages, bronzeImages];
 
 function HomePage() {
   return (
@@ -37,6 +46,7 @@ function HomePage() {
           className="clickableLogo"
         />{" "}
       </Link>
+
       <p className="instruction-homepage">Cliquez pour accéder à notre catalogue de jeux</p>
       <img src={chevronDown} alt="" className="chevron"/>
       <img src={chevronUp} alt="" className="chevron"/>
@@ -63,8 +73,16 @@ function HomePage() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <img src={chevronDown} alt="" className="chevron"/>
-      <img src={chevronUp} alt="" className="chevron"/>
+      <img src={chevronDown} alt="" className="chevron" />
+      <img src={chevronUp} alt="" className="chevron" />
+      <h2>Meilleurs joueurs en ligne</h2>
+      <ul className="podium">
+        {podiumImages.map((podiumImage) => (
+          <li key={podiumImage} className="podiumCard">
+            <PodiumCard card={podiumImage} />
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
