@@ -1,27 +1,28 @@
 import { useState } from "react";
-import gameImg from "../../data/gameImg.json";
-import gameData from "../../data/gameData.json";
+import { useLoaderData } from "react-router-dom";
 import GameListModal from "../../components/GameListModal/GameListModal";
-import "../../scss/index.scss";
-import "./GameListPage.scss";
+import GameList from "../../components/GameList/GameList";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+import "../../scss/index.scss";
+import "../../components/GameList/GameList.scss";
 
 function GameListPage() {
   const [showModal, setShowModal] = useState(false);
   const [selectedGame, setSelectedGame] = useState(null);
 
+  const gamesData = useLoaderData();
+
   const openModal = (gameName) => {
     const normalizedGameName = gameName.toLowerCase();
-    const foundGame = gameData.find(
-      (game) => game.title.toLowerCase() === normalizedGameName
+    const foundGame = gamesData.find(
+      (games) => games.name.toLowerCase() === normalizedGameName
     );
     if (!foundGame) {
       return;
     }
 
     setSelectedGame({
-      title: foundGame.title,
+      name: foundGame.name,
       release_date: foundGame.release_date,
       description: foundGame.description,
       image_demo: foundGame.image_demo,
@@ -37,26 +38,11 @@ function GameListPage() {
 
   return (
     <>
-      <h1>Découvrez la liste des jeux disponibles dans nos salles</h1>
-      <ul className="image-list">
-        {gameImg.map((image) => (
-          <li key={image.name} className="game-image-item">
-            <button
-              type="button"
-              className="game-image"
-              onClick={() => openModal(image.name)}
-            >
-              <img src={`${BASE_URL}/${image.src}`} alt={image.alt} />
-            </button>
-          </li>
-        ))}
-      </ul>
-      
-
+      <GameList gamesData={gamesData} openModal={openModal} />
       <GameListModal
         isOpen={showModal}
         onClose={closeModal}
-        game={selectedGame}
+        gamesData={selectedGame}
       />
     </>
   );

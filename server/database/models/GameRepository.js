@@ -1,24 +1,32 @@
 const AbstractRepository = require("./AbstractRepository");
 
-class ItemRepository extends AbstractRepository {
+class GameRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "item" as configuration
-    super({ table: "item" });
+    super({ table: "game" });
   }
 
   // The C of CRUD - Create operation
-
-  async create(item) {
-    // Execute the SQL INSERT query to add a new item to the "item" table
+  async create(game) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [item.title, item.user_id]
+      `INSERT INTO ${this.table} (name, description, image_demo, image_game, is_playable, release_date)
+                VALUES (?, ?, ?, ?, ?, ?)`,
+      [
+        game.name,
+        game.description,
+        game.image_demo,
+        game.image_game,
+        game.is_playable,
+        game.release_date,
+      ]
     );
-
-    // Return the ID of the newly inserted item
     return result.insertId;
   }
+
+  // Execute the SQL INSERT query to add a new item to the "item" table
+
+  // Return the ID of the newly inserted item
 
   // The Rs of CRUD - Read operations
 
@@ -41,19 +49,15 @@ class ItemRepository extends AbstractRepository {
     return rows;
   }
 
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
+  // Execute the SQL UPDATE query to update a specific program
 
-  // async update(item) {
-  //   ...
-  // }
+  // Return how many rows were affected
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
 
-  // async delete(id) {
-  //   ...
-  // }
+  // Execute the SQL DELETE query to delete a specific program
+
+  // Return how many rows were affected
 }
 
-module.exports = ItemRepository;
+module.exports = GameRepository;

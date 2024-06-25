@@ -5,8 +5,8 @@ import { Form } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
-function GameListModal({ isOpen, onClose, game }) {
-  if (!isOpen || !game) return null;
+function GameListModal({ isOpen, onClose, gamesData }) {
+  if (!isOpen || !gamesData) return null;
 
   return (
     <dialog className="modal-active">
@@ -30,18 +30,22 @@ function GameListModal({ isOpen, onClose, game }) {
             </svg>
           </label>
         </Form>
-        <img
-          src={`${BASE_URL}/${game.image_demo}`}
-          alt={`Demo de ${game.title}`}
-          className="demo-image"
-        />
-        <h2 className="title-modal">{game.title}</h2>
-        <p className="game-description">Date de sortie : {game.release_date}</p>
-        <p className="game-description">{game.description}</p>
-        {game.demoLink && (
+        {gamesData.image_demo && (
+          <img
+            src={`${BASE_URL}/${gamesData.image_demo}`}
+            alt={`Demo de ${gamesData.name}`}
+            className="demo-image"
+          />
+        )}
+        <h2 className="title-modal">{gamesData.name}</h2>
+        <p className="game-description">
+          Date de sortie : {gamesData.release_date}
+        </p>
+        <p className="game-description">{gamesData.description}</p>
+        {gamesData.demoLink && (
           <a
             className="demo-link"
-            href={game.demoLink}
+            href={gamesData.demoLink}
             target="_blank"
             rel="noreferrer"
           >
@@ -54,15 +58,19 @@ function GameListModal({ isOpen, onClose, game }) {
 }
 
 GameListModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
-  game: PropTypes.shape({
+  gamesData: PropTypes.shape({
     image_demo: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     release_date: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     demoLink: PropTypes.string,
   }).isRequired,
+};
+
+GameListModal.defaultProps = {
+  isOpen: false,
 };
 
 export default GameListModal;

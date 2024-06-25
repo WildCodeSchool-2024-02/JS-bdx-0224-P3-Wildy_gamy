@@ -19,7 +19,8 @@ CREATE TABLE game (
 	description TEXT NOT NULL,
 	image_game VARCHAR(250) NOT NULL,
 	image_demo VARCHAR(250) NOT NULL,
-	is_playable BOOLEAN DEFAULT false
+	is_playable BOOLEAN DEFAULT false,
+	release_date YEAR NOT NULL
 );
 
 CREATE TABLE reward (
