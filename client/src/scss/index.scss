@@ -44,9 +44,7 @@ h2 {
 p {
   @include clamp-content;
   font-family: $content-font;
-  color: $white-color;
   font-weight: 400;
-  text-shadow: $font-stroke;
   line-height: 1.5;
   text-align: left;
 }
