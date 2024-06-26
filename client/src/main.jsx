@@ -43,6 +43,7 @@ const router = createBrowserRouter([
           try {
             const formData = await request.formData();
             const data = Object.fromEntries(formData.entries());
+            console.info(formData)
 
             const { email, password } = data;
 
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
               throw new Error("All fields are required");
             }
 
-            const url = "/api/connection";
+            const url = "/api/login";
 
             const response = await sendData(url, data, "POST");
 

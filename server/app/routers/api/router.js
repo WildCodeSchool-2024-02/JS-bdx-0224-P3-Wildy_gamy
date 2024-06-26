@@ -14,6 +14,9 @@ const usersRouter = require("./users/router");
 
 router.use("/users", usersRouter);
 
+// const authActions = require("../../controllers/authActions");
+
+// router.post("/login", authActions.login);
 
 /* ************************************************************************* */
 

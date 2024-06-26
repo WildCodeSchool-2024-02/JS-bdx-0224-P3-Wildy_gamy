@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import "./RegistrationPage.scss";
 import { useState } from "react";
 
@@ -100,6 +100,9 @@ function RegistrationPage() {
         >
           Valider
         </button>
+        <Link to="/connexion" className="link-connexion">
+          Déjà un compte ?
+        </Link>
       </Form>
     </>
   );
