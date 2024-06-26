@@ -14,7 +14,7 @@ function PodiumCard({card}) {
       </figure>
       <figure>
         <img src={card.flowerLeft} alt="" />
-        <img src={card.trophy} alt="" />
+        <img src={card.trophy} alt="" className="trophy-img"/>
         <img src={card.flowerRight} alt="" />
         <figcaption className="podiumCardText">2000 points</figcaption>
       </figure>

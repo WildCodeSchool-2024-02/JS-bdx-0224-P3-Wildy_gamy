@@ -30,8 +30,7 @@
   }
 }
 
-@mixin custom-border($border-color, $box-shadow) {
-  border-style: solid;
-  border-color: $border-color;
-  box-shadow: $box-shadow;
+@mixin custom-border($border-color) {
+  border: 0.25rem solid $border-color;
+  box-shadow: 0 0 0.8rem 0.01rem $border-color;
 }
