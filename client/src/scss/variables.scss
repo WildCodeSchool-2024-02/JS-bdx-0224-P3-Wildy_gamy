@@ -1,0 +1,29 @@
+$primary-color: #12022b;
+$secondary-color: #fdc23e;
+$white-color: #fffafa;
+$black-color: #232323;
+$pink-logo: #ff0068;
+$blue-logo: #0ebcd6;
+$silver-color: #7c8aa3;
+$bronze-color: #da7200;
+
+$secondary-filter: brightness(0) saturate(100%) invert(83%) sepia(68%)
+  saturate(1590%) hue-rotate(325deg) brightness(101%) contrast(98%);
+
+$content-font: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$title-font: "Jersey20", "Arial Black", sans-serif;
+
+$mobile-title: 1rem;
+$mobile-content: 0.8rem;
+$desktop-title: 2rem;
+$desktop-content: 1.2rem;
+
+$font-stroke:
+  -0.025rem -0.025rem $black-color,
+  0.025rem -0.025rem $black-color,
+  -0.025rem 0.025rem $black-color,
+  0.025rem 0.025rem $black-color,
+  0.05rem 0.05rem $black-color;
+
+$header-height: 3.9rem;
+$nav-mobile-height: 4.3rem;

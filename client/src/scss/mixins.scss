@@ -1,0 +1,28 @@
+@mixin for-desktop-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin icon($icon-url, $width: 1.8rem, $height: 1.8rem) {
+  background-image: url($icon-url);
+  width: $width;
+  height: $height;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+}
+
+@mixin custom-border($border-color) {
+  border: 0.25rem solid $border-color;
+  box-shadow: 0 0 0.8rem 0.01rem $border-color;
+}
