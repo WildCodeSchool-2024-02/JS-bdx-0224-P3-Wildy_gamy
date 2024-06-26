@@ -17,7 +17,6 @@ function App() {
     <main>
       <Header links={links} />
       <Outlet context={{ user, setUser }} />
-      <Header/>
     </main>
   );
 }

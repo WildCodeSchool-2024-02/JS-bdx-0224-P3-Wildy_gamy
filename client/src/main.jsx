@@ -69,7 +69,6 @@ const router = createBrowserRouter([
         path: "/inscription",
         element: <RegistrationPage />,
         action: async ({ request }) => {
-          console.info(request);
           try {
             const formData = await request.formData();
             const data = Object.fromEntries(formData.entries());

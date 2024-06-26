@@ -18,11 +18,6 @@ function RegistrationPage() {
     });
   };
 
-  const postRegistration = (event) => {
-    event.preventDefault();
-    console.info(formRegistration);
-  };
-
   return (
     <>
       <h2 className="registration-title">Inscription </h2>
@@ -101,7 +96,7 @@ function RegistrationPage() {
           className="validation-button"
           type="submit"
           aria-label="validation"
-          onClick={postRegistration}
+          // onClick={postRegistration}
         >
           Valider
         </button>
