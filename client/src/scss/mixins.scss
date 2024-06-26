@@ -21,3 +21,9 @@
     transform: translateY(-20%);
   }
 }
+
+@mixin custom-border($border-color, $box-shadow) {
+  border-style: solid;
+  border-color: $border-color;
+  box-shadow: $box-shadow;
+}
