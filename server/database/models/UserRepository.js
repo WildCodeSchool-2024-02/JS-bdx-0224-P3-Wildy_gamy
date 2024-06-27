@@ -20,7 +20,7 @@ class UserRepository extends AbstractRepository {
         avatar_image,
         pseudo,
         email,
-        password,
+        hashed_password,
         role) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         new Date(),
@@ -29,7 +29,7 @@ class UserRepository extends AbstractRepository {
         user.avatar_image || "",
         user.pseudo,
         user.email,
-        user.password,
+        user.hashedPassword,
         user.role || "user",
       ]
     );
@@ -59,10 +59,10 @@ class UserRepository extends AbstractRepository {
     return rows;
   }
 
-  async readByEmail(email) {
+  async readByEmailWithPassword(email) {
     // Execute the SQL SELECT query to retrieve a specific user by its email
     const [rows] = await this.database.query(
-      `select email from ${this.table} where email = ?`,
+      `select * from ${this.table} where email = ?`,
       [email]
     );
 
@@ -81,7 +81,7 @@ class UserRepository extends AbstractRepository {
         avatar_image = ?,
         pseudo = ?,
         email = ?,
-        password = ?,
+        hashed_password = ?,
         role = ?`,
       [
         user.created_at,
@@ -90,7 +90,7 @@ class UserRepository extends AbstractRepository {
         user.avatar_image,
         user.pseudo,
         user.email,
-        user.password,
+        user.hashedPassword,
         user.role,
         user.id,
       ]

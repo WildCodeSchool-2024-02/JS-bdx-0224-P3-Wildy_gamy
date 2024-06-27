@@ -9,7 +9,7 @@ CREATE TABLE user (
     avatar_image VARCHAR(250) NOT NULL,
     pseudo VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(250) NOT NULL,
+    hashed_password VARCHAR(250) NOT NULL,
     role VARCHAR(50) NOT NULL DEFAULT 'user' 
 );
 

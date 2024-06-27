@@ -11,12 +11,13 @@ const itemsRouter = require("./items/router");
 router.use("/items", itemsRouter);
 
 const usersRouter = require("./users/router");
+const { hashPassword } = require("../../middelware/hashPassword");
 
-router.use("/users", usersRouter);
+router.use("/users", hashPassword, usersRouter);
 
-// const authActions = require("../../controllers/authActions");
+const authActions = require("../../middelware/authActions");
 
-// router.post("/login", authActions.login);
+router.post("/login", authActions.login);
 
 /* ************************************************************************* */
 
