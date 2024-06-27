@@ -45,6 +45,8 @@ p {
   @include clamp-content;
   font-family: $content-font;
   font-weight: 400;
+  font-size: clamp($mobile-content, 4vw, $desktop-content);
+  line-height: 1.5;
   text-align: left;
 }
 
