@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 
-import { useState } from "react";
 import Header from "./components/Header/Header";
 import "./scss/index.scss";
 
@@ -12,11 +11,10 @@ const links = [
 ];
 
 function App() {
-  const [user, setUser] = useState();
   return (
     <main>
       <Header links={links} />
-      <Outlet context={{ user, setUser }} />
+      <Outlet />
     </main>
   );
 }

@@ -44,6 +44,7 @@ function LoginPage() {
           id="password"
           name="password"
           value={formLogin.password}
+          placeholder="********"
           required
           onChange={handleLoginChange}
         />
