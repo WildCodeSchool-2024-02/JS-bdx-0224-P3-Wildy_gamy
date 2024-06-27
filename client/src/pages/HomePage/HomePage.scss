@@ -3,7 +3,6 @@
 .logo-link {
   display: block;
   text-align: center;
-  padding: 1rem;
 }
 
 .clickableLogo {
@@ -68,11 +67,11 @@
     animation: bounce 2s infinite;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
-
   @include for-desktop-up {
     width: 5rem;
   }
+}
+
+.instruction-homepage {
+  @extend h2;
 }
