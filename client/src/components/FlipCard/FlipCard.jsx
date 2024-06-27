@@ -6,7 +6,6 @@ function FlipCard({ reward }) {
   const { name, image, description, price } = reward;
 
   return (
-    <li className="flip-card">
       <figure className="flip-card-inner">
         <button
           className="flip-card-front"
@@ -29,7 +28,6 @@ function FlipCard({ reward }) {
           </figcaption>
         </button>
       </figure>
-    </li>
   );
 }
 

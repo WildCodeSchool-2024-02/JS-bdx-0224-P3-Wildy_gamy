@@ -60,7 +60,7 @@ class RewardSeeder extends AbstractSeeder {
         name: "Porte-clé Retro",
         description: "Un porte-clé au design rétro pour vos clés.",
         remaining_quantity: 50,
-        price: 2,
+        price: 1,
         image: "retro_keychain.png",
       },
       {

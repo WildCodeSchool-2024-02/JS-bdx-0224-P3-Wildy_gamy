@@ -13,7 +13,9 @@ function RewardPage() {
       </h1>
       <ul className="reward-list">
         {rewards.map((reward) => (
-          <FlipCard key={reward.id} reward={reward} />
+          <li className="flip-card" key={reward.id}>
+            <FlipCard reward={reward} />
+          </li>
         ))}
       </ul>
     </>
