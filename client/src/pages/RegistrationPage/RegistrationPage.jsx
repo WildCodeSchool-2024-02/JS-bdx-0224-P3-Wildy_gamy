@@ -96,7 +96,6 @@ function RegistrationPage() {
           className="validation-button"
           type="submit"
           aria-label="validation"
-          // onClick={postRegistration}
         >
           Valider
         </button>
