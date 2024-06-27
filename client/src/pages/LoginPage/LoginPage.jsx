@@ -4,8 +4,8 @@ import { useState } from "react";
 
 function LoginPage() {
   const [formLogin, setFormLogin] = useState({
-    email: "johndoe@email.com",
-    password: "1234",
+    email: "",
+    password: "",
   });
 
   const handleLoginChange = (event) => {

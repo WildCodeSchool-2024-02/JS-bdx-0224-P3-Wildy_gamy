@@ -4,11 +4,11 @@ import { useState } from "react";
 
 function RegistrationPage() {
   const [formRegistration, setFormRegistration] = useState({
-    firstname: "jean",
-    lastname: "bon",
-    pseudo: "groin",
-    email: "johndoe@email.com",
-    password: "1234",
+    firstname: "",
+    lastname: "",
+    pseudo: "",
+    email: "",
+    password: "",
   });
 
   const handleRegistrationChange = (event) => {
