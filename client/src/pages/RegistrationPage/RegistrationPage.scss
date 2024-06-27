@@ -8,19 +8,20 @@
   flex-direction: column;
   margin: 1.2rem;
   border-radius: 0.4rem;
-  // background-image: linear-gradient(
-  //   #12022b94,
-  //   #12022b94
-  //   ),
-  //   url("https://assets.codepen.io/13471/sparkles.gif");
+  background-image: linear-gradient(#12022b94, #12022b94),
+    url("https://assets.codepen.io/13471/sparkles.gif");
 
-  // background-size: cover;
-  // background-position: center;
-  // background-repeat: no-repeat;
+  background-size: cover;
+  @include for-desktop-up {
+    margin: auto 5rem;
+  }
 }
 .label-registration {
   font-weight: 700;
   margin: 0.5rem;
+  @include for-desktop-up {
+    margin: 0.5rem 10rem;
+  }
 }
 .input-registration {
   margin: 0.1rem 0.4rem 1rem 0.4rem;
@@ -28,6 +29,9 @@
   border: 0.2rem outset $secondary-color;
   border-radius: 0.2rem;
   height: 1.5rem;
+  @include for-desktop-up {
+    margin: 0.1rem 10rem 1rem;
+  }
 }
 .validation-button {
   margin: 1rem auto;

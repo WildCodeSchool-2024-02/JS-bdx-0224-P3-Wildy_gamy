@@ -1,0 +1,120 @@
+@import "../../scss/index.scss";
+
+.modal-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  background-color: rgba($primary-color, 0.8);
+  backdrop-filter: blur(0.5rem);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  min-width: 20rem;
+  max-width: 30rem;
+  max-height: 38rem;
+  overflow-y: auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1.5rem rgba($secondary-color, 0.7);
+  background-color: $white-color;
+  color: $black-color;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: modal-zoom-in 0.3s ease forwards;
+  }
+}
+
+@keyframes modal-zoom-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.close-button {
+  margin: 0 1rem 2rem;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  color: $black-color;
+  cursor: pointer;
+}
+
+.favorite-container {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  margin: 1rem 2rem;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 2rem;
+    width: 2rem;
+    transition: all 0.3s;
+    fill: #706e6e;
+  }
+
+  svg:hover {
+    transform: scale(1.1);
+  }
+
+  input:checked ~ svg {
+    fill: #e3474f;
+  }
+}
+
+.demo-image {
+  width: calc(100% - 0.5rem);
+  max-width: 30rem;
+  max-height: 20rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2rem rgba($secondary-color, 0.4);
+  transform: translateY(-1rem);
+  transition: transform 0.3s ease;
+}
+
+.title-modal {
+  font-size: $desktop-title;
+  background-color: $black-color;
+  margin: 1rem 0;
+}
+
+.game-description {
+  margin-bottom: 1rem;
+}
+
+.demo-link {
+  color: $secondary-color;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

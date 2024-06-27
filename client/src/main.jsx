@@ -15,7 +15,9 @@ import RewardPage from "./pages/RewardPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
-import { sendData } from "./services/api.service";
+import { sendData, fetchApi } from "./services/api.service";
+
+const baseGamesUrl = "/api/games";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/catalogue",
         element: <GameListPage />,
+        loader: () => fetchApi(baseGamesUrl),
       },
       {
         path: "/demo",
@@ -43,7 +46,7 @@ const router = createBrowserRouter([
           try {
             const formData = await request.formData();
             const data = Object.fromEntries(formData.entries());
-            console.info(formData)
+            console.info(formData);
 
             const { email, password } = data;
 
