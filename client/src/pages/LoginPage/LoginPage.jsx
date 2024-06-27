@@ -18,7 +18,7 @@ function LoginPage() {
 
   return (
     <>
-      <h2 className="connexion-title">Connexion </h2>
+      <h1 className="connexion-title">Connexion </h1>
       <Form method="post" className="connexion-form">
         <label className="label-connexion" htmlFor="email">
           Email

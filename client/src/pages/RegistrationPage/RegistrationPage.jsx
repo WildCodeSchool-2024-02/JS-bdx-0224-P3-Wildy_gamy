@@ -20,7 +20,7 @@ function RegistrationPage() {
 
   return (
     <>
-      <h2 className="registration-title">Inscription </h2>
+      <h1 className="registration-title">Inscription </h1>
       <Form method="post" className="registration-form">
         <label className="label-registration" htmlFor="firstname">
           Prénom

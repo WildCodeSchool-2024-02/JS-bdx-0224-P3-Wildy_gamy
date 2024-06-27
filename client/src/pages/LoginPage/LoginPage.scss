@@ -8,10 +8,16 @@
   flex-direction: column;
   margin: 1.2rem;
   border-radius: 0.4rem;
+  @include for-desktop-up {
+    margin: auto 5rem;
+  }
 }
 .label-connexion {
   font-weight: 700;
   margin: 0.5rem;
+  @include for-desktop-up {
+    margin: 0.5rem 10rem;
+  }
 }
 .input-connexion {
   margin: 0.1rem 0.4rem 2rem 0.4rem;
@@ -19,6 +25,9 @@
   border: 0.2rem outset $secondary-color;
   border-radius: 0.2rem;
   height: 1.5rem;
+  @include for-desktop-up {
+    margin: 0.1rem 10rem 1rem;
+  }
 }
 .login-button {
   margin: 3rem auto 0.5rem;
