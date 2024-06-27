@@ -13,7 +13,7 @@
   }
 }
 .label-connexion {
-  font-weight: 700;
+  font-weight: 600;
   margin: 0.5rem;
   @include for-desktop-up {
     margin: 0.5rem 10rem;
@@ -51,5 +51,5 @@
   font-weight: 450;
 }
 .link-registration:hover {
-  background-color: rgb(221, 221, 221);
+  background-color: #dddddd;
 }

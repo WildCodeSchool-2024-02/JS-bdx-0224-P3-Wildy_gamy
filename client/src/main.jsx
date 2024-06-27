@@ -46,7 +46,6 @@ const router = createBrowserRouter([
           try {
             const formData = await request.formData();
             const data = Object.fromEntries(formData.entries());
-            console.info(formData);
 
             const { email, password } = data;
 
@@ -76,7 +75,6 @@ const router = createBrowserRouter([
           try {
             const formData = await request.formData();
             const data = Object.fromEntries(formData.entries());
-            console.info(data)
 
             const { firstname, lastname, pseudo, email, password } = data;
 

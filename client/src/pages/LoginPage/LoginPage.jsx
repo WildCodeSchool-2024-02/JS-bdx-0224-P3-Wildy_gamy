@@ -12,10 +12,6 @@ function LoginPage() {
     setFormLogin({ ...formLogin, [event.target.name]: event.target.value });
   };
 
-  const postLogin = () => {
-    console.info(formLogin);
-  };
-
   return (
     <>
       <h1 className="connexion-title">Connexion </h1>
@@ -29,7 +25,7 @@ function LoginPage() {
           id="email"
           name="email"
           value={formLogin.email}
-          placeholder="johndoe@email.com"
+          placeholder="entrer votre email"
           pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
           required
           onChange={handleLoginChange}
@@ -39,7 +35,7 @@ function LoginPage() {
         </label>
         <input
           className="input-connexion"
-          type="text"
+          type="password"
           minLength="5"
           id="password"
           name="password"
@@ -52,7 +48,6 @@ function LoginPage() {
           className="login-button"
           type="submit"
           aria-label="Se connecter"
-          onClick={postLogin}
         >
           Se connecter
         </button>
