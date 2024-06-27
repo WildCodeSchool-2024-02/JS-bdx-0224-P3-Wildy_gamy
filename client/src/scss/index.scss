@@ -39,10 +39,8 @@ h2 {
 
 p {
   font-family: $content-font;
-  color: $white-color;
   font-weight: 400;
   font-size: clamp($mobile-content, 4vw, $desktop-content);
-  text-shadow: $font-stroke;
   line-height: 1.5;
   text-align: left;
 }

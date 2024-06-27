@@ -11,6 +11,9 @@ import RewardPage from "./pages/RewardPage";
 import LoginPage from "./pages/LoginPage";
 
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
+import { fetchApi } from "./services/api.service";
+
+const baseGamesUrl = "/api/games";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/catalogue",
         element: <GameListPage />,
+        loader: () => fetchApi(baseGamesUrl),
       },
       {
         path: "/demo",
