@@ -14,7 +14,7 @@ function useScrollToAnchor() {
       setTimeout(() => {
         document
           .getElementById(lastHash.current)
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          ?.scrollIntoView({ block: "start" });
         lastHash.current = "";
       }, 100);
     }

@@ -3,6 +3,7 @@ import "./scss/index.scss";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import useScrollToAnchor from "./hooks/useScrollToAnchor";
+import ChevronUp from "./components/ChevronUp/ChevronUp";
 
 const links = [
   { to: "/", label: "Accueil", className: "nav-link home" },
@@ -18,6 +19,7 @@ function App() {
     <main>
       <Header links={links} />
       <Outlet />
+      <ChevronUp />
       <Footer />
     </main>
   );

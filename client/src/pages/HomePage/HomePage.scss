@@ -6,8 +6,7 @@
 }
 
 .clickableLogo {
-  width: 70vw;
-  max-height: 70vh;
+  width: clamp(13.75rem, 40vw, 20rem);
 }
 
 .mySwiper {
@@ -55,21 +54,6 @@
   color: $secondary-color;
   width: 2rem;
   height: 2rem;
-}
-
-.chevron {
-  display: block;
-  margin: auto;
-
-  width: 3rem;
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: bounce 2s infinite;
-  }
-
-  @include for-desktop-up {
-    width: 5rem;
-  }
 }
 
 .instruction-homepage {
