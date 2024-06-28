@@ -4,52 +4,20 @@
   text-align: center;
 }
 .registration-form {
-  display: flex;
-  flex-direction: column;
-  margin: 1.2rem;
-  border-radius: 0.4rem;
-  @include for-desktop-up {
-    margin: auto 5rem;
-  }
+  @include form-style;
 }
 .label-registration {
-  font-weight: 700;
-  margin: 0.5rem;
-  @include for-desktop-up {
-    margin: 0.5rem 10rem;
-  }
+  @include form-label;
 }
 .input-registration {
-  margin: 0.1rem 0.4rem 1rem 0.4rem;
-  padding: 0.8rem;
-  border: 0.2rem outset $secondary-color;
-  border-radius: 0.2rem;
-  height: 1.5rem;
-  @include for-desktop-up {
-    margin: 0.1rem 10rem 1rem;
-  }
+  @include form-input;
 }
 .validation-button {
-  margin: 1rem auto;
-  border: 0.2rem outset $secondary-color;
-  border-radius: 0.7rem;
-  width: 10rem;
-  height: 1.6rem;
+  @include form-button;
 }
 .link-connexion {
-  text-align: center;
-  text-decoration: none;
-  color: $black-color;
-  background-color: $white-color;
-  margin: 1rem auto;
-  padding-top: 0.15rem;
-  border: 0.2rem outset $secondary-color;
-  border-radius: 0.7rem;
-  width: 10rem;
-  height: 1.6rem;
-  font-size: 0.8rem;
-  font-weight: 450;
+  @include link-like-button;
 }
 .link-connexion:hover {
-  background-color: rgb(221, 221, 221);
+  background-color: $hover-color;
 }

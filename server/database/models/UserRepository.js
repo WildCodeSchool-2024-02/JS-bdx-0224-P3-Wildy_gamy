@@ -5,12 +5,13 @@ class UserRepository extends AbstractRepository {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "user" as configuration
     super({ table: "user" });
+    this.avatar_image = "client/src/assets/images/avatar/Avatar-basic.svg";
   }
 
   // The C of CRUD - Create operation
 
   async create(user) {
-    console.info(user);
+    const avatarImage = this.avatar_image;
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (
@@ -21,16 +22,15 @@ class UserRepository extends AbstractRepository {
         pseudo,
         email,
         hashed_password,
-        role) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+        ) values (?, ?, ?, ?, ?, ?, ?, )`,
       [
         new Date(),
         user.firstname,
         user.lastname,
-        user.avatar_image || "",
+        avatarImage,
         user.pseudo,
         user.email,
         user.hashedPassword,
-        user.role || "user",
       ]
     );
 

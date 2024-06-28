@@ -42,7 +42,6 @@ function RegistrationPage() {
         <input
           className="input-registration"
           type="text"
-          minLength="5"
           id="lastname"
           name="lastname"
           placeholder="Nom"

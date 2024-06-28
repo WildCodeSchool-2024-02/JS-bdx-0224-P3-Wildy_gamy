@@ -6,7 +6,7 @@ CREATE TABLE user (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     firstname VARCHAR(250) NOT NULL,
     lastname VARCHAR(250) NOT NULL,
-    avatar_image VARCHAR(250) NOT NULL,
+    avatar_image VARCHAR(250),
     pseudo VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     hashed_password VARCHAR(250) NOT NULL,
