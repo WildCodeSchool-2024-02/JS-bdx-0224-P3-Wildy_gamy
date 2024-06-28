@@ -1,11 +1,11 @@
 @import "../../scss/index.scss";
 
 .podium {
+  list-style-type: none;
   @include for-desktop-up {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    list-style-type: none;
   }
 }
 
@@ -16,28 +16,26 @@
   background-color: $white-color;
   padding: 1.25rem;
   border-radius: 0.63rem;
-  border-left: 0.25rem solid $secondary-color;
-  border-right: 0.25rem solid $secondary-color;
-  border-top: 0.25rem solid $secondary-color;
-  box-shadow: 0px 0px 5px 3px $secondary-color;
+  @include custom-border($secondary-color);
   width: 14.25rem;
-}
 
-.podiumCard:nth-child(2n) {
-  border-style: solid;
-  border-color: #7c8aa3;
-  box-shadow: 0px 0px 5px 3px #7c8aa3;
-}
+  &:nth-child(2) {
+    @include custom-border($silver-color);
+  }
 
-.podiumCard:last-of-type {
-  border-style: solid;
-  border-color: #da7200;
-  box-shadow: 0px 0px 5px 3px #da7200;
-}
+  &:last-of-type {
+    @include custom-border($bronze-color);
+  }
 
-.podiumCardText {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  color: $black-color;
-  font-size: 1.5rem;
+  .podiumCardText {
+    padding: 1rem 0;
+    color: $black-color;
+    font-size: 1.5rem;
+  }
+
+  .trophy-img {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: bounce 4s infinite;
+    }
+  }
 }
