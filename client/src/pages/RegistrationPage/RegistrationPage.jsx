@@ -18,6 +18,12 @@ function RegistrationPage() {
     });
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <h1 className="registration-title">Inscription </h1>
@@ -82,7 +88,7 @@ function RegistrationPage() {
         </label>
         <input
           className="input-registration"
-          type="text"
+          type={showPassword ? "text" : "password"}
           minLength="5"
           id="password"
           name="password"
@@ -90,6 +96,16 @@ function RegistrationPage() {
           value={formRegistration.password}
           required
           onChange={handleRegistrationChange}
+        />
+        <label className="label-registration" htmlFor="showPassword">
+          Afficher le mot de passe
+        </label>
+        <input
+          className="input-registration"
+          type="checkbox"
+          id="showPassword"
+          checked={showPassword}
+          onChange={toggleShowPassword}
         />
         <button
           className="validation-button"
