@@ -21,8 +21,8 @@ class UserRepository extends AbstractRepository {
         avatar_image,
         pseudo,
         email,
-        hashed_password,
-        ) values (?, ?, ?, ?, ?, ?, ?, )`,
+        hashed_password
+        ) values (?, ?, ?, ?, ?, ?, ?)`,
       [
         new Date(),
         user.firstname,

@@ -57,7 +57,7 @@ const router = createBrowserRouter([
 
             const response = await sendData(url, data, "POST");
 
-            if (response && response.ok) {
+            if (response.status === 200) {
               return redirect(`/`);
             }
 
@@ -84,9 +84,9 @@ const router = createBrowserRouter([
 
             const url = "/api/users";
 
-            const response = await sendData(url, data, "post");
+            const response = await sendData(url, data, "POST");
 
-            if (response && response.ok) {
+            if (response.status === 201) {
               return redirect(`/connexion`);
             }
 
