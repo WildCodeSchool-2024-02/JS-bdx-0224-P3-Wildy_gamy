@@ -1,22 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 function useScrollToAnchor() {
   const location = useLocation();
-  const lastHash = useRef("");
 
   useEffect(() => {
-    if (location.hash) {
-      lastHash.current = location.hash.slice(1);
-    }
+    const scrollToAnchor = (id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ block: "start" });
+      }
+    };
 
-    if (lastHash.current && document.getElementById(lastHash.current)) {
-      setTimeout(() => {
-        document
-          .getElementById(lastHash.current)
-          ?.scrollIntoView({ block: "start" });
-        lastHash.current = "";
-      }, 100);
+    if (location.hash) {
+      const anchorId = location.hash.slice(1);
+      scrollToAnchor(anchorId);
     }
   }, [location]);
 

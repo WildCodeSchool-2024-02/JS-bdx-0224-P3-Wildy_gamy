@@ -1,20 +1,27 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Footer.scss";
 
-function Footer() {
+function Footer({links}) {
+
   return (
     <footer>
-      <Link to="/contact#section-contact" className="footer-link">
-        Contactez-nous
-      </Link>
-      <Link to="/contact#section-nous-trouver" className="footer-link">
-        Où nous trouver ?
-      </Link>
-      <Link to="/infos" className="footer-link">
-        À propos de nous
-      </Link>
+      {links.map((link) => (
+        <Link key={link.to} to={link.to}>
+          {link.label}
+        </Link>
+      ))}
     </footer>
   );
 }
+
+Footer.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      to: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default Footer;

@@ -5,7 +5,7 @@ import { Form } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
-function GameListModal({ isOpen, onClose, gamesData }) {
+function GameListModal({ isOpen = false, onClose, gamesData = {} }) {
   if (!isOpen || !gamesData) return null;
 
   return (
@@ -58,19 +58,15 @@ function GameListModal({ isOpen, onClose, gamesData }) {
 }
 
 GameListModal.propTypes = {
-  isOpen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   gamesData: PropTypes.shape({
     image_demo: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    release_date: PropTypes.string.isRequired,
+    release_date: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     demoLink: PropTypes.string,
   }).isRequired,
-};
-
-GameListModal.defaultProps = {
-  isOpen: false,
 };
 
 export default GameListModal;

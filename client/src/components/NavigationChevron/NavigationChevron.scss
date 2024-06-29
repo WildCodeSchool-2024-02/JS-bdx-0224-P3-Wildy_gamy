@@ -1,0 +1,22 @@
+@import "../../scss/index.scss";
+
+.chevron-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+
+  img {
+    margin: 1rem auto;
+    width: 3rem;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: bounce 2s infinite;
+    }
+
+    @include for-desktop-up {
+      width: 4rem;
+    }
+  }
+}

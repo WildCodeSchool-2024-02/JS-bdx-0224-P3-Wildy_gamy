@@ -1,10 +1,10 @@
 function ContactPage() {
   return (
     <>
-      <section id="section-contact">
+      <section id="formulaire">
         <h1>Contact</h1>
       </section>
-      <section id="section-nous-trouver">
+      <section id="nous-trouver">
         <h2>Nos coordonnées</h2>
       </section>
     </>

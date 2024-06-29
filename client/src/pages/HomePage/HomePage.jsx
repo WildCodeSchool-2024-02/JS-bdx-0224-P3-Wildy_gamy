@@ -12,7 +12,7 @@ import "./HomePage.scss";
 
 import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy-wg.svg";
 import PodiumCard from "../../components/Podiumcard/PodiumCard";
-import ChevronDown from "../../components/ChevronDown/ChevronDown";
+import NavigationChevron from "../../components/NavigationChevron/NavigationChevron";
 
 import salle1 from "../../assets/images/arcade-picture/salle1.jpg";
 import salle2 from "../../assets/images/arcade-picture/salle2.jpg";
@@ -25,7 +25,6 @@ import {
   silverImages,
   bronzeImages,
 } from "../../services/importPodiumCard";
-
 
 const imageFiles = [salle1, salle2, salle3, salle4, salle5];
 const podiumImages = [goldImages, silverImages, bronzeImages];
@@ -49,8 +48,8 @@ function HomePage() {
       <p className="instruction-homepage">
         Cliquez pour accéder à notre catalogue de jeux
       </p>
-      <ChevronDown />
-      <h2 className="next-section">🕹️ Soyez borné, venez jouer ! 🕹️</h2>
+      <NavigationChevron route="/#section-photos" isUp={false} />
+      <h2 id="section-photos">🕹️ Soyez borné, venez jouer ! 🕹️</h2>
       <Swiper
         spaceBetween={0}
         centeredSlides
@@ -73,8 +72,8 @@ function HomePage() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <ChevronDown />
-      <h2 className="next-section">Meilleurs joueurs en ligne</h2>
+      <NavigationChevron route="/#section-podium" isUp={false} />
+      <h2 id="section-podium">Meilleurs joueurs en ligne</h2>
       <ul className="podium">
         {podiumImages.map((podiumImage) => (
           <li key={podiumImage} className="podiumCard">
@@ -82,6 +81,7 @@ function HomePage() {
           </li>
         ))}
       </ul>
+      <NavigationChevron route="" isUp />
     </>
   );
 }
