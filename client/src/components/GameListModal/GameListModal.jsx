@@ -7,11 +7,16 @@ const BASE_URL = import.meta.env.VITE_API_URL;
 
 function GameListModal({ isOpen = false, onClose, gamesData = {} }) {
   if (!isOpen || !gamesData) return null;
-
   return (
     <dialog className="modal-active">
       <article className="modal-content">
-        <button type="button" className="close-button" onClick={onClose}>
+        <button
+          type="button"
+          className="close-button"
+          onClick={onClose}
+          aria-label="modal fermée"
+          title="fermé"
+        >
           ×
         </button>
         <Form method="POST">
@@ -19,6 +24,7 @@ function GameListModal({ isOpen = false, onClose, gamesData = {} }) {
             className="favorite-container"
             htmlFor="favoriteCheckbox"
             aria-label="favoris"
+            title="Ajouter aux favoris"
           >
             <input
               type="checkbox"
@@ -56,7 +62,6 @@ function GameListModal({ isOpen = false, onClose, gamesData = {} }) {
     </dialog>
   );
 }
-
 GameListModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
