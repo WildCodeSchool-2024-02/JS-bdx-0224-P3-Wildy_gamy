@@ -3,10 +3,31 @@
 .logo-link {
   display: block;
   text-align: center;
-}
+  position: relative;
 
-.clickableLogo {
-  width: clamp(12rem, 40vw, 15rem);
+  img {
+    width: clamp(12rem, 40vw, 15rem);
+  }
+
+  &::after {
+    content: "";
+    @include icon($handCursorIcon);
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(50%, 50%);
+    @media (prefers-reduced-motion: no-preference) {
+      animation: triangleMoveAndRotate 20s 15s ease-in-out infinite;
+    }
+
+    @include for-desktop-up {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
 }
 
 .mySwiper {

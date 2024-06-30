@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -38,18 +39,14 @@ function HomePage() {
       </h1>
       <Link to="/catalogue" className="logo-link">
         {" "}
-        <img
-          src={logoWildyGamyWg}
-          alt="aller à la page catalogue"
-          className="clickableLogo"
-        />{" "}
+        <img src={logoWildyGamyWg} alt="aller à la page catalogue" />{" "}
       </Link>
 
       <p className="instruction-homepage">
         Cliquez pour accéder à notre catalogue de jeux
       </p>
-      <NavigationChevron route="/#section-photos" isUp={false} />
-      <h2 id="section-photos">🕹️ Soyez borné, venez jouer ! 🕹️</h2>
+      <NavigationChevron route="/#galerie-photos" isUp={false} />
+      <h2 id="galerie-photos">🕹️ Soyez borné, venez jouer ! 🕹️</h2>
       <Swiper
         spaceBetween={0}
         centeredSlides
@@ -67,16 +64,16 @@ function HomePage() {
         className="mySwiper"
       >
         {imageFiles.map((file) => (
-          <SwiperSlide key={file}>
+          <SwiperSlide key={uuidv4()}>
             <img src={file} alt={`Wildy Gamy ${file}`} />
           </SwiperSlide>
         ))}
       </Swiper>
-      <NavigationChevron route="/#section-podium" isUp={false} />
-      <h2 id="section-podium">Meilleurs joueurs en ligne</h2>
+      <NavigationChevron route="/#podium" isUp={false} />
+      <h2 id="podium">Meilleurs joueurs en ligne</h2>
       <ul className="podium">
         {podiumImages.map((podiumImage) => (
-          <li key={podiumImage} className="podiumCard">
+          <li key={uuidv4()} className="podiumCard">
             <PodiumCard card={podiumImage} />
           </li>
         ))}
