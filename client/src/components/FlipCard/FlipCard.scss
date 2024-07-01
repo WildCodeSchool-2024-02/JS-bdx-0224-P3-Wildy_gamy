@@ -8,6 +8,7 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
   perspective: 62rem;
+  text-shadow: $font-stroke;
 
   img,
   figcaption {
@@ -16,28 +17,34 @@
     height: 100%;
     backface-visibility: hidden;
     border-radius: 1rem;
-    border: 0.2rem solid $white-color;
+    border: 0.2rem solid $secondary-color;
   }
 
   img {
     top: 0;
     left: 0;
     object-fit: cover;
-    transform: rotateY(0deg);
+    @media (prefers-reduced-motion: no-preference) {
+      transform: rotateY(0deg);
+    }
   }
 
   figcaption {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.5rem;
     box-sizing: border-box;
     background-color: rgba($black-color, 0.7);
-    transform: rotateY(180deg);
+    @media (prefers-reduced-motion: no-preference) {
+      transform: rotateY(180deg);
+    }
   }
 }
 
 .flip-card:hover,
 .flip-card:focus-within {
-  transform: rotateY(180deg);
+  @media (prefers-reduced-motion: no-preference) {
+    transform: rotateY(180deg);
+  }
 }
