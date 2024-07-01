@@ -5,8 +5,10 @@ import "./ProfilePage.scss";
 
 import ModifyInfoModale from "../../components/ModifyInfoModale/ModifyInfoModale";
 import DeleteInfoModale from "../../components/DeleteInfoModale/DeleteInfoModale";
+import DisplayCoin from "../../components/DisplayCoin/DisplayCoin";
 
 import Avatar from "../../assets/images/avatar/Avatar-basic.svg";
+
 
 function ProfilePage() {
   const [showModalModify, setShowModalModify] = useState(false);
@@ -48,6 +50,8 @@ function ProfilePage() {
       {showModalDelete && (
         <DeleteInfoModale handleClickDelete={handleClickDelete} />
       )}
+
+      <DisplayCoin />
     </>
   );
 }

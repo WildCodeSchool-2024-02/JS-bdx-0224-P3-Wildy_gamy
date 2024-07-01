@@ -1,0 +1,16 @@
+@import "../../scss/index.scss";
+
+.coinCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #1dafce 0%, #d3227c 100%);
+  width: 80%;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 1rem;
+
+  img {
+    margin-right: 0.5rem;
+  }
+}
