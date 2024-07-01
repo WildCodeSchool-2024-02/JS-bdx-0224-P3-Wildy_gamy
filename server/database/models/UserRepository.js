@@ -88,8 +88,7 @@ class UserRepository extends AbstractRepository {
         user.avatar_image,
         user.pseudo,
         user.email,
-        user.hashedPassword,
-        user.id,
+        user.hashedPassword
       ]
     );
 

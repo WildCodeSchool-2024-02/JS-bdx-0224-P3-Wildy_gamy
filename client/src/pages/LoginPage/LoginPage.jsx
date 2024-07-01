@@ -14,7 +14,7 @@ function LoginPage() {
           type="email"
           id="email"
           name="email"
-          placeholder="entrer votre email"
+          placeholder="Entrez votre email"
           pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
           required
         />

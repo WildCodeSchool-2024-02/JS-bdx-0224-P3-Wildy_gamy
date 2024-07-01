@@ -19,7 +19,6 @@ function RegistrationPage() {
         <input
           className="input-registration"
           type="text"
-          minLength="5"
           id="firstname"
           name="firstname"
           placeholder="Prénom"
@@ -42,7 +41,6 @@ function RegistrationPage() {
         <input
           className="input-registration"
           type="text"
-          minLength="5"
           id="pseudo"
           name="pseudo"
           placeholder="Pseudo"
@@ -66,10 +64,11 @@ function RegistrationPage() {
         <input
           className="input-registration"
           type={showPassword ? "text" : "password"}
-          minLength="5"
+          minLength="8"
           id="password"
           name="password"
           placeholder="Mot de passe"
+          pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"
           required
         />
         <label className="label-registration" htmlFor="showPassword">
