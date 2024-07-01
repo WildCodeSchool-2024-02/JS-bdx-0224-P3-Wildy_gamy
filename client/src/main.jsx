@@ -12,6 +12,9 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
+import { fetchApi } from "./services/api.service";
+
+const baseGamesUrl = "/api/games";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/catalogue",
         element: <GameListPage />,
+        loader: () => fetchApi(baseGamesUrl),
       },
       {
         path: "/demo",
