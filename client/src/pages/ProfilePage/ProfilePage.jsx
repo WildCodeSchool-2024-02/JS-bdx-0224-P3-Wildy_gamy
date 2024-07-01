@@ -3,10 +3,9 @@ import { useState } from "react";
 import "../../scss/index.scss";
 import "./ProfilePage.scss";
 
-import ModifyInfoModale from "../../components/ModifyInfoModale/ModifyInfoModale";
-import DeleteInfoModale from "../../components/DeleteInfoModale/DeleteInfoModale";
 
 import Avatar from "../../assets/images/avatar/Avatar-basic.svg";
+import ProfilPageModal from "../../components/ProfilPageModal/ProfilPageModal";
 
 function ProfilePage() {
   const [showModalModify, setShowModalModify] = useState(false);
@@ -43,10 +42,16 @@ function ProfilePage() {
         Supprimer mon compte
       </button>
       {showModalModify && (
-        <ModifyInfoModale handleClickModify={handleClickModify} />
+        <ProfilPageModal
+          showModalModify={showModalModify}
+          handleClickModify={handleClickModify}
+        />
       )}
       {showModalDelete && (
-        <DeleteInfoModale handleClickDelete={handleClickDelete} />
+        <ProfilPageModal
+          showModalDelete={showModalDelete}
+          handleClickDelete={handleClickDelete}
+        />
       )}
     </>
   );

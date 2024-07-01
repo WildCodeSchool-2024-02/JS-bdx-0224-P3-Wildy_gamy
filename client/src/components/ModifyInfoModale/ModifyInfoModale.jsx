@@ -3,7 +3,6 @@ import "./ModifyInfoModale.scss";
 
 function ModifyInfoModale({ handleClickModify }) {
   return (
-    <dialog className="dialog" open>
       <form className="form">
         <label className="label">
           Prénom
@@ -41,7 +40,6 @@ function ModifyInfoModale({ handleClickModify }) {
           Appliquer les modifications
         </button>
       </form>
-    </dialog>
   );
 }
 

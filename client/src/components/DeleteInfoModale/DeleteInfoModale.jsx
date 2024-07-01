@@ -3,7 +3,7 @@ import "./DeleteInfoModale.scss";
 
 function DeleteInfoModale({ handleClickDelete }) {
   return (
-    <dialog open className="modalDelete">
+    <>
       <p className="deletePhrase">
         Êtes-vous sûr de vouloir supprimer votre compte ? Vous perdrez
         définitevement tous vos scores et jetons.
@@ -18,7 +18,7 @@ function DeleteInfoModale({ handleClickDelete }) {
       <button type="button" className="deleteButton">
         Supprimer mon compte
       </button>
-    </dialog>
+    </>
   );
 }
 
