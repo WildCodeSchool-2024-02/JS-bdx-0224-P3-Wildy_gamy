@@ -2,12 +2,27 @@ import PropTypes from "prop-types";
 import ModifyInfoModale from "../ModifyInfoModale/ModifyInfoModale";
 import DeleteInfoModale from "../DeleteInfoModale/DeleteInfoModale";
 
-function ProfilPageModal({ showModalModify, showModalDelete, handleClickModify, handleClickDelete,  }) {
+import "./ProfilPageModal.scss"
+
+function ProfilPageModal({
+  showModalModify,
+  showModalDelete,
+  handleClickModify,
+  handleClickDelete,
+}) {
   return (
-    <dialog open className="modalDelete">
-      {showModalModify && <ModifyInfoModale handleClickModify={handleClickModify} />}
-      {showModalDelete && <DeleteInfoModale handleClickDelete={handleClickDelete} />}
-    </dialog>
+    <>
+      {showModalModify && (
+        <dialog open className="modifyInfoModal">
+          <ModifyInfoModale handleClickModify={handleClickModify} />
+        </dialog>
+      )}
+      {showModalDelete && (
+        <dialog open className="deleteInfoModal">
+          <DeleteInfoModale handleClickDelete={handleClickDelete} />
+        </dialog>
+      )}
+    </>
   );
 }
 
