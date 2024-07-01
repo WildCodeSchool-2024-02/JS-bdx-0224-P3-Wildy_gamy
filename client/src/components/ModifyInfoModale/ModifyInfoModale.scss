@@ -1,8 +1,39 @@
 @import "../../scss/index.scss";
 
 .dialog {
-  background-color: $black-color;
-  opacity: 0.75;
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  height: 70vh;
+  margin: auto;
+  background-color: rgba($black-color, 0.7);
   display: flex;
   justify-content: center;
+}
+
+.form {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.label {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  color: $white-color;
+}
+
+.placeholder {
+  border: 0.1rem solid $secondary_color;
+  border-radius: 0.25rem;
+}
+
+.formButton {
+  border: 0.1rem solid $secondary_color;
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+  width: 60%;
+  margin: 0 auto;
 }
