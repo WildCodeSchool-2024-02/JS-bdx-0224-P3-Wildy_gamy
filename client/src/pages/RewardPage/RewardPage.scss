@@ -1,22 +1,13 @@
 @import "../../scss/index.scss";
 
-.flip-card {
-  background-color: transparent;
+.flip-card-list {
   width: 11rem;
   height: 15rem;
-  perspective: 62rem;
-  font-family: $content-font;
   margin: 0.5rem;
-
-  &:hover .flip-card-inner,
-  &:focus-within .flip-card-inner {
-    transform: rotateY(180deg);
-  }
 }
 
 .reward-list {
   list-style-type: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;

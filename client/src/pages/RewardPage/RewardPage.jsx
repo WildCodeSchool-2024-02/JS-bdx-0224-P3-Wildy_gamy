@@ -13,7 +13,7 @@ function RewardPage() {
       </h1>
       <ul className="reward-list">
         {rewards.map((reward) => (
-          <li className="flip-card" key={reward.id}>
+          <li className="flip-card-list" key={reward.id}>
             <FlipCard reward={reward} />
           </li>
         ))}
