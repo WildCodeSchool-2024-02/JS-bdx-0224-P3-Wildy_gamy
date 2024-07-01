@@ -1,0 +1,15 @@
+@import "../../scss/index.scss";
+
+.reward-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+
+  li {
+    width: 10rem;
+    height: 15rem;
+    margin: 0.5rem;
+  }
+}
