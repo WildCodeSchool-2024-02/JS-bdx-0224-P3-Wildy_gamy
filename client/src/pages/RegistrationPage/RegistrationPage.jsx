@@ -3,21 +3,6 @@ import "./RegistrationPage.scss";
 import { useState } from "react";
 
 function RegistrationPage() {
-  const [formRegistration, setFormRegistration] = useState({
-    firstname: "",
-    lastname: "",
-    pseudo: "",
-    email: "",
-    password: "",
-  });
-
-  const handleRegistrationChange = (event) => {
-    setFormRegistration({
-      ...formRegistration,
-      [event.target.name]: event.target.value,
-    });
-  };
-
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
@@ -38,9 +23,7 @@ function RegistrationPage() {
           id="firstname"
           name="firstname"
           placeholder="Prénom"
-          value={formRegistration.firstname}
           required
-          onChange={handleRegistrationChange}
         />
         <label className="label-registration" htmlFor="lastname">
           Nom
@@ -51,9 +34,7 @@ function RegistrationPage() {
           id="lastname"
           name="lastname"
           placeholder="Nom"
-          value={formRegistration.lastname}
           required
-          onChange={handleRegistrationChange}
         />
         <label className="label-registration" htmlFor="pseudo">
           Pseudo
@@ -65,9 +46,7 @@ function RegistrationPage() {
           id="pseudo"
           name="pseudo"
           placeholder="Pseudo"
-          value={formRegistration.pseudo}
           required
-          onChange={handleRegistrationChange}
         />
         <label className="label-registration" htmlFor="email">
           Email
@@ -78,10 +57,8 @@ function RegistrationPage() {
           id="email"
           name="email"
           placeholder="Email"
-          value={formRegistration.email}
           pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
           required
-          onChange={handleRegistrationChange}
         />
         <label className="label-registration" htmlFor="password">
           Mot de passe
@@ -93,11 +70,10 @@ function RegistrationPage() {
           id="password"
           name="password"
           placeholder="Mot de passe"
-          value={formRegistration.password}
           required
-          onChange={handleRegistrationChange}
         />
         <label className="label-registration" htmlFor="showPassword">
+          <img src="" alt="" />
           Afficher le mot de passe
         </label>
         <input

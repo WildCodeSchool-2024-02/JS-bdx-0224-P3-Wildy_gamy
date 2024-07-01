@@ -1,17 +1,7 @@
 import { Form, Link } from "react-router-dom";
 import "./LoginPage.scss";
-import { useState } from "react";
 
 function LoginPage() {
-  const [formLogin, setFormLogin] = useState({
-    email: "",
-    password: "",
-  });
-
-  const handleLoginChange = (event) => {
-    setFormLogin({ ...formLogin, [event.target.name]: event.target.value });
-  };
-
   return (
     <>
       <h1 className="connexion-title">Connexion </h1>
@@ -24,11 +14,9 @@ function LoginPage() {
           type="email"
           id="email"
           name="email"
-          value={formLogin.email}
           placeholder="entrer votre email"
           pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
           required
-          onChange={handleLoginChange}
         />
         <label className="label-connexion" htmlFor="password">
           Mot de passe
@@ -39,10 +27,8 @@ function LoginPage() {
           minLength="5"
           id="password"
           name="password"
-          value={formLogin.password}
           placeholder="********"
           required
-          onChange={handleLoginChange}
         />
         <button
           className="login-button"

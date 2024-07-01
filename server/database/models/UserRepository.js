@@ -43,7 +43,7 @@ class UserRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific user by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `SELECT * FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
@@ -53,7 +53,7 @@ class UserRepository extends AbstractRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all programs from the "user" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
 
     // Return the array of users
     return rows;
@@ -62,7 +62,7 @@ class UserRepository extends AbstractRepository {
   async readByEmailWithPassword(email) {
     // Execute the SQL SELECT query to retrieve a specific user by its email
     const [rows] = await this.database.query(
-      `select * from ${this.table} where email = ?`,
+      `SELECT * FROM ${this.table} WHERE email = ?`,
       [email]
     );
 
@@ -102,7 +102,7 @@ class UserRepository extends AbstractRepository {
   async delete(id) {
     // Execute the SQL DELETE query to delete a specific user
     const [result] = await this.database.query(
-      `delete from ${this.table} where id = ?`,
+      `DELETE FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
