@@ -1,15 +1,15 @@
 @import "../../scss/index.scss";
 
-.flip-card-list {
-  width: 10rem;
-  height: 15rem;
-  margin: 0.5rem;
-}
-
 .reward-list {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+
+  li {
+    width: 10rem;
+    height: 15rem;
+    margin: 0.5rem;
+  }
 }
