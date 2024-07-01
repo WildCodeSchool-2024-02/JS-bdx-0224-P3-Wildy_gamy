@@ -45,7 +45,7 @@ function HomePage() {
       <p className="instruction-homepage">
         Cliquez pour accéder à notre catalogue de jeux
       </p>
-      <NavigationChevron route="/#galerie-photos" isUp={false} />
+      <NavigationChevron route="/#galerie-photos" />
       <h2 id="galerie-photos">🕹️ Soyez borné, venez jouer ! 🕹️</h2>
       <Swiper
         spaceBetween={0}
@@ -69,7 +69,7 @@ function HomePage() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <NavigationChevron route="/#podium" isUp={false} />
+      <NavigationChevron route="/#podium" />
       <h2 id="podium">Meilleurs joueurs en ligne</h2>
       <ul className="podium">
         {podiumImages.map((podiumImage) => (
@@ -78,7 +78,7 @@ function HomePage() {
           </li>
         ))}
       </ul>
-      <NavigationChevron route="" isUp />
+      <NavigationChevron isUp />
     </>
   );
 }

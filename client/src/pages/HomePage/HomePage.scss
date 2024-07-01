@@ -6,7 +6,7 @@
   position: relative;
 
   img {
-    width: clamp(12rem, 40vw, 15rem);
+    width: clamp(12rem, 40vw, 17rem);
   }
 
   &::after {
@@ -20,7 +20,7 @@
     bottom: 5%;
     transform: translate(50%, 50%);
     @media (prefers-reduced-motion: no-preference) {
-      animation: triangleMoveAndRotate 20s 15s ease-in-out infinite;
+      animation: triangleMoveAndRotate 20s 3s ease-in-out infinite;
       animation-fill-mode: both;
     }
 

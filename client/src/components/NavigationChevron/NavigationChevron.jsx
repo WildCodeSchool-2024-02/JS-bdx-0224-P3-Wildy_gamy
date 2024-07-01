@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import chevronDown from "../../assets/images/icon/chevron-down.svg";
 import chevronUp from "../../assets/images/icon/chevron-up.svg";
-import "./NavigationChevron.scss";
+import ChevronButton from "../ChevronButton/ChevronButton";
 
-function NavigationChevron({ route = "", isUp = false }) {
+function NavigationChevron({ route, isUp }) {
   const navigate = useNavigate();
 
   const handleRedirection = () => {
@@ -16,25 +16,26 @@ function NavigationChevron({ route = "", isUp = false }) {
     }
   };
 
+  const chevronSrc = isUp ? chevronUp : chevronDown;
+  const ariaLabel = isUp ? "Remonter en haut de la page" : "Descendre vers la section suivante";
+
   return (
-    <button
-      type="button"
-      aria-label={
-        isUp
-          ? "Remonter en haut de la page"
-          : "Descendre vers la section suivante"
-      }
+    <ChevronButton
       onClick={handleRedirection}
-      className="chevron-button"
-    >
-      <img src={isUp ? chevronUp : chevronDown} alt="" />
-    </button>
+      src={chevronSrc}
+      ariaLabel={ariaLabel}
+    />
   );
 }
 
 NavigationChevron.propTypes = {
-  route: PropTypes.string.isRequired,
-  isUp: PropTypes.bool.isRequired,
+  route: PropTypes.string,
+  isUp: PropTypes.bool,
+};
+
+NavigationChevron.defaultProps = {
+  route: "",
+  isUp: false,
 };
 
 export default NavigationChevron;

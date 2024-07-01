@@ -44,7 +44,7 @@ function GameListPage() {
         onClose={closeModal}
         gamesData={selectedGame}
       />
-      <NavigationChevron route="" isUp />
+      <NavigationChevron isUp />
     </>
   );
 }
