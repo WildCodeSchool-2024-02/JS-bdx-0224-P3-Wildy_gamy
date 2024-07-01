@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
-import "./scss/index.scss";
 import Header from "./components/Header/Header";
+import "./scss/index.scss";
 
 const links = [
   { to: "/", label: "Accueil", className: "nav-link home" },

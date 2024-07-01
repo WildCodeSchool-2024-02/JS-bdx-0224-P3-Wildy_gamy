@@ -2,6 +2,7 @@
 const RewardRepository = require("./models/RewardRepository");
 
 const GameRepository = require("./models/GameRepository");
+const UserRepository = require("./models/UserRepository");
 
 // Create an empty object to hold data repositories for different tables
 const tables = {};
@@ -14,6 +15,7 @@ const tables = {};
 tables.item = new RewardRepository();
 
 tables.game = new GameRepository();
+tables.user = new UserRepository();
 
 /* ************************************************************************* */
 

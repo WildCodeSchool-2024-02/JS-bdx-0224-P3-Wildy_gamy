@@ -21,37 +21,26 @@ class GameRepository extends AbstractRepository {
     );
     return result.insertId;
   }
-
   // Execute the SQL INSERT query to add a new item to the "item" table
-
   // Return the ID of the newly inserted item
-
   // The Rs of CRUD - Read operations
 
   async read(id) {
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `SELECT * FROM ${this.table} WHERE id = ?`,
       [id]
     );
-
     return rows[0];
   }
-
+  
   async readAll() {
-    const [rows] = await this.database.query(`select * from ${this.table}`);
-
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
     return rows;
   }
-
   // Execute the SQL UPDATE query to update a specific program
-
   // Return how many rows were affected
-
   // The D of CRUD - Delete operation
-
   // Execute the SQL DELETE query to delete a specific program
-
   // Return how many rows were affected
 }
-
 module.exports = GameRepository;
