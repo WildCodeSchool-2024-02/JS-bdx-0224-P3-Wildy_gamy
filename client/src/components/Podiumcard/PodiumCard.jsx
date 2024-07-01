@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 import "./PodiumCard.scss";
 
-function PodiumCard({card}) {
+function PodiumCard({ card }) {
   return (
     <>
       <figure>
@@ -14,7 +13,7 @@ function PodiumCard({card}) {
       </figure>
       <figure>
         <img src={card.flowerLeft} alt="" />
-        <img src={card.trophy} alt="" className="trophy-img"/>
+        <img src={card.trophy} alt="" className="trophy-img" />
         <img src={card.flowerRight} alt="" />
         <figcaption className="podiumCardText">2000 points</figcaption>
       </figure>
@@ -34,4 +33,3 @@ PodiumCard.propTypes = {
 };
 
 export default PodiumCard;
-

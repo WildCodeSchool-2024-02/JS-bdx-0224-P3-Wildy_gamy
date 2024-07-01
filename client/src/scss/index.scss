@@ -1,7 +1,11 @@
+@import "./fonts";
 @import "./variables";
 @import "./mixins";
-@import "./fonts";
 @import "./image-paths.scss";
+
+html {
+  scroll-behavior: smooth;
+}
 
 * {
   margin: 0;
@@ -24,13 +28,17 @@ body {
 }
 
 h1 {
+  @include clamp-title;
   font-family: $title-font;
   text-align: center;
   color: $white-color;
   font-weight: 400;
   margin: 1rem;
-  font-size: clamp($mobile-title, 4vw, $desktop-title);
   text-shadow: $font-stroke;
+
+  @include for-desktop-up {
+    margin: 2rem;
+  }
 }
 
 h2 {
@@ -38,10 +46,9 @@ h2 {
 }
 
 p {
+  @include clamp-content;
   font-family: $content-font;
   font-weight: 400;
-  font-size: clamp($mobile-content, 4vw, $desktop-content);
-  line-height: 1.5;
   text-align: left;
 }
 

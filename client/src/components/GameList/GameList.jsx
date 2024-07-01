@@ -9,7 +9,7 @@ function GameList({ gamesData, openModal }) {
       <h1>Découvrez la liste des jeux disponibles dans nos salles</h1>
       <ul className="image-list">
         {gamesData.map((game) => (
-          <li key={game.name} className="game-image">
+          <li key={game.id} className="game-image">
             <button
               type="button"
               onClick={() => openModal(game.name)}

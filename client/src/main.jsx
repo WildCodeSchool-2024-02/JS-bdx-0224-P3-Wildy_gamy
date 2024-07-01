@@ -8,13 +8,16 @@ import {
 } from "react-router-dom";
 
 import App from "./App";
+import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 import HomePage from "./pages/HomePage/HomePage";
 import GameListPage from "./pages/GameListPage/GameListPage";
 import DemoPage from "./pages/DemoPage";
 import RewardPage from "./pages/RewardPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
-import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
+
 import { sendData, fetchApi } from "./services/api.service";
 
 const baseGamesUrl = "/api/games";
@@ -38,6 +41,14 @@ const router = createBrowserRouter([
       {
         path: "/prix",
         element: <RewardPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
+      },
+      {
+        path: "/infos",
+        element: <AboutUsPage />,
       },
       {
         path: "/connexion",
