@@ -63,7 +63,6 @@ const router = createBrowserRouter([
 
             throw new Error("Invalid response from server");
           } catch (error) {
-            console.error("Error submitting form:", error);
             return { error: error.message };
           }
         },
@@ -92,7 +91,6 @@ const router = createBrowserRouter([
 
             throw new Error("Invalid response from server");
           } catch (error) {
-            console.error("Error submitting form:", error);
             return { error: error.message };
           }
         },
