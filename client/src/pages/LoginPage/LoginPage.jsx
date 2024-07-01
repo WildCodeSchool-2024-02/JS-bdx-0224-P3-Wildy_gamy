@@ -1,7 +1,15 @@
 import { Form, Link } from "react-router-dom";
 import "./LoginPage.scss";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function LoginPage() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <>
       <h1 className="connexion-title">Connexion </h1>
@@ -20,14 +28,19 @@ function LoginPage() {
         />
         <label className="label-connexion" htmlFor="password">
           Mot de passe
+          <FontAwesomeIcon
+            onClick={toggleShowPassword}
+            className="password-toggle-icon"
+            icon={showPassword ? faEyeSlash : faEye}
+          />
         </label>
         <input
           className="input-connexion"
-          type="password"
-          minLength="5"
+          type={showPassword ? "text" : "password"}
           id="password"
           name="password"
-          placeholder="********"
+          placeholder="Mot de passe"
+          pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"
           required
         />
         <button

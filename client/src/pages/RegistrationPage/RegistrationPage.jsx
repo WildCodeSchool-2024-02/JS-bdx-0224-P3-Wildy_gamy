@@ -1,6 +1,8 @@
 import { Form, Link } from "react-router-dom";
 import "./RegistrationPage.scss";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function RegistrationPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -60,6 +62,11 @@ function RegistrationPage() {
         />
         <label className="label-registration" htmlFor="password">
           Mot de passe
+          <FontAwesomeIcon
+            onClick={toggleShowPassword}
+            className="password-toggle-icon"
+            icon={showPassword ? faEyeSlash : faEye}
+          />
         </label>
         <input
           className="input-registration"
@@ -70,17 +77,6 @@ function RegistrationPage() {
           placeholder="Mot de passe"
           pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"
           required
-        />
-        <label className="label-registration" htmlFor="showPassword">
-          <img src="" alt="" />
-          Afficher le mot de passe
-        </label>
-        <input
-          className="input-registration"
-          type="checkbox"
-          id="showPassword"
-          checked={showPassword}
-          onChange={toggleShowPassword}
         />
         <button
           className="validation-button"
