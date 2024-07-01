@@ -43,6 +43,7 @@ const router = createBrowserRouter([
       {
         path: "/Profile",
         element: <ProfilePage />,
+        loader: () => fetchApi(baseGamesUrl),
       },
     ],
   },
