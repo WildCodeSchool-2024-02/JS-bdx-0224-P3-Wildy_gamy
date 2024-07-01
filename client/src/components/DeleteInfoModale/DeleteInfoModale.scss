@@ -1,0 +1,21 @@
+@import "../../scss/index.scss";
+
+.deletePhrase {
+  color: $black-color;
+  height: 6rem;
+  background-color: $white-color;
+  border: 0.1rem solid $secondary_color;
+}
+
+.deleteButton {
+  border: 0.1rem solid $red-color;
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+  width: 60%;
+  margin: 0.25rem auto;
+}
+
+.returnButton {
+  @extend .deleteButton;
+  border: 0.1rem solid $green-color;
+}

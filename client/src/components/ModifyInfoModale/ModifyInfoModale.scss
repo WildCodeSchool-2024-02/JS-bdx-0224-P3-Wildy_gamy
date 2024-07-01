@@ -1,0 +1,28 @@
+@import "../../scss/index.scss";
+
+.form {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.label {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  color: $white-color;
+}
+
+.placeholder {
+  border: 0.1rem solid $secondary_color;
+  border-radius: 0.25rem;
+}
+
+.formButton {
+  border: 0.1rem solid $secondary_color;
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+  width: 60%;
+  margin: 0 auto;
+}
