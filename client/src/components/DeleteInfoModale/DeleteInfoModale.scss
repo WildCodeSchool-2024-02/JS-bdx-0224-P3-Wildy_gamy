@@ -23,9 +23,7 @@
   .deleteButton {
     @include form-button;
     border: 0.2rem outset $red-color;
-    padding: 0.25rem 1rem;
     width: 13rem;
-    margin: 0.25rem auto;
   }
 
   .returnButton {
