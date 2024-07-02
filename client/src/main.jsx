@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             const url = "/api/login";
             const response = await sendData(url, data, "POST");
             if (response.status === 200) {
-              toast.success("Login successful");
+              toast.success("Connexion réussie 👾");
               return redirect(`/`);
             }
             throw new Error("Invalid response from server");
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
             const url = "/api/users";
             const response = await sendData(url, data, "POST");
             if (response.status === 201) {
-              toast.success("Registration successful");
+              toast.success("Inscription réussie 👾");
               return redirect(`/connexion`);
             }
             throw new Error("Invalid response from server");
