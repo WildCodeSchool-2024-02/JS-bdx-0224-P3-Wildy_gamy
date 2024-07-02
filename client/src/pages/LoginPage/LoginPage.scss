@@ -1,0 +1,26 @@
+@import "../../scss/index.scss";
+
+.connexion-title {
+  text-align: center;
+}
+.connexion-form {
+  @include form-style;
+}
+.label-connexion {
+  @include form-label;
+}
+.input-connexion {
+  @include form-input;
+}
+.login-button {
+  @include form-button;
+}
+.link-registration {
+  @include link-like-button;
+}
+.link-registration:hover {
+  background-color: $hover-color;
+}
+.password-toggle-icon {
+  margin-left: 1rem;
+}

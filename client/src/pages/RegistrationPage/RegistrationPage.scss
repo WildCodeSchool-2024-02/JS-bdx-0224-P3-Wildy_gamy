@@ -1,0 +1,26 @@
+@import "../../scss/index.scss";
+
+.registration-title {
+  text-align: center;
+}
+.registration-form {
+  @include form-style;
+}
+.label-registration {
+  @include form-label;
+}
+.input-registration {
+  @include form-input;
+}
+.validation-button {
+  @include form-button;
+}
+.link-connexion {
+  @include link-like-button;
+}
+.link-connexion:hover {
+  background-color: $hover-color;
+}
+.password-toggle-icon {
+  margin-left: 1rem;
+}

@@ -12,6 +12,7 @@ function DemoPage() {
   const shipImgRef = useRef(null);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const scoreRef = useRef(score);
   const tileSize = 32;
   const rows = 16;
   const columns = 16;
@@ -40,6 +41,7 @@ function DemoPage() {
   let alienVelocityX = 1;
   let bulletArray = [];
   const bulletVelocityY = -10;
+
   useEffect(() => {
     const board = canvasRef.current;
     board.width = boardWidth;
@@ -77,7 +79,7 @@ function DemoPage() {
     }
     alienCount = alienArray.length;
   }
-  // Bullets
+
   function detectCollision(a, b) {
     return (
       a.x < b.x + b.width &&
@@ -88,12 +90,13 @@ function DemoPage() {
   }
 
   function update() {
-    requestAnimationFrame(update);
     if (gameOver) {
       return;
     }
+    requestAnimationFrame(update);
     const context = contextRef.current;
     context.clearRect(0, 0, boardWidth, boardHeight);
+
     // Ship
     context.drawImage(
       shipImgRef.current,
@@ -102,6 +105,7 @@ function DemoPage() {
       ship.width,
       ship.height
     );
+
     // Aliens
     for (let i = 0; i < alienArray.length; i += 1) {
       const alien = alienArray[i];
@@ -127,7 +131,7 @@ function DemoPage() {
       }
     }
 
-    
+    // Bullets
     for (let i = 0; i < bulletArray.length; i += 1) {
       const bullet = bulletArray[i];
       bullet.y += bulletVelocityY;
@@ -139,7 +143,11 @@ function DemoPage() {
           bullet.used = true;
           alien.alive = false;
           alienCount -= 1;
-          setScore((prevScore) => prevScore + 100);
+          setScore((prevScore) => {
+            const newScore = prevScore + 100;
+            scoreRef.current = newScore;
+            return newScore;
+          });
         }
       }
     }
@@ -150,7 +158,11 @@ function DemoPage() {
       bulletArray.shift();
     }
     if (alienCount === 0) {
-      setScore((prevScore) => prevScore + alienColumns * alienRows * 100);
+      setScore((prevScore) => {
+        const newScore = prevScore + alienColumns * alienRows * 100;
+        scoreRef.current = newScore; // Update the reference
+        return newScore;
+      });
       alienColumns = Math.min(alienColumns + 1, columns / 2 - 2);
       alienRows = Math.min(alienRows + 1, rows - 4);
       if (alienVelocityX > 0) {
@@ -158,14 +170,16 @@ function DemoPage() {
       } else {
         alienVelocityX -= 0.2;
       }
-      alienArray.length = 0; // Clear the array
+      alienArray.length = 0;
       bulletArray = [];
       createAliens();
     }
+
     context.fillStyle = "white";
     context.font = "16px courier";
-    context.fillText(score, 5, 20);
+    context.fillText(`Score: ${scoreRef.current}`, 5, 20);
   }
+
   function moveShip(e) {
     if (gameOver) {
       return;
@@ -179,7 +193,7 @@ function DemoPage() {
       ship.x += shipVelocityX;
     }
   }
- 
+
   function shoot(e) {
     if (gameOver) {
       return;
@@ -195,17 +209,30 @@ function DemoPage() {
       bulletArray.push(bullet);
     }
   }
- 
+
+  function handleGameOver() {
+    alert(`Game Over! Your final score is: ${score}`);
+  }
+
   useEffect(() => {
     createAliens();
     document.addEventListener("keydown", moveShip);
     document.addEventListener("keyup", shoot);
-    requestAnimationFrame(update);
+    const animationId = requestAnimationFrame(update);
+
     return () => {
       document.removeEventListener("keydown", moveShip);
       document.removeEventListener("keyup", shoot);
+      cancelAnimationFrame(animationId);
     };
   }, []);
+
+  useEffect(() => {
+    if (gameOver) {
+      handleGameOver();
+    }
+  }, [gameOver]);
+
   return (
     <>
       <h1>Retrouvez Space Invaders dans nos salles d'arcade !</h1>
@@ -215,13 +242,5 @@ function DemoPage() {
     </>
   );
 }
+
 export default DemoPage;
-
-
-
-
-
-
-
-
-
