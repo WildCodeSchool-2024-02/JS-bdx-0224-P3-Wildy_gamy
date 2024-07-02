@@ -4,39 +4,36 @@ import "./ModifyInfoModale.scss";
 function ModifyInfoModale({ handleClickModify }) {
   return (
     <dialog className="dialog" open>
-      <form className="form">
-        <label className="label">
+      <form>
+        <label>
           Prénom
           <input type="text" placeholder="John" className="placeholder" />
         </label>
-        <label className="label">
+        <label>
           Nom
           <input type="text" placeholder="Doe" className="placeholder" />
         </label>
-        <label className="label">
+        <label>
           Pseudo
           <input type="text" placeholder="JohnD33" className="placeholder" />
         </label>
-        <label className="label">
+        <label>
           Email
           <input
             type="email"
             placeholder="John@doe.com"
-            className="placeholder"
           />
         </label>
-        <label className="label">
+        <label>
           Mot de passe
           <input
             type="password"
             placeholder="**********"
-            className="placeholder"
           />
         </label>
         <button
           type="button"
           onClick={handleClickModify}
-          className="formButton"
         >
           Appliquer les modifications
         </button>

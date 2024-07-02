@@ -6,34 +6,32 @@
   left: 0;
   height: 70vh;
   margin: auto;
-  background-color: rgba($black-color, 0.7);
+  background-color: rgba($black-color, 0.9);
   display: flex;
   justify-content: center;
-}
 
-.form {
-  width: 90vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+  form {
+    @include form-style;
+    width: 80vw;
+    justify-content: space-evenly;
+  }
 
-.label {
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  color: $white-color;
-}
+  label {
+    @include form-label;
+    display: flex;
+    flex-direction: column;
+    color: $white-color;
+  }
 
-.placeholder {
-  border: 0.1rem solid $secondary_color;
-  border-radius: 0.25rem;
-}
+  input {
+    @include form-input;
+    margin: 0.5rem;
+  }
 
-.formButton {
-  border: 0.1rem solid $secondary_color;
-  border-radius: 1rem;
-  padding: 0.25rem 1rem;
-  width: 60%;
-  margin: 0 auto;
+  button {
+    @include form-button;
+    padding: 0.25rem 1rem;
+    width: 15rem;
+    margin: 0 auto;
+  }
 }
