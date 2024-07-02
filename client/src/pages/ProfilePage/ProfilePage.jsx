@@ -13,8 +13,6 @@ import GameListModal from "../../components/GameListModal/GameListModal";
 
 import Avatar from "../../assets/images/avatar/Avatar-basic.svg";
 
-
-
 function ProfilePage() {
   const gamesData = useLoaderData();
   const [showModalModify, setShowModalModify] = useState(false);
@@ -31,7 +29,6 @@ function ProfilePage() {
 
   const [showModal, setShowModal] = useState(false);
   const [selectedGame, setSelectedGame] = useState(null);
-
 
   const openModal = (gameName) => {
     const normalizedGameName = gameName.toLowerCase();
@@ -84,8 +81,11 @@ function ProfilePage() {
       {showModalDelete && (
         <DeleteInfoModale handleClickDelete={handleClickDelete} />
       )}
-
-      <DisplayCoin />
+      <ul className="coinContainer">
+        <li>
+          <DisplayCoin />
+        </li>
+      </ul>
 
       <p>Meilleurs scores</p>
       <ul className="scoreContainer">
@@ -107,7 +107,6 @@ function ProfilePage() {
         onClose={closeModal}
         gamesData={selectedGame}
       />
-      
     </>
   );
 }

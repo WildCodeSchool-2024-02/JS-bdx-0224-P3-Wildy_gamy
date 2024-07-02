@@ -33,3 +33,11 @@
     }
   }
 }
+
+@include for-desktop-up {
+  .coinContainer {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+}
