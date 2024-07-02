@@ -12,9 +12,11 @@ import HomePage from "./pages/HomePage/HomePage";
 import GameListPage from "./pages/GameListPage/GameListPage";
 import DemoPage from "./pages/DemoPage";
 import RewardPage from "./pages/RewardPage";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
+
 import { sendData, fetchApi } from "./services/api.service";
 
 const baseGamesUrl = "/api/games";
@@ -94,6 +96,10 @@ const router = createBrowserRouter([
             return { error: error.message };
           }
         },
+      },
+      {
+        path: "/infos",
+        element: <AboutUsPage />,
       },
     ],
   },

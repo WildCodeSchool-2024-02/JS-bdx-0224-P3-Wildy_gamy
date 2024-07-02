@@ -1,0 +1,33 @@
+@import "../../scss/index.scss";
+
+.scrolling-content {
+  position: relative;
+  width: 100%;
+  display: block;
+  margin: auto;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  box-sizing: border-box;
+  animation: scroll-animation 30s linear infinite;
+  z-index: -1;
+
+  img {
+    width: 100%;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: $font-stroke;
+    text-align: center;
+  }
+}
+
+@keyframes scroll-animation {
+  0% {
+    transform: translate(0%, 100%);
+  }
+  100% {
+    transform: translate(0%, -100%);
+  }
+}
