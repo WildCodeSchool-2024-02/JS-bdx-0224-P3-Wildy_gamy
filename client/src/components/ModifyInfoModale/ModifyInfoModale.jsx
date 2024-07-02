@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import "./ModifyInfoModale.scss";
+import { Form } from "react-router-dom";
 
 function ModifyInfoModale({ handleClickModify }) {
   return (
     <dialog className="dialog" open>
-      <form>
+      <Form method="POST">
         <label>
           Prénom
           <input type="text" placeholder="John" className="placeholder" />
@@ -19,25 +20,16 @@ function ModifyInfoModale({ handleClickModify }) {
         </label>
         <label>
           Email
-          <input
-            type="email"
-            placeholder="John@doe.com"
-          />
+          <input type="email" placeholder="John@doe.com" />
         </label>
         <label>
           Mot de passe
-          <input
-            type="password"
-            placeholder="**********"
-          />
+          <input type="password" placeholder="**********" />
         </label>
-        <button
-          type="button"
-          onClick={handleClickModify}
-        >
-          Appliquer les modifications
-        </button>
-      </form>
+      </Form>
+      <button type="button" onClick={handleClickModify}>
+        Appliquer les modifications
+      </button>
     </dialog>
   );
 }

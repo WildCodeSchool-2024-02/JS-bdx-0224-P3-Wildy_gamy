@@ -92,12 +92,6 @@ function ProfilePage() {
         <li>
           <ScoreDisplay />
         </li>
-        <li>
-          <ScoreDisplay />
-        </li>
-        <li>
-          <ScoreDisplay />
-        </li>
       </ul>
 
       <p>Jeux favoris</p>
