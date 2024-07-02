@@ -50,13 +50,6 @@ class RewardSeeder extends AbstractSeeder {
         image: "case.jpg",
       },
       {
-        name: "Dessous de verre Vintage",
-        description: "Un set de 6 dessous de verre Vintage.",
-        remaining_quantity: 48,
-        price: 1,
-        image: "coaster.jpg",
-      },
-      {
         name: "Pog Looney Tunes",
         description: "Un set de 5 pogs Looney Tunes rétro.",
         remaining_quantity: 16,
