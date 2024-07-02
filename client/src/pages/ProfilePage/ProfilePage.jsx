@@ -60,7 +60,7 @@ function ProfilePage() {
   return (
     <>
       <h1>Profile</h1>
-      <img src={Avatar} alt="avatar de base" className="avatarImg" />
+      <img src={Avatar} alt="avatar par defaut" className="avatarImg" />
       <h2>John Doe</h2>
       <button
         type="button"
