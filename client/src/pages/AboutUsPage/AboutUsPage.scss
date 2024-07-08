@@ -1,32 +1,78 @@
 @import "../../scss/index.scss";
 
-.logo-about-wg {
-  width: 100%;
-  max-height: 33rem;
-  display: block;
-  margin: 1rem auto;
-  position: relative;
+.about-us-page {
+  // background: #111;
+  overflow-x: hidden;
+  background-image: url("../../assets/images/stars-sky.jpg");
+  background-size: cover;
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-position: center;
+  // display: block;
+  // margin: auto;
+  // justify-content: center;
+  // align-items: center;
+  // height: 100%;
+  perspective: 12.5rem;
 }
 
 .scrolling-text {
-  position: absolute;
-  width: 8rem;
-  height: 8rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%);
+  margin: 0 auto;
+  // margin: 2rem;
   text-align: center;
-  // margin: 0;
-  overflow: auto;
-  // animation: scroll-text 10s linear infinite;
-  // z-index: 3;
+  color: $secondary-color;
+  font-weight: bold;
+  width: 50%;
+  transform: rotateX(30deg);
+  animation: animateCrawl 10s infinite ease-in-out;
 }
 
-@keyframes scroll-text {
+// .logo-about-wg {
+//   width: 100%;
+//   max-height: 33rem;
+//   display: block;
+//   margin: 1rem auto;
+//   position: relative;
+// }
+
+.scrolling-text {
+  // position: absolute;
+  // width: 8rem;
+  // height: 8rem;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -70%);
+  // text-align: center;
+  // margin: 0;
+  // overflow: auto;
+  // animation: scrollText 10s linear infinite;
+  // z-index: 3;
+  // display: block;
+  // margin: auto;
+  // margin: 2rem;
+
+  // background-image: url("../../assets/images/logo/logo-wildy-gamy.svg");
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-position: center;
+  // width: 10rem;
+}
+
+@keyframes scrollText {
   0% {
     transform: translate(-50%, 100%);
   }
   100% {
     transform: translate(-50%, -100%);
+  }
+}
+
+@keyframes animateCrawl {
+  0% {
+    transform: rotateX(30deg) translateY(30rem);
+  }
+  100% {
+    transform: rotateX(30deg) translateY(0rem);
   }
 }

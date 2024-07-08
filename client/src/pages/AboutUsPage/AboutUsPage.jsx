@@ -1,10 +1,9 @@
 import "./AboutUsPage.scss";
-import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy.svg";
+// import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy.svg";
 
 function AboutUsPage() {
   return (
-    <>
-      <img src={logoWildyGamyWg} alt="" className="logo-about-wg" />
+    <body className="about-us-page">
       <p className="scrolling-text">
         Entrez dans le futur rétro chez Wildy Gamy ! Nous sommes plus qu’une
         simple salle d’arcade. Nous sommes une passerelle vers le passé, un
@@ -15,7 +14,7 @@ function AboutUsPage() {
         authentiques vous transportent dans des mondes pixelisés où les high
         scores sont rois.
       </p>
-    </>
+    </body>
   );
 }
 
