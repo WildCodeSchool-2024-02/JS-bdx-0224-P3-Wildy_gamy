@@ -7,14 +7,16 @@ import {
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import App from "./App";
+import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 import HomePage from "./pages/HomePage/HomePage";
 import GameListPage from "./pages/GameListPage/GameListPage";
 import RewardPage from "./pages/RewardPage/RewardPage";
 import DemoPage from "./pages/DemoPage/DemoPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
-import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 import { fetchApi } from "./services/api.service";
+import ContactPage from "./pages/ContactPage/ContactPage";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import "react-toastify/dist/ReactToastify.css";
 import login from "./services/login.service";
 import register from "./services/register.service";
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
         path: "/prix",
         element: <RewardPage />,
         loader: () => fetchApi(`${baseUrlReward}`),
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
+      },
+      {
+        path: "/infos",
+        element: <AboutUsPage />,
       },
       {
         path: "/connexion",
