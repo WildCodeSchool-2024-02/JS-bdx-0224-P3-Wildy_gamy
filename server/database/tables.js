@@ -1,6 +1,6 @@
 // Import the repository modules responsible for handling data operations on the tables
-const RewardRepository = require("./models/RewardRepository");
 
+const RewardRepository = require("./models/RewardRepository");
 const GameRepository = require("./models/GameRepository");
 const UserRepository = require("./models/UserRepository");
 
@@ -12,8 +12,8 @@ const tables = {};
 /* ************************************************************************* */
 
 // Register each repository as data access point for its table
-tables.item = new RewardRepository();
 
+tables.reward = new RewardRepository();
 tables.game = new GameRepository();
 tables.user = new UserRepository();
 
