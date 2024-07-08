@@ -1,4 +1,5 @@
 @import "../../scss/index.scss";
+
 .game-container {
   display: flex;
   flex-direction: column;
@@ -10,16 +11,40 @@
   canvas {
     border: 2px solid $secondary-color;
     background-color: $black-color;
+    margin-bottom: 1.5rem;
   }
 }
-.scoreboard {
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: $white-color;
+  padding: 20px;
+  border-radius: 10px;
   text-align: center;
-}
-.game-over {
-  color: red;
-  font-size: 2rem;
-  text-align: center;
-  margin-top: 1.5rem;
+  z-index: 1000;
+  .popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #ff5722;
+      border: none;
+      border-radius: 5px;
+      color: $white-color;
+      cursor: pointer;
+      &:hover {
+        background-color: #ff5722;
+      }
+    }
+  }
 }
