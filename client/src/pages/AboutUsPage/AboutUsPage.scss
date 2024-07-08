@@ -2,7 +2,7 @@
 
 .about-us-page {
   // background: #111;
-  overflow-x: hidden;
+  overflow: hidden;
   background-image: url("../../assets/images/stars-sky.jpg");
   background-size: cover;
   // background-repeat: no-repeat;
@@ -12,19 +12,24 @@
   // margin: auto;
   // justify-content: center;
   // align-items: center;
-  // height: 100%;
-  perspective: 12.5rem;
+  // height: 90%;
+  perspective: 20rem;
 }
 
 .scrolling-text {
-  margin: 0 auto;
+  // overflow: hidden;
+  margin: 0 auto 10rem auto;
+  padding: 2rem;
   // margin: 2rem;
   text-align: center;
   color: $secondary-color;
   font-weight: bold;
-  width: 50%;
-  transform: rotateX(30deg);
-  animation: animateCrawl 10s infinite ease-in-out;
+  line-height: 2;
+  width: 70%;
+  // width: 20rem;
+  height: 100%;
+  // transform: rotateX(30deg);
+  animation: animateCrawl 30s infinite ease-out;
 }
 
 // .logo-about-wg {
@@ -70,7 +75,7 @@
 
 @keyframes animateCrawl {
   0% {
-    transform: rotateX(30deg) translateY(30rem);
+    transform: rotateX(30deg) translateY(20rem);
   }
   100% {
     transform: rotateX(30deg) translateY(0rem);

@@ -12,10 +12,12 @@ const links = [
 
 function App() {
   return (
-    <main>
+    // <main>
+    <>
       <Header links={links} />
       <Outlet />
-    </main>
+    </>
+    // </main>
   );
 }
 
