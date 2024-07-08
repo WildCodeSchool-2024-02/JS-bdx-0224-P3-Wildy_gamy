@@ -11,7 +11,7 @@ function LoginPage() {
     setShowPassword(!showPassword);
   };
   return (
-    <>
+    <main>
       <h1 className="connexion-title">Connexion </h1>
       <Form method="post" className="connexion-form">
         <label className="label-connexion" htmlFor="email">
@@ -53,7 +53,7 @@ function LoginPage() {
           Créer un compte
         </Link>
       </Form>
-    </>
+    </main>
   );
 }
 

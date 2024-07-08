@@ -37,7 +37,7 @@ function GameListPage() {
   };
 
   return (
-    <>
+    <main>
       <GameList gamesData={gamesData} openModal={openModal} />
       <GameListModal
         isOpen={showModal}
@@ -45,7 +45,7 @@ function GameListPage() {
         gamesData={selectedGame}
       />
       <NavigationChevron isUp />
-    </>
+    </main>
   );
 }
 

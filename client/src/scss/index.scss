@@ -13,18 +13,16 @@ html {
   box-sizing: border-box;
 }
 
-main {
-  padding-bottom: $nav-mobile-height;
-  @include for-desktop-up {
-    padding-top: $header-height;
-    padding-bottom: 0;
-  }
-}
-
 body {
   font-family: $content-font;
   background-color: $primary-color;
   color: $white-color;
+  padding-bottom: $nav-mobile-height;
+
+  @include for-desktop-up {
+    padding-top: $header-height;
+    padding-bottom: 0;
+  }
 }
 
 h1 {
