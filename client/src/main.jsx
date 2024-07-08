@@ -11,7 +11,7 @@ import App from "./App";
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 import HomePage from "./pages/HomePage/HomePage";
 import GameListPage from "./pages/GameListPage/GameListPage";
-import DemoPage from "./pages/DemoPage";
+import DemoPage from "./pages/DemoPage/DemoPage";
 import RewardPage from "./pages/RewardPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
