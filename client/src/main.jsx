@@ -5,7 +5,7 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import App from "./App";
 import HomePage from "./pages/HomePage/HomePage";
 import GameListPage from "./pages/GameListPage/GameListPage";
@@ -14,8 +14,10 @@ import DemoPage from "./pages/DemoPage/DemoPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
-import { sendData, fetchApi } from "./services/api.service";
+import { fetchApi } from "./services/api.service";
 import "react-toastify/dist/ReactToastify.css";
+import login from "./services/login.service";
+import register from "./services/register.service";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
@@ -43,46 +45,26 @@ const router = createBrowserRouter([
         path: "/connexion",
         element: <LoginPage />,
         action: async ({ request }) => {
-          try {
-            const formData = await request.formData();
-            const data = Object.fromEntries(formData.entries());
-            const { email, password } = data;
-            if (!email || !password) {
-              throw new Error("All fields are required");
-            }
-            const url = "/api/login";
-            const response = await sendData(url, data, "POST");
-            if (response.status === 200) {
-              toast.success("Connexion réussie 👾");
-              return redirect(`/`);
-            }
-            throw new Error("Invalid response from server");
-          } catch (error) {
-            return toast.error(error.message);
+          const formData = await request.formData();
+          const data = Object.fromEntries(formData.entries());
+          const result = await login(data);
+          if (result.success) {
+            return redirect(`/`);
           }
+          return null;
         },
       },
       {
         path: "/inscription",
         element: <RegistrationPage />,
         action: async ({ request }) => {
-          try {
-            const formData = await request.formData();
-            const data = Object.fromEntries(formData.entries());
-            const { firstname, lastname, pseudo, email, password } = data;
-            if (!firstname || !lastname || !pseudo || !email || !password) {
-              throw new Error("All fields are required");
-            }
-            const url = "/api/users";
-            const response = await sendData(url, data, "POST");
-            if (response.status === 201) {
-              toast.success("Inscription réussie 👾");
-              return redirect(`/connexion`);
-            }
-            throw new Error("Invalid response from server");
-          } catch (error) {
-            return toast.error(error.message);
+          const formData = await request.formData();
+          const data = Object.fromEntries(formData.entries());
+          const result = await register(data);
+          if (result.success) {
+            return redirect(`/connexion`);
           }
+          return null;
         },
       },
     ],
