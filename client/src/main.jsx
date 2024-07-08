@@ -56,8 +56,7 @@ const router = createBrowserRouter([
             }
             throw new Error("Invalid response from server");
           } catch (error) {
-            toast.error(error.message);
-            return { error: error.message };
+            return toast.error(error.message);
           }
         },
       },
@@ -80,8 +79,7 @@ const router = createBrowserRouter([
             }
             throw new Error("Invalid response from server");
           } catch (error) {
-            toast.error(error.message);
-            return { error: error.message };
+            return toast.error(error.message);
           }
         },
       },
