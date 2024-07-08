@@ -1,10 +1,11 @@
+import "./ScoreDisplay.scss";
+
 function ScoreDisplay() {
   return (
-    <>
-    <p className="scoreDisplay">Space Invaders</p> 
-    <p className="scoreDisplay"> 2000 points</p>
-    </>
-  )
+    <p className="scoreDisplay">
+      <strong>Space Invaders</strong> <strong>2000 points</strong>
+    </p>
+  );
 }
 
-export default ScoreDisplay
+export default ScoreDisplay;
