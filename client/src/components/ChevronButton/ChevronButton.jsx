@@ -9,7 +9,7 @@ function ChevronButton({ onClick, src, ariaLabel }) {
       onClick={onClick}
       className="chevron-button"
     >
-      <img src={src} alt="" />
+      <img src={src} alt={ariaLabel} />
     </button>
   );
 }
