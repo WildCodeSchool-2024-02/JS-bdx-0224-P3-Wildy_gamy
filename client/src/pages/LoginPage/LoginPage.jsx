@@ -46,7 +46,6 @@ function LoginPage() {
         <button
           className="login-button"
           type="submit"
-          aria-label="Se connecter"
         >
           Se connecter
         </button>

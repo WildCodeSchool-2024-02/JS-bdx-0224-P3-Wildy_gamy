@@ -81,7 +81,6 @@ function RegistrationPage() {
         <button
           className="validation-button"
           type="submit"
-          aria-label="validation"
         >
           Valider
         </button>

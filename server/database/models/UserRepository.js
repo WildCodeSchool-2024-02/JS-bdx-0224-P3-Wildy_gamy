@@ -15,16 +15,14 @@ class UserRepository extends AbstractRepository {
     // Execute the SQL INSERT query to add a new user to the "user" table
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (
-        created_at,
         firstname,
         lastname,
         avatar_image,
         pseudo,
         email,
         hashed_password
-        ) values (?, ?, ?, ?, ?, ?, ?)`,
+        ) values (?, ?, ?, ?, ?, ?)`,
       [
-        new Date(),
         user.firstname,
         user.lastname,
         avatarImage,
@@ -43,7 +41,7 @@ class UserRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific user by its ID
     const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE id = ?`,
+      `SELECT id, firstname, lastname, avatar_image, pseudo, email, hashed_password FROM ${this.table} WHERE id = ?`,
       [id]
     );
 
@@ -62,7 +60,7 @@ class UserRepository extends AbstractRepository {
   async readByEmailWithPassword(email) {
     // Execute the SQL SELECT query to retrieve a specific user by its email
     const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE email = ?`,
+      `SELECT id, email, hashed_password FROM ${this.table} WHERE email = ?`,
       [email]
     );
 
@@ -88,7 +86,7 @@ class UserRepository extends AbstractRepository {
         user.avatar_image,
         user.pseudo,
         user.email,
-        user.hashedPassword
+        user.hashedPassword,
       ]
     );
 
