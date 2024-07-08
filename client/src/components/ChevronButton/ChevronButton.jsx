@@ -1,15 +1,10 @@
 import PropTypes from "prop-types";
 import "./ChevronButton.scss";
 
-function ChevronButton({ onClick, src, ariaLabel }) {
+function ChevronButton({ onClick, src, buttonRole }) {
   return (
-    <button
-      type="button"
-      aria-label={ariaLabel}
-      onClick={onClick}
-      className="chevron-button"
-    >
-      <img src={src} alt={ariaLabel} />
+    <button type="button" onClick={onClick} className="chevron-button">
+      <img src={src} alt={buttonRole} title={buttonRole} />
     </button>
   );
 }
@@ -17,7 +12,7 @@ function ChevronButton({ onClick, src, ariaLabel }) {
 ChevronButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   src: PropTypes.string.isRequired,
-  ariaLabel: PropTypes.string.isRequired,
+  buttonRole: PropTypes.string.isRequired,
 };
 
 export default ChevronButton;
