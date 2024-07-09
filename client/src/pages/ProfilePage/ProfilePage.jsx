@@ -17,8 +17,8 @@ function ProfilePage() {
   const [showModal, setShowModal] = useState(false);
   const [selectedGame, setSelectedGame] = useState(null);
 
-  const handleClickModal = (baseState, setBaseState) => () => {
-    setBaseState(!baseState);
+  const handleClickModal = (booleanState, setBooleanState) => () => {
+    setBooleanState(!booleanState);
   };
 
   const openModal = (gameName) => {
