@@ -4,6 +4,10 @@
   color: $black-color;
   width: 100%;
 
+  thead {
+    display: none;
+  }
+
   .tdRight {
     text-align: end;
   }

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "./ModifyInfoModale.scss";
 import { Form } from "react-router-dom";
 
-function ModifyInfoModale({ handleClickModify }) {
+function ModifyInfoModale({ handleClickModal, showModalModify, setShowModalModify }) {
   return (
     <dialog className="dialog" open>
       <Form method="POST">
@@ -27,7 +27,7 @@ function ModifyInfoModale({ handleClickModify }) {
           <input type="password" placeholder="**********" />
         </label>
       </Form>
-      <button type="button" onClick={handleClickModify}>
+      <button type="button" onClick={handleClickModal(showModalModify, setShowModalModify)}>
         Appliquer les modifications
       </button>
     </dialog>
@@ -35,7 +35,9 @@ function ModifyInfoModale({ handleClickModify }) {
 }
 
 ModifyInfoModale.propTypes = {
-  handleClickModify: PropTypes.func.isRequired,
+  handleClickModal: PropTypes.func.isRequired,
+  showModalModify: PropTypes.bool.isRequired,
+  setShowModalModify: PropTypes.func.isRequired,
 };
 
 export default ModifyInfoModale;

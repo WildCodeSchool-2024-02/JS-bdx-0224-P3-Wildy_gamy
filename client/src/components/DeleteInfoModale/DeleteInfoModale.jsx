@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./DeleteInfoModale.scss";
 
-function DeleteInfoModale({ handleClickDelete }) {
+function DeleteInfoModale({ handleClickModal, showModalDelete, setShowModalDelete }) {
   return (
     <dialog open className="modalDelete">
       <p>
@@ -10,7 +10,7 @@ function DeleteInfoModale({ handleClickDelete }) {
       </p>
       <button
         type="button"
-        onClick={handleClickDelete}
+        onClick={handleClickModal(showModalDelete, setShowModalDelete)}
         className="returnButton"
       >
         Annuler
@@ -23,7 +23,9 @@ function DeleteInfoModale({ handleClickDelete }) {
 }
 
 DeleteInfoModale.propTypes = {
-  handleClickDelete: PropTypes.func.isRequired,
+  handleClickModal: PropTypes.func.isRequired,
+  showModalDelete: PropTypes.bool.isRequired,
+  setShowModalDelete: PropTypes.func.isRequired,
 };
 
 export default DeleteInfoModale;
