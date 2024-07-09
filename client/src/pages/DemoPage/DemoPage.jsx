@@ -234,12 +234,12 @@ function DemoPage() {
   }, [gameOver]);
 
   return (
-    <>
+    <main>
       <h1>Retrouvez Space Invaders dans nos salles d'arcade !</h1>
       <section className="game-container">
         <canvas ref={canvasRef} />
       </section>
-    </>
+    </main>
   );
 }
 

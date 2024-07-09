@@ -9,11 +9,11 @@ function App() {
   useScrollToAnchor();
 
   return (
-    <main>
+    <>
       <Header links={headerLinks} />
       <Outlet />
       <Footer links={footerLinks} />
-    </main>
+    </>
   );
 }
 
