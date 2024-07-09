@@ -1,5 +1,4 @@
 import "./AboutUsPage.scss";
-// import logoWildyGamyWg from "../../assets/images/logo/logo-wildy-gamy.svg";
 
 function AboutUsPage() {
   return (

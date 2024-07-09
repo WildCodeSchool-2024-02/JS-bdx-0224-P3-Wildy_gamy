@@ -1,83 +1,22 @@
 @import "../../scss/index.scss";
 
 .about-us-page {
-  // background: #111;
   overflow: hidden;
   background-image: url("../../assets/images/stars-sky.jpg");
   background-size: cover;
-  // background-repeat: no-repeat;
-  // background-size: contain;
-  // background-position: center;
-  // display: block;
-  // margin: auto;
-  // justify-content: center;
-  // align-items: center;
-  // height: 90%;
+  height: 100vh;
   perspective: 20rem;
 }
 
 .scrolling-text {
-  // overflow: hidden;
-  margin: 0 auto 10rem auto;
+  margin: 0 auto;
   padding: 2rem;
-  // margin: 2rem;
   text-align: center;
   color: $secondary-color;
   font-weight: bold;
   line-height: 2;
-  width: 70%;
-  // width: 20rem;
-  height: 100%;
-  // transform: rotateX(30deg);
-  animation: animateCrawl 30s infinite ease-out;
-}
-
-// .logo-about-wg {
-//   width: 100%;
-//   max-height: 33rem;
-//   display: block;
-//   margin: 1rem auto;
-//   position: relative;
-// }
-
-.scrolling-text {
-  // position: absolute;
-  // width: 8rem;
-  // height: 8rem;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -70%);
-  // text-align: center;
-  // margin: 0;
-  // overflow: auto;
-  // animation: scrollText 10s linear infinite;
-  // z-index: 3;
-  // display: block;
-  // margin: auto;
-  // margin: 2rem;
-
-  // background-image: url("../../assets/images/logo/logo-wildy-gamy.svg");
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-size: contain;
-  // background-position: center;
-  // width: 10rem;
-}
-
-@keyframes scrollText {
-  0% {
-    transform: translate(-50%, 100%);
-  }
-  100% {
-    transform: translate(-50%, -100%);
-  }
-}
-
-@keyframes animateCrawl {
-  0% {
-    transform: rotateX(30deg) translateY(20rem);
-  }
-  100% {
-    transform: rotateX(30deg) translateY(0rem);
+  width: 20rem;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: animateCrawl 30s infinite ease-in-out;
   }
 }
