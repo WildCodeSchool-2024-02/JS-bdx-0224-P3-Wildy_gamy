@@ -3,14 +3,14 @@ USE wildy_gamy;
 
 CREATE TABLE user (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    created_at TIMESTAMP NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     firstname VARCHAR(250) NOT NULL,
     lastname VARCHAR(250) NOT NULL,
     avatar_image VARCHAR(250) NOT NULL,
     pseudo VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(250) NOT NULL,
-    role VARCHAR(50) NOT NULL  
+    hashed_password VARCHAR(250) NOT NULL,
+    role VARCHAR(50) NOT NULL DEFAULT 'user' 
 );
 
 CREATE TABLE game (
@@ -25,6 +25,7 @@ CREATE TABLE game (
 
 CREATE TABLE reward (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
 	description TEXT NOT NULL,
 	remaining_quantity INT NOT NULL,
 	price INT NOT NULL,
