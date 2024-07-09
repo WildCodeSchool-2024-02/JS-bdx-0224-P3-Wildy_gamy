@@ -1,16 +1,16 @@
 import PropTypes from "prop-types";
 import "./DeleteInfoModale.scss";
 
-function DeleteInfoModale({ handleClickDelete }) {
+function DeleteInfoModale({ handleClickModal, showModalDelete, setShowModalDelete }) {
   return (
-    <>
-      <p className="deletePhrase">
+    <dialog open className="modalDelete">
+      <p>
         Êtes-vous sûr de vouloir supprimer votre compte ? Vous perdrez
         définitevement tous vos scores et jetons.
       </p>
       <button
         type="button"
-        onClick={handleClickDelete}
+        onClick={handleClickModal(showModalDelete, setShowModalDelete)}
         className="returnButton"
       >
         Annuler
@@ -18,12 +18,14 @@ function DeleteInfoModale({ handleClickDelete }) {
       <button type="button" className="deleteButton">
         Supprimer mon compte
       </button>
-    </>
+      </dialog>
   );
 }
 
 DeleteInfoModale.propTypes = {
-  handleClickDelete: PropTypes.func.isRequired,
+  handleClickModal: PropTypes.func.isRequired,
+  showModalDelete: PropTypes.bool.isRequired,
+  setShowModalDelete: PropTypes.func.isRequired,
 };
 
 export default DeleteInfoModale;

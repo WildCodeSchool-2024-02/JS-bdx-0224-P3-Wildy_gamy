@@ -1,50 +1,43 @@
 import PropTypes from "prop-types";
 import "./ModifyInfoModale.scss";
+import { Form } from "react-router-dom";
 
-function ModifyInfoModale({ handleClickModify }) {
+function ModifyInfoModale({ handleClickModal, showModalModify, setShowModalModify }) {
   return (
-      <form className="form">
-        <label className="label">
+    <dialog className="dialog" open>
+      <Form method="POST">
+        <label>
           Prénom
           <input type="text" placeholder="John" className="placeholder" />
         </label>
-        <label className="label">
+        <label>
           Nom
           <input type="text" placeholder="Doe" className="placeholder" />
         </label>
-        <label className="label">
+        <label>
           Pseudo
           <input type="text" placeholder="JohnD33" className="placeholder" />
         </label>
-        <label className="label">
+        <label>
           Email
-          <input
-            type="email"
-            placeholder="John@doe.com"
-            className="placeholder"
-          />
+          <input type="email" placeholder="John@doe.com" />
         </label>
-        <label className="label">
+        <label>
           Mot de passe
-          <input
-            type="password"
-            placeholder="**********"
-            className="placeholder"
-          />
+          <input type="password" placeholder="**********" />
         </label>
-        <button
-          type="button"
-          onClick={handleClickModify}
-          className="formButton"
-        >
-          Appliquer les modifications
-        </button>
-      </form>
+      </Form>
+      <button type="button" onClick={handleClickModal(showModalModify, setShowModalModify)}>
+        Appliquer les modifications
+      </button>
+    </dialog>
   );
 }
 
 ModifyInfoModale.propTypes = {
-  handleClickModify: PropTypes.func.isRequired,
+  handleClickModal: PropTypes.func.isRequired,
+  showModalModify: PropTypes.bool.isRequired,
+  setShowModalModify: PropTypes.func.isRequired,
 };
 
 export default ModifyInfoModale;

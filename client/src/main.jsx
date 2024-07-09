@@ -16,10 +16,10 @@ import GameListPage from "./pages/GameListPage/GameListPage";
 import RewardPage from "./pages/RewardPage/RewardPage";
 import DemoPage from "./pages/DemoPage/DemoPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 import { fetchApi } from "./services/api.service";
 import login from "./services/login.service";
@@ -85,6 +85,7 @@ const router = createBrowserRouter([
       {
         path: "/Profile",
         element: <ProfilePage />,
+        loader: () => fetchApi(baseGamesUrl),
       },
     ],
   },
