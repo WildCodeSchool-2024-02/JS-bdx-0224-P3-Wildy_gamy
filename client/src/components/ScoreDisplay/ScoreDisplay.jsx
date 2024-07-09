@@ -1,7 +1,12 @@
 import "./ScoreDisplay.scss";
 
 function ScoreDisplay() {
-  return <p className="scoreDisplay">Space Invaders  <strong>2000 points</strong></p>;
+  return <table className="tableScore">
+  <tr>
+    <td >Space Invaders</td>
+    <td className="tdRight">2000 points</td>
+  </tr>
+</table>
 }
 
 export default ScoreDisplay;

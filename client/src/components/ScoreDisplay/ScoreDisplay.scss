@@ -1,5 +1,10 @@
-.scoreDisplay {
-  display: flex;
-  justify-content: space-between;
+@import "../../scss/index.scss";
+
+.tableScore {
+  color: $black-color;
   width: 100%;
+
+  .tdRight {
+    text-align: end;
+  }
 }
