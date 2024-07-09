@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import GameListModal from "../../components/GameListModal/GameListModal";
 import GameList from "../../components/GameList/GameList";
+import NavigationChevron from "../../components/NavigationChevron/NavigationChevron";
 
 import "../../scss/index.scss";
-import "../../components/GameList/GameList.scss";
 
 function GameListPage() {
   const [showModal, setShowModal] = useState(false);
@@ -37,14 +37,15 @@ function GameListPage() {
   };
 
   return (
-    <>
+    <main>
       <GameList gamesData={gamesData} openModal={openModal} />
       <GameListModal
         isOpen={showModal}
         onClose={closeModal}
         gamesData={selectedGame}
       />
-    </>
+      <NavigationChevron isUp />
+    </main>
   );
 }
 
