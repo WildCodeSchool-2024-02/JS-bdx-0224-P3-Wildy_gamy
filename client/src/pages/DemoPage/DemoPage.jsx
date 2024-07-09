@@ -254,7 +254,7 @@ function DemoPage() {
   }, [gameOver]);
 
   return (
-    <>
+    <main>
       <h1>Retrouvez Space Invaders dans nos salles d'arcade !</h1>
       <section className="game-container">
         <canvas ref={canvasRef} aria-label="Espace de jeu Space Invaders"/>
@@ -280,7 +280,7 @@ function DemoPage() {
           </aside>
         )}
       </section>
-    </>
+    </main>
   );
 }
 export default DemoPage;
