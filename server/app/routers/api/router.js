@@ -9,6 +9,7 @@ const router = express.Router();
 const gamesRouter = require("./games/router");
 const usersRouter = require("./users/router");
 const rewardsRouter = require("./rewards/router");
+const partiesRouter = require ("./parties/router");
 
 const { hashPassword } = require("../../middleware/hashPassword");
 const { verifyAuth } = require("../../middleware/verifyAuth");
@@ -18,6 +19,7 @@ router.use("/games", gamesRouter);
 router.use("/rewards", rewardsRouter);
 router.use("/users", hashPassword, usersRouter);
 router.post("/login", verifyAuth, generateToken, usersRouter);
+router.use("/parties", partiesRouter);
 
 /* ************************************************************************* */
 

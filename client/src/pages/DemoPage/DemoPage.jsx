@@ -6,6 +6,7 @@ import alienCyan from "../../assets/images/space-invaders-assets/alien-cyan.png"
 import alienYellow from "../../assets/images/space-invaders-assets/alien-yellow.png";
 import alienDefault from "../../assets/images/space-invaders-assets/alien.png";
 import "./demoPage.scss";
+import { sendData } from "../../services/api.service";
 
 function DemoPage() {
   const canvasRef = useRef(null);
@@ -93,7 +94,7 @@ function DemoPage() {
       a.y + a.height > b.y
     );
   }
-  
+
   function update() {
     if (gameOver) {
       return;
@@ -253,14 +254,24 @@ function DemoPage() {
     }
   }, [gameOver]);
 
+  useEffect(() => {
+    if (score !== 0) {
+      const scoreData = { score };
+      sendData("/api/parties", scoreData, "POST");
+    }
+  }, [score]);
+
   return (
-    <main>
+    <main className="background">
       <h1>Retrouvez Space Invaders dans nos salles d'arcade !</h1>
       <section className="game-container">
-        <canvas ref={canvasRef} aria-label="Espace de jeu Space Invaders"/>
+        <canvas ref={canvasRef} aria-label="Espace de jeu Space Invaders" />
         {showStartPopup && (
           <aside className="popup">
-            <section className="popup-content" aria-labelledby="popup debut de partie">
+            <section
+              className="popup-content"
+              aria-labelledby="popup debut de partie"
+            >
               <h2>Bienvenue sur Space Invaders</h2>
               <button type="button" onClick={startGame}>
                 Commencer la partie
@@ -270,7 +281,10 @@ function DemoPage() {
         )}
         {showEndPopup && (
           <aside className="popup">
-            <section className="popup-content" aria-labelledby="popup fin de partie">
+            <section
+              className="popup-content"
+              aria-labelledby="popup fin de partie"
+            >
               <h2>Game Over</h2>
               <p>Score final: {score}</p>
               <button type="button" onClick={restartGame}>
