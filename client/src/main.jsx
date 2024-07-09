@@ -59,7 +59,7 @@ const router = createBrowserRouter([
           const data = Object.fromEntries(formData.entries());
           const result = await login(data);
           if (result.success) {
-            return redirect(`/`);
+            return redirect(`/`) ;
           }
           return null;
         },

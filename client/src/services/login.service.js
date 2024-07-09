@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { sendData } from "./api.service";
 
-const login = async (data) => {
+const login = async (data, setAuth) => {
   try {
     const { email, password } = data;
     if (!email || !password) {
@@ -11,7 +11,9 @@ const login = async (data) => {
     const response = await sendData(url, data, "POST");
     if (response.status === 200) {
       toast.success("Connexion réussie 👾");
-      return { success: true };
+      const auth = await response.json();
+      setAuth(auth);
+      return { success: true, auth };
     }
     throw new Error("Invalid response from server");
   } catch (error) {

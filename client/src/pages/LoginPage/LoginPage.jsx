@@ -7,6 +7,8 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
+  // const { setAuth } = useOutletContext();
+
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
