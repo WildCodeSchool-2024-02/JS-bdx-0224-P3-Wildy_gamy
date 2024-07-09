@@ -45,6 +45,7 @@ function DemoPage() {
   let alienVelocityX = 1;
   let bulletArray = [];
   const bulletVelocityY = -10;
+
   useEffect(() => {
     const board = canvasRef.current;
     board.width = boardWidth;
@@ -62,6 +63,7 @@ function DemoPage() {
       );
     };
   }, []);
+
   function createAliens() {
     alienArray = [];
     for (let c = 0; c < alienColumns; c += 1) {
@@ -82,6 +84,7 @@ function DemoPage() {
     }
     alienCount = alienArray.length;
   }
+
   function detectCollision(a, b) {
     return (
       a.x < b.x + b.width &&
@@ -90,6 +93,7 @@ function DemoPage() {
       a.y + a.height > b.y
     );
   }
+  
   function update() {
     if (gameOver) {
       return;
