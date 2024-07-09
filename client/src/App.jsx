@@ -11,11 +11,11 @@ function App() {
   useScrollToAnchor();
 
   return (
-    <main>
+    <>
       <Header links={headerLinks} />
       <Outlet context={{ auth, setAuth }} />
       <Footer links={footerLinks} />
-    </main>
+    </>
   );
 }
 

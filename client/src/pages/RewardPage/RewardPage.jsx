@@ -6,7 +6,7 @@ function RewardPage() {
   const rewards = useLoaderData();
 
   return (
-    <>
+    <main>
       <h1>
         Jouez à une démo et atteignez un certain score pour obtenir des jetons
         échangeables par des prix en boutique
@@ -18,7 +18,7 @@ function RewardPage() {
           </li>
         ))}
       </ul>
-    </>
+    </main>
   );
 }
 

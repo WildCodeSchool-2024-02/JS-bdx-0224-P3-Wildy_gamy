@@ -5,7 +5,10 @@ import {
   redirect,
   RouterProvider,
 } from "react-router-dom";
+
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import App from "./App";
 import ErrorPage404 from "./pages/ErrorPage404/ErrorPage404";
 import HomePage from "./pages/HomePage/HomePage";
@@ -14,15 +17,16 @@ import RewardPage from "./pages/RewardPage/RewardPage";
 import DemoPage from "./pages/DemoPage/DemoPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
-import { fetchApi } from "./services/api.service";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
-import "react-toastify/dist/ReactToastify.css";
+
+import { fetchApi } from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
+
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -80,7 +84,9 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

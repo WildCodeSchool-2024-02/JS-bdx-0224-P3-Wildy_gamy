@@ -32,7 +32,7 @@ const podiumImages = [goldImages, silverImages, bronzeImages];
 
 function HomePage() {
   return (
-    <>
+    <main>
       <h1>
         Rejoignez notre communauté de joueurs passionnés et découvrez nos bornes
         d'arcade !
@@ -79,7 +79,7 @@ function HomePage() {
         ))}
       </ul>
       <NavigationChevron isUp />
-    </>
+    </main>
   );
 }
 
