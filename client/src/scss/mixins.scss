@@ -12,6 +12,14 @@
   background-size: contain;
 }
 
+@mixin clamp-title {
+  font-size: clamp(#{$mobile-title}, 3vw, #{$desktop-title});
+}
+
+@mixin clamp-content {
+  font-size: clamp(#{$mobile-content}, 2vw, #{$desktop-content});
+}
+
 @keyframes bounce {
   0%,
   100% {
@@ -22,7 +30,81 @@
   }
 }
 
+@keyframes triangleMoveAndRotate {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+  10% {
+    transform: translateX(2rem) translateY(-8rem) rotate(-120deg) scale(1.2);
+  }
+  15% {
+    transform: translateX(2rem) translateY(-8rem) rotate(-120deg) scale(1);
+  }
+  20% {
+    transform: translateX(-4rem) translateY(-9rem) rotate(-240deg) scale(1.2);
+  }
+  25% {
+    transform: translateX(-4rem) translateY(-9rem) rotate(-240deg) scale(1);
+  }
+  30%,
+  100% {
+    transform: translateX(0) translateY(0) rotate(-360deg) scale(1);
+  }
+}
+
 @mixin custom-border($border-color) {
   border: 0.25rem solid $border-color;
   box-shadow: 0 0 0.8rem 0.01rem $border-color;
+}
+
+@mixin link-like-button {
+  text-align: center;
+  text-decoration: none;
+  color: $black-color;
+  background-color: $white-color;
+  margin: 1rem auto;
+  padding-top: 0.15rem;
+  border: 0.2rem outset $secondary-color;
+  border-radius: 0.7rem;
+  width: 10rem;
+  height: 1.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+@mixin form-style {
+  display: flex;
+  flex-direction: column;
+  margin: 1.2rem;
+  border-radius: 0.4rem;
+  @include for-desktop-up {
+    margin: auto 5rem;
+  }
+}
+
+@mixin form-label {
+  font-weight: 600;
+  margin: 0.5rem;
+  @include for-desktop-up {
+    margin: 0.5rem 10rem;
+  }
+}
+
+@mixin form-input {
+  margin: 0.1rem 0.4rem 2rem 0.4rem;
+  padding: 0.8rem;
+  border: 0.2rem outset $secondary-color;
+  border-radius: 0.2rem;
+  height: 1.5rem;
+  @include for-desktop-up {
+    margin: 0.1rem 10rem 1rem;
+  }
+}
+
+@mixin form-button {
+  margin: 3rem auto 0.5rem;
+  border: 0.2rem outset $secondary-color;
+  border-radius: 0.7rem;
+  width: 10rem;
+  height: 1.6rem;
 }

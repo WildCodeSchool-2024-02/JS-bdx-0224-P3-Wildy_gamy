@@ -5,7 +5,7 @@ import { Form } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
-function GameListModal({ isOpen, onClose, gamesData }) {
+function GameListModal({ onClose, isOpen, gamesData }) {
   if (!isOpen || !gamesData) return null;
   return (
     <dialog className="modal-active">
@@ -68,13 +68,21 @@ GameListModal.propTypes = {
   gamesData: PropTypes.shape({
     image_demo: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    release_date: PropTypes.string.isRequired,
+    release_date: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     demoLink: PropTypes.string,
-  }).isRequired,
+  }),
 };
+
 GameListModal.defaultProps = {
   isOpen: false,
+  gamesData: {
+    image_demo: "",
+    name: "Jeu non disponible",
+    release_date: "Non disponible",
+    description: "Aucune description disponible.",
+    demoLink: null,
+  },
 };
 
 export default GameListModal;

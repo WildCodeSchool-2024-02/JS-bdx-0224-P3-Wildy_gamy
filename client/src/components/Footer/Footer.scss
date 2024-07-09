@@ -1,0 +1,30 @@
+@import "../../scss/index.scss";
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 0;
+  background-color: $black-color;
+
+  a {
+    @include clamp-content;
+    font-weight: 500;
+    color: $white-color;
+    text-decoration: none;
+    padding: 0 0.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      border-right: 0.1rem solid $secondary-color;
+      height: 80%;
+    }
+
+    @include for-desktop-up {
+      padding: 0 2rem;
+    }
+  }
+}

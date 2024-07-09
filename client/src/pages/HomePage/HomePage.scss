@@ -3,11 +3,32 @@
 .logo-link {
   display: block;
   text-align: center;
-}
+  position: relative;
 
-.clickableLogo {
-  width: 70vw;
-  max-height: 70vh;
+  img {
+    width: clamp(12rem, 40vw, 17rem);
+  }
+
+  &::after {
+    content: "";
+    @include icon($handCursorIcon);
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(50%, 50%);
+    @media (prefers-reduced-motion: no-preference) {
+      animation: triangleMoveAndRotate 20s 3s ease-in-out infinite;
+      animation-fill-mode: both;
+    }
+
+    @include for-desktop-up {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
 }
 
 .mySwiper {
@@ -55,21 +76,6 @@
   color: $secondary-color;
   width: 2rem;
   height: 2rem;
-}
-
-.chevron {
-  display: block;
-  margin: auto;
-
-  width: 3rem;
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: bounce 2s infinite;
-  }
-
-  @include for-desktop-up {
-    width: 5rem;
-  }
 }
 
 .instruction-homepage {

@@ -1,21 +1,19 @@
 import { Outlet } from "react-router-dom";
-
 import "./scss/index.scss";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-
-const links = [
-  { to: "/", label: "Accueil", className: "nav-link home" },
-  { to: "/catalogue", label: "Catalogue", className: "nav-link catalog" },
-  { to: "/demo", label: "Démo", className: "nav-link demo" },
-  { to: "/prix", label: "Prix", className: "nav-link reward" },
-];
+import useScrollToAnchor from "./hooks/useScrollToAnchor";
+import { headerLinks, footerLinks } from "./services/links";
 
 function App() {
+  useScrollToAnchor();
+
   return (
-    <main>
-      <Header links={links} />
+    <>
+      <Header links={headerLinks} />
       <Outlet />
-    </main>
+      <Footer links={footerLinks} />
+    </>
   );
 }
 
