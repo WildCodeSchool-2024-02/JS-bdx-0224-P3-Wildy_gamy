@@ -11,12 +11,13 @@ const usersRouter = require("./users/router");
 const rewardsRouter = require("./rewards/router");
 
 const { hashPassword } = require("../../middleware/hashPassword");
-const authActions = require("../../middleware/authActions");
+const { verifyAuth } = require("../../middleware/verifyAuth");
+const { generateToken } = require("../../middleware/generateToken");
 
 router.use("/games", gamesRouter);
 router.use("/rewards", rewardsRouter);
 router.use("/users", hashPassword, usersRouter);
-router.post("/login", authActions.login);
+router.post("/login", verifyAuth, generateToken, usersRouter);
 
 /* ************************************************************************* */
 

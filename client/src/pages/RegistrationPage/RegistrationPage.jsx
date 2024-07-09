@@ -12,7 +12,7 @@ function RegistrationPage() {
   };
 
   return (
-    <>
+    <main>
       <h1 className="registration-title">Inscription </h1>
       <Form method="post" className="registration-form">
         <label className="label-registration" htmlFor="firstname">
@@ -81,7 +81,6 @@ function RegistrationPage() {
         <button
           className="validation-button"
           type="submit"
-          aria-label="validation"
         >
           Valider
         </button>
@@ -89,7 +88,7 @@ function RegistrationPage() {
           Déjà un compte ?
         </Link>
       </Form>
-    </>
+    </main>
   );
 }
 

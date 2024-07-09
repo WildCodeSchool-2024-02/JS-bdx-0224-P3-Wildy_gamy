@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+
 import shipImg from "../../assets/images/space-invaders-assets/ship.png";
 import alienMagenta from "../../assets/images/space-invaders-assets/alien-magenta.png";
 import alienCyan from "../../assets/images/space-invaders-assets/alien-cyan.png";
@@ -12,7 +13,10 @@ function DemoPage() {
   const shipImgRef = useRef(null);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [showStartPopup, setShowStartPopup] = useState(true);
+  const [showEndPopup, setShowEndPopup] = useState(false);
   const scoreRef = useRef(score);
+  const animationIdRef = useRef(null);
   const tileSize = 32;
   const rows = 16;
   const columns = 16;
@@ -30,7 +34,7 @@ function DemoPage() {
   };
   const shipVelocityX = tileSize;
   const alienImages = [alienMagenta, alienCyan, alienYellow, alienDefault];
-  const alienArray = [];
+  let alienArray = [];
   const alienWidth = tileSize * 2;
   const alienHeight = tileSize;
   const alienX = tileSize;
@@ -61,6 +65,7 @@ function DemoPage() {
   }, []);
 
   function createAliens() {
+    alienArray = [];
     for (let c = 0; c < alienColumns; c += 1) {
       for (let r = 0; r < alienRows; r += 1) {
         const randomIndex = Math.floor(Math.random() * alienImages.length);
@@ -88,15 +93,14 @@ function DemoPage() {
       a.y + a.height > b.y
     );
   }
-
+  
   function update() {
     if (gameOver) {
       return;
     }
-    requestAnimationFrame(update);
+    animationIdRef.current = requestAnimationFrame(update);
     const context = contextRef.current;
     context.clearRect(0, 0, boardWidth, boardHeight);
-
     // Ship
     context.drawImage(
       shipImgRef.current,
@@ -105,7 +109,6 @@ function DemoPage() {
       ship.width,
       ship.height
     );
-
     // Aliens
     for (let i = 0; i < alienArray.length; i += 1) {
       const alien = alienArray[i];
@@ -130,7 +133,6 @@ function DemoPage() {
         }
       }
     }
-
     // Bullets
     for (let i = 0; i < bulletArray.length; i += 1) {
       const bullet = bulletArray[i];
@@ -170,16 +172,13 @@ function DemoPage() {
       } else {
         alienVelocityX -= 0.2;
       }
-      alienArray.length = 0;
-      bulletArray = [];
       createAliens();
+      bulletArray = [];
     }
-
     context.fillStyle = "white";
     context.font = "16px courier";
     context.fillText(`Score: ${scoreRef.current}`, 5, 20);
   }
-
   function moveShip(e) {
     if (gameOver) {
       return;
@@ -193,7 +192,6 @@ function DemoPage() {
       ship.x += shipVelocityX;
     }
   }
-
   function shoot(e) {
     if (gameOver) {
       return;
@@ -209,23 +207,45 @@ function DemoPage() {
       bulletArray.push(bullet);
     }
   }
-
-  function handleGameOver() {
-    alert(`Game Over! Your final score is: ${score}`);
-  }
-
-  useEffect(() => {
+  function resetGame() {
+    setScore(0);
+    scoreRef.current = 0;
+    setGameOver(false);
+    alienRows = 2;
+    alienColumns = 3;
+    alienVelocityX = 1;
+    ship.x = shipX;
+    ship.y = shipY;
     createAliens();
+    bulletArray = [];
+
+    const context = contextRef.current;
+    if (context) {
+      context.clearRect(0, 0, boardWidth, boardHeight);
+    }
+
+    animationIdRef.current = requestAnimationFrame(update);
+  }
+  useEffect(() => {
     document.addEventListener("keydown", moveShip);
     document.addEventListener("keyup", shoot);
-    const animationId = requestAnimationFrame(update);
-
     return () => {
       document.removeEventListener("keydown", moveShip);
       document.removeEventListener("keyup", shoot);
-      cancelAnimationFrame(animationId);
     };
   }, []);
+
+  function handleGameOver() {
+    cancelAnimationFrame(animationIdRef.current);
+    setShowEndPopup(true);
+  }
+  function startGame() {
+    setShowStartPopup(false);
+    resetGame(); // start the game with resetGame function
+  }
+  function restartGame() {
+    window.location.reload(); // reload the game
+  }
 
   useEffect(() => {
     if (gameOver) {
@@ -234,13 +254,33 @@ function DemoPage() {
   }, [gameOver]);
 
   return (
-    <>
+    <main>
       <h1>Retrouvez Space Invaders dans nos salles d'arcade !</h1>
       <section className="game-container">
-        <canvas ref={canvasRef} />
+        <canvas ref={canvasRef} aria-label="Espace de jeu Space Invaders"/>
+        {showStartPopup && (
+          <aside className="popup">
+            <section className="popup-content" aria-labelledby="popup debut de partie">
+              <h2>Bienvenue sur Space Invaders</h2>
+              <button type="button" onClick={startGame}>
+                Commencer la partie
+              </button>
+            </section>
+          </aside>
+        )}
+        {showEndPopup && (
+          <aside className="popup">
+            <section className="popup-content" aria-labelledby="popup fin de partie">
+              <h2>Game Over</h2>
+              <p>Score final: {score}</p>
+              <button type="button" onClick={restartGame}>
+                Rejouer
+              </button>
+            </section>
+          </aside>
+        )}
       </section>
-    </>
+    </main>
   );
 }
-
 export default DemoPage;
