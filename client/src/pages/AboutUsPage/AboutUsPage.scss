@@ -1,0 +1,22 @@
+@import "../../scss/index.scss";
+
+.about-us-page {
+  overflow: hidden;
+  background-image: url("../../assets/images/stars-sky.jpg");
+  background-size: cover;
+  height: 100vh;
+  perspective: 20rem;
+}
+
+.scrolling-text {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: $secondary-color;
+  font-weight: bold;
+  line-height: 2;
+  width: 20rem;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: animateCrawl 30s infinite ease-in-out;
+  }
+}
