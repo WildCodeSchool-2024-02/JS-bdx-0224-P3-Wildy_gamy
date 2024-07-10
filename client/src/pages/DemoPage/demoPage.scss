@@ -10,12 +10,12 @@
   scroll-behavior: none;
 
   canvas {
+    margin: 2rem 0 2rem;
     width: 100%;
-    max-width: 37.5rem;
+    max-width: calc(100% - 4rem);
     height: auto;
     border: 0.125rem solid $secondary-color;
     background-color: $black-color;
-    margin-bottom: 4rem;
   }
 }
 
@@ -26,7 +26,7 @@
   transform: translate(-50%, -50%);
   background: rgba($black-color-2, 0.8);
   color: $white-color;
-  padding: 2rem;
+  padding: 1rem;
   margin: auto;
   border-radius: 1rem;
   text-align: center;
@@ -38,15 +38,15 @@
     align-items: center;
 
     h2 {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     button {
-      padding: 1rem 2rem;
+      padding: 0.75rem 1.5rem;
       background-color: $bronze-color;
       border: none;
       border-radius: 0.3125rem;
@@ -60,29 +60,65 @@
   }
 }
 
-@media (max-width: 768px) {
+.touch-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 1rem;
+
+  button {
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: $bronze-color;
+    color: $white-color;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 3rem;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+}
+
+@include for-desktop-up {
   .game-container {
     canvas {
-      width: 90%;
+      margin: 2rem 3.5rem;
+      width: auto;
+      min-width: 20%;
+      height: auto;
     }
   }
 
   .popup {
-    width: 80%;
-    padding: 1rem;
+    width: 30%;
+    padding: 2rem;
 
-    .epopup-content {
+    .popup-content {
       h2 {
-        margin: 1rem;
+        margin-bottom: 1.5rem;
       }
 
       p {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
 
       button {
-        padding: 0.75rem 1.5rem;
+        padding: 1rem 2rem;
       }
+    }
+  }
+
+  .touch-controls {
+    button {
+      display: none;
     }
   }
 }
