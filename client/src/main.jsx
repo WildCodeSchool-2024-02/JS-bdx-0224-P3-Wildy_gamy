@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  redirect,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,9 +17,10 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
-import { fetchApi } from "./services/api.service";
+import { fetchApi, handleFormAction } from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
+import sendEmail from "./services/contact.service";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
@@ -51,6 +48,8 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+        action: async ({ request }) =>
+          handleFormAction(request, sendEmail, `/`),
       },
       {
         path: "/infos",
@@ -59,28 +58,13 @@ const router = createBrowserRouter([
       {
         path: "/connexion",
         element: <LoginPage />,
-        action: async ({ request }) => {
-          const formData = await request.formData();
-          const data = Object.fromEntries(formData.entries());
-          const result = await login(data);
-          if (result.success) {
-            return redirect(`/`);
-          }
-          return null;
-        },
+        action: async ({ request }) => handleFormAction(request, login, `/`),
       },
       {
         path: "/inscription",
         element: <RegistrationPage />,
-        action: async ({ request }) => {
-          const formData = await request.formData();
-          const data = Object.fromEntries(formData.entries());
-          const result = await register(data);
-          if (result.success) {
-            return redirect(`/connexion`);
-          }
-          return null;
-        },
+        action: async ({ request }) =>
+          handleFormAction(request, register, `/connexion`),
       },
       {
         path: "/Profile",

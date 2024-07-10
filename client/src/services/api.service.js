@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 export async function fetchApi(url) {
   try {
     const response = await fetch(import.meta.env.VITE_API_URL + url);
@@ -23,4 +25,18 @@ export async function sendData(url, data, http) {
     console.error("Erreur lors de l'envoi des données :", error);
     return null;
   }
+}
+
+export async function handleFormAction(
+  request,
+  actionFunction,
+  successRedirectPath
+) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData.entries());
+  const result = await actionFunction(data);
+  if (result.success) {
+    return redirect(successRedirectPath);
+  }
+  return null;
 }
