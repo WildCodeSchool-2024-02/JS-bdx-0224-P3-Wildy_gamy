@@ -10,9 +10,12 @@
   scroll-behavior: none;
 
   canvas {
+    width: 100%;
+    max-width: 37.5rem;
+    height: auto;
     border: 0.125rem solid $secondary-color;
     background-color: $black-color;
-    margin-bottom: 1.5rem;
+    margin-bottom: 4rem;
   }
 }
 
@@ -24,6 +27,7 @@
   background: rgba($black-color-2, 0.8);
   color: $white-color;
   padding: 2rem;
+  margin: auto;
   border-radius: 1rem;
   text-align: center;
   z-index: 1;
@@ -51,6 +55,33 @@
 
       &:hover {
         background-color: $secondary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    canvas {
+      width: 90%;
+    }
+  }
+
+  .popup {
+    width: 80%;
+    padding: 1rem;
+
+    .epopup-content {
+      h2 {
+        margin: 1rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      button {
+        padding: 0.75rem 1.5rem;
       }
     }
   }
