@@ -8,15 +8,12 @@ const generateToken = (req, res, next) => {
 
   try {
     const token = jwt.sign(
-      { sub: req.user.id, role: req.user.role },
+      { id: req.user.id, role: req.user.role },
       process.env.APP_SECRET,
       { expiresIn: "1h" }
     );
-
-    res.json({
-      token,
-      user: req.user,
-    });
+    req.token = token;
+    next();
   } catch (err) {
     next(err);
   }
