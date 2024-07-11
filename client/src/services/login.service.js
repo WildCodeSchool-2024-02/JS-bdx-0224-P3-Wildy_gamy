@@ -11,7 +11,8 @@ const login = async (data) => {
     const response = await sendData(url, data, "POST");
     if (response.status === 200) {
       toast.success("Connexion réussie 👾");
-      return { success: true };
+      const auth = await response.json();
+      return { success: true, auth };
     }
     throw new Error("Invalid response from server");
   } catch (error) {

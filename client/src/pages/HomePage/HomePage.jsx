@@ -1,9 +1,11 @@
 /* eslint-disable import/no-unresolved */
 
+import { useContext, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { AuthContext } from "../../context/AuthContext";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -26,11 +28,22 @@ import {
   silverImages,
   bronzeImages,
 } from "../../services/importPodiumCard";
+import decodeToken from "../../services/decodeToken";
 
 const imageFiles = [salle1, salle2, salle3, salle4, salle5];
 const podiumImages = [goldImages, silverImages, bronzeImages];
 
 function HomePage() {
+  const { setAuth } = useContext(AuthContext);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const userData = decodeToken(token);
+      setAuth(userData);
+    }
+  }, []);
+
   return (
     <main>
       <h1>

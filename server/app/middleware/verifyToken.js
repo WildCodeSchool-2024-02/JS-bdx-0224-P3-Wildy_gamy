@@ -18,13 +18,15 @@ const verifyToken = (req, res, next) => {
 
     // Vérifier la validité du token (son authenticité et sa date d'expériation)
     // En cas de succès, le payload est extrait et décodé
-    req.auth = jwt.verify(token, process.env.APP_SECRET);
-
+    const decodedToken = jwt.verify(token, process.env.APP_SECRET);
+    req.auth = {
+      role: decodedToken.role,
+      id: decodedToken.email,
+    };
     next();
   } catch (err) {
-    console.error(err);
-
     res.sendStatus(401);
+    next(err);
   }
 };
 
