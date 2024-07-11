@@ -1,18 +1,25 @@
-import { useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { AuthContext } from "../context/AuthContext";
+import decodeToken from "./decodeToken";
 
 function AuthProtection({ children }) {
   const navigate = useNavigate();
-
-  const { auth } = useContext(AuthContext);
+  const [auth, setAuth] = useState(null);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    if (auth?.role !== "user") {
+    if (token) {
+      const userData = decodeToken(token);
+      setAuth(userData);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!token && auth?.role !== "user") {
       navigate("/connexion");
     }
-  }, [auth]);
+  }, [auth, navigate]);
 
   return children;
 }
@@ -20,7 +27,9 @@ function AuthProtection({ children }) {
 AuthProtection.propTypes = {
   children: PropTypes.node,
 };
+
 AuthProtection.defaultProps = {
   children: null,
 };
+
 export default AuthProtection;

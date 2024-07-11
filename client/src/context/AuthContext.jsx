@@ -4,7 +4,7 @@ import decodeToken from "../services/decodeToken";
 
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
-  const [auth, setAuth] = useState({ role: null, id: null });
+  const [auth, setAuth] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,12 +19,17 @@ export default function AuthProvider({ children }) {
     localStorage.removeItem("token");
   };
 
-const contextValue = useMemo(()=>({auth, setAuth, logout}),[auth]) 
+  const contextValue = useMemo(() => ({ auth, setAuth, logout }), [auth]);
 
-  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
 }
+
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
 export const useAuth = () => useContext(AuthContext);
+
 export { AuthProvider };
