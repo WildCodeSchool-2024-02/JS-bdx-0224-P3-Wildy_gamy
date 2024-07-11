@@ -292,7 +292,7 @@ function DemoPage() {
 
   useEffect(() => {
     if (gameEnded && score !== 0) {
-      const scoreData = { score };
+      const scoreData = { score, gameId: 1, userId:1 };
       sendData("/api/parties", scoreData, "POST");
     }
   }, [score, gameEnded]);

@@ -8,9 +8,9 @@ class PartyRepository extends AbstractRepository {
   // The C of CRUD - Create operation
   async create(party) {
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (score)
-                VALUES (?)`,
-      [party.score]
+      `INSERT INTO ${this.table} (score, user_id, game_id)
+                VALUES (?, ?, ?)`,
+      [party.score, party.userId, party.gameId]
     );
     return result.insertId;
   }
