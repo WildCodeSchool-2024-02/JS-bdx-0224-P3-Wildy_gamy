@@ -35,12 +35,16 @@ export async function sendData(url, data, http) {
 export async function handleFormAction(
   request,
   actionFunction,
-  successRedirectPath
+  successRedirectPath,
+  localStorageHandler = null
 ) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData.entries());
   const result = await actionFunction(data);
   if (result.success) {
+    if (localStorageHandler) {
+      localStorageHandler(result);
+    }
     return redirect(successRedirectPath);
   }
   return null;

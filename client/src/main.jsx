@@ -64,18 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/connexion",
         element: <LoginPage />,
-        action: async ({ request }) => handleFormAction(request, login, `/`),
-        // action: async ({ request }) => {
-        //   const formData = await request.formData();
-        //   const data = Object.fromEntries(formData.entries());
-        //   const result = await login(data);
-
-        //   if (result.success) {
-        //     localStorage.setItem("token", result.auth.token);
-        //     return redirect(`/`);
-        //   }
-        //   return null;
-        // },
+        action: async ({ request }) =>
+          handleFormAction(request, login, `/`, (result) => {
+            localStorage.setItem("token", result.auth.token);
+          }),
       },
       {
         path: "/inscription",
