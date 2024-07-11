@@ -1,0 +1,42 @@
+@import "../../scss/index.scss";
+
+.avatarImg {
+  margin: 1rem auto;
+  display: inherit;
+}
+
+.buttonModify {
+  @extend .avatarImg;
+  @include form-button;
+  width: 13rem;
+  margin: 1rem auto;
+}
+
+.scoreContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    background-color: $white-color;
+    border-radius: 0.5rem;
+    width: 90vw;
+    padding: 0.25rem;
+    margin-bottom: 1rem;
+
+    p {
+      color: $black-color;
+    }
+  }
+}
+
+@include for-desktop-up {
+  .coinContainer {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+}
