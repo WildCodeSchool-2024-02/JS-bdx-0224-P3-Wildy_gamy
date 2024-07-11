@@ -1,4 +1,5 @@
 import { jwtDecode } from "jwt-decode";
+import { toast } from "react-toastify";
 
 export default function decodeToken(token) {
   if (!token) return null;
@@ -9,7 +10,7 @@ export default function decodeToken(token) {
       id: decodedToken.id,
     };
   } catch (error) {
-    console.error("Invalid token", error);
+    toast.error(error.message);
     return null;
   }
 }
