@@ -24,8 +24,6 @@ import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import { fetchApi } from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
-import { AuthProvider } from "./context/AuthContext";
-import AuthProtection from "./services/AuthProtection";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
@@ -44,11 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/demo",
-        element: (
-          <AuthProtection>
-            <DemoPage />
-          </AuthProtection>
-        ),
+        element: <DemoPage />,
       },
       {
         path: "/prix",
@@ -70,9 +64,7 @@ const router = createBrowserRouter([
           const formData = await request.formData();
           const data = Object.fromEntries(formData.entries());
           const result = await login(data);
-
           if (result.success) {
-            localStorage.setItem("token", result.auth.token);
             return redirect(`/`);
           }
           return null;
@@ -95,7 +87,8 @@ const router = createBrowserRouter([
         path: "/profil/:id",
         element: <ProfilePage />,
         loader: () => fetchApi(baseGamesUrl),
-        // action: async ({request, params}) => sendData(baseUserUrl, userid, 'DELETE')
+        // action: async ({request, params}) => 
+        //   sendData(baseUserUrl, userid, 'DELETE')
       },
     ],
   },
@@ -105,21 +98,19 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition:Bounce
-      />
-    </AuthProvider>
+    <RouterProvider router={router} />
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      transition:Bounce
+    />
   </React.StrictMode>
 );

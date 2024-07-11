@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 
 import "../../scss/index.scss";
@@ -9,6 +9,8 @@ import ScoreDisplay from "../../components/ScoreDisplay/ScoreDisplay";
 import GameList from "../../components/GameList/GameList";
 import GameListModal from "../../components/GameListModal/GameListModal";
 import ProfileInfos from "../../components/ProfileInfos/ProfileInfos";
+import { AuthContext } from "../../context/AuthContext";
+import decodeToken from "../../services/decodeToken";
 
 function ProfilePage() {
   const gamesData = useLoaderData();
@@ -16,6 +18,18 @@ function ProfilePage() {
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedGame, setSelectedGame] = useState(null);
+  // const [auth, setAuth] = useState(null);
+
+  const { setAuth } = useContext(AuthContext);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    // console.log(token)
+    if (token) {
+      const userData = decodeToken(token);
+      setAuth(userData);
+    }
+    // console.log(token)
+  }, []);
 
   const handleClickModal = (booleanState, setBooleanState) => () => {
     setBooleanState(!booleanState);
