@@ -1,11 +1,11 @@
 import { useRef, useEffect, useState } from "react";
-
 import shipImg from "../../assets/images/space-invaders-assets/ship.png";
 import alienMagenta from "../../assets/images/space-invaders-assets/alien-magenta.png";
 import alienCyan from "../../assets/images/space-invaders-assets/alien-cyan.png";
 import alienYellow from "../../assets/images/space-invaders-assets/alien-yellow.png";
 import alienDefault from "../../assets/images/space-invaders-assets/alien.png";
 import "./demoPage.scss";
+import { sendData } from "../../services/api.service";
 
 function DemoPage() {
   const canvasRef = useRef(null);
@@ -15,6 +15,7 @@ function DemoPage() {
   const [score, setScore] = useState(0);
   const [showStartPopup, setShowStartPopup] = useState(true);
   const [showEndPopup, setShowEndPopup] = useState(false);
+  const [gameEnded, setGameEnded] = useState(false);
   const scoreRef = useRef(score);
   const animationIdRef = useRef(null);
   const tileSize = 32;
@@ -93,7 +94,7 @@ function DemoPage() {
       a.y + a.height > b.y
     );
   }
-  
+
   function update() {
     if (gameOver) {
       return;
@@ -179,6 +180,7 @@ function DemoPage() {
     context.font = "16px courier";
     context.fillText(`Score: ${scoreRef.current}`, 5, 20);
   }
+
   function moveShip(e) {
     if (gameOver) {
       return;
@@ -192,6 +194,7 @@ function DemoPage() {
       ship.x += shipVelocityX;
     }
   }
+
   function shoot(e) {
     if (gameOver) {
       return;
@@ -207,10 +210,12 @@ function DemoPage() {
       bulletArray.push(bullet);
     }
   }
+
   function resetGame() {
     setScore(0);
     scoreRef.current = 0;
     setGameOver(false);
+    setGameEnded(false);
     alienRows = 2;
     alienColumns = 3;
     alienVelocityX = 1;
@@ -226,6 +231,7 @@ function DemoPage() {
 
     animationIdRef.current = requestAnimationFrame(update);
   }
+
   useEffect(() => {
     document.addEventListener("keydown", moveShip);
     document.addEventListener("keyup", shoot);
@@ -235,16 +241,47 @@ function DemoPage() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleTouchMove = (e) => {
+      const touchX = e.touches[0].clientX;
+      if (touchX < window.innerWidth / 2 && ship.x - shipVelocityX >= 0) {
+        moveShip({ code: "ArrowLeft" });
+      } else if (
+        touchX >= window.innerWidth / 2 &&
+        ship.x + shipVelocityX + ship.width <= boardWidth
+      ) {
+        moveShip({ code: "ArrowRight" });
+      }
+    };
+
+    const handleTouchStart = (e) => {
+      if (e.touches.length === 2) {
+        shoot({ code: "Space" });
+      }
+    };
+
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchstart", handleTouchStart);
+
+    return () => {
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchstart", handleTouchStart);
+    };
+  }, [gameOver]);
+
   function handleGameOver() {
     cancelAnimationFrame(animationIdRef.current);
     setShowEndPopup(true);
+    setGameEnded(true);
   }
+
   function startGame() {
     setShowStartPopup(false);
-    resetGame(); // start the game with resetGame function
+    resetGame();
   }
+
   function restartGame() {
-    window.location.reload(); // reload the game
+    window.location.reload();
   }
 
   useEffect(() => {
@@ -253,14 +290,24 @@ function DemoPage() {
     }
   }, [gameOver]);
 
+  useEffect(() => {
+    if (gameEnded && score !== 0) {
+      const scoreData = { score };
+      sendData("/api/parties", scoreData, "POST");
+    }
+  }, [score, gameEnded]);
+
   return (
     <main>
       <h1>Retrouvez Space Invaders dans nos salles d'arcade !</h1>
       <section className="game-container">
-        <canvas ref={canvasRef} aria-label="Espace de jeu Space Invaders"/>
+        <canvas ref={canvasRef} aria-label="Espace de jeu Space Invaders" />
         {showStartPopup && (
           <aside className="popup">
-            <section className="popup-content" aria-labelledby="popup debut de partie">
+            <section
+              className="popup-content"
+              aria-labelledby="popup debut de partie"
+            >
               <h2>Bienvenue sur Space Invaders</h2>
               <button type="button" onClick={startGame}>
                 Commencer la partie
@@ -270,7 +317,10 @@ function DemoPage() {
         )}
         {showEndPopup && (
           <aside className="popup">
-            <section className="popup-content" aria-labelledby="popup fin de partie">
+            <section
+              className="popup-content"
+              aria-labelledby="popup fin de partie"
+            >
               <h2>Game Over</h2>
               <p>Score final: {score}</p>
               <button type="button" onClick={restartGame}>
@@ -279,8 +329,29 @@ function DemoPage() {
             </section>
           </aside>
         )}
+        <section
+          className="touch-controls"
+          aria-labelledby="bouttons de controle jeu mobile"
+        >
+          <button
+            type="button"
+            onTouchStart={() => moveShip({ code: "ArrowLeft" })}
+          >
+            Gauche
+          </button>
+          <button type="button" onTouchStart={() => shoot({ code: "Space" })}>
+            Tirer
+          </button>
+          <button
+            type="button"
+            onTouchStart={() => moveShip({ code: "ArrowRight" })}
+          >
+            Droite
+          </button>
+        </section>
       </section>
     </main>
   );
 }
+
 export default DemoPage;
