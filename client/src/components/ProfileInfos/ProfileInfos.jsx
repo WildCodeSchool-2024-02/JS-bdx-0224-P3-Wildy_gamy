@@ -8,7 +8,7 @@ import Avatar from "../../assets/images/avatar/Avatar-basic.svg";
 function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, showModalDelete, setShowModalDelete}) {
   return (
     <>
-    <h1>Profile</h1>
+    <h1>Profil</h1>
       <img src={Avatar} alt="avatar par defaut" className="avatarImg" />
       <h2>John Doe</h2>
       <button

@@ -27,6 +27,7 @@ import register from "./services/register.service";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
+// const baseUserUrl = "/api/users";
 
 const router = createBrowserRouter([
   {
@@ -83,9 +84,10 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/Profile",
+        path: "/profil/:id",
         element: <ProfilePage />,
         loader: () => fetchApi(baseGamesUrl),
+        // action: async ({request, params}) => sendData(baseUserUrl, userid, 'DELETE')
       },
     ],
   },
