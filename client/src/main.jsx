@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <ContactPage />,
         action: async ({ request }) =>
-          handleFormAction(request, sendEmail, `/`),
+          handleFormAction(request, sendEmail, `/contact`),
       },
       {
         path: "/infos",
