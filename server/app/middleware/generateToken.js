@@ -10,7 +10,7 @@ const generateToken = (req, res, next) => {
     const token = jwt.sign(
       { id: req.user.id, role: req.user.role },
       process.env.APP_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "3h" }
     );
     req.token = token;
     next();

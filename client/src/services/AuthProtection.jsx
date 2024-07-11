@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import decodeToken from "./decodeToken";
 
@@ -17,6 +18,7 @@ function AuthProtection({ children }) {
 
   useEffect(() => {
     if (!token && auth?.role !== "user") {
+      toast.error('👻 Veuillez vous connecter 👻')
       navigate("/connexion");
     }
   }, [auth, navigate]);
