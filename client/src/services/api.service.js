@@ -1,3 +1,4 @@
+import { redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export async function fetchApi(url) {
@@ -30,4 +31,22 @@ export async function sendData(url, data, http) {
     toast.error("Erreur lors de la récupération des données :");
     return null;
   }
+}
+
+export async function handleFormAction(
+  request,
+  actionFunction,
+  successRedirectPath,
+  localStorageHandler = null
+) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData.entries());
+  const result = await actionFunction(data);
+  if (result.success) {
+    if (localStorageHandler) {
+      localStorageHandler(result);
+    }
+    return redirect(successRedirectPath);
+  }
+  return null;
 }
