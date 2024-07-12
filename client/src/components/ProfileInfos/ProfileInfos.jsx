@@ -14,7 +14,6 @@ function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, sh
       <button
         type="button"
         onClick={handleClickModal(showModalModify, setShowModalModify)}
-        aria-label="Ouverture de la modale modifier mes informations"
         className="buttonModify"
       >
         Modifier mes infos
@@ -22,7 +21,6 @@ function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, sh
       <button
         type="button"
         onClick={handleClickModal(showModalDelete, setShowModalDelete)}
-        aria-label="Ouverture de la modale supprimer mes informations"
         className="buttonModify"
       >
         Supprimer mon compte

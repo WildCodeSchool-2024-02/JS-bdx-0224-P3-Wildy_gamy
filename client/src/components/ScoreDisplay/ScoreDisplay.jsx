@@ -5,8 +5,8 @@ function ScoreDisplay() {
     <table className="tableScore">
       <thead>
         <tr>
-          <th>Game</th>
-          <th>Score</th>
+          <th scope="col">Jeux</th>
+          <th scope="col">Score</th>
         </tr>
       </thead>
       <tbody>
