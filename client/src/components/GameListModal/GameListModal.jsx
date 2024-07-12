@@ -1,12 +1,15 @@
 import PropTypes from "prop-types";
 import "../../scss/index.scss";
 import "./GameListModal.scss";
-import { Form } from "react-router-dom";
+import { Form, useSubmit } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
-function GameListModal({ onClose, isOpen, gamesData }) {
+function GameListModal({ onClose, isOpen, gamesData, auth }) {
+  const submit = useSubmit();
+
   if (!isOpen || !gamesData) return null;
+  // console.log(auth.id, gamesData.id);
   return (
     <dialog className="modal-active">
       <article className="modal-content">
@@ -19,7 +22,14 @@ function GameListModal({ onClose, isOpen, gamesData }) {
         >
           ×
         </button>
-        <Form method="POST">
+        <Form
+          method="POST"
+          onChange={(event) => {
+            submit(event.currentTarget);
+          }}
+        >
+          <input type="hidden" name="userId" value={auth?.id || ""} />
+          <input type="hidden" name="gameId" value={gamesData?.id || ""} />
           <label
             className="favorite-container"
             htmlFor="favoriteCheckbox"
@@ -66,22 +76,32 @@ GameListModal.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
   gamesData: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     image_demo: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     release_date: PropTypes.number.isRequired,
     description: PropTypes.string.isRequired,
     demoLink: PropTypes.string,
   }),
+  auth: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    role: PropTypes.string.isRequired,
+  }),
 };
 
 GameListModal.defaultProps = {
   isOpen: false,
   gamesData: {
+    id: null,
     image_demo: "",
     name: "Jeu non disponible",
     release_date: "Non disponible",
     description: "Aucune description disponible.",
     demoLink: null,
+  },
+  auth: {
+    id: null,
+    role: null,
   },
 };
 

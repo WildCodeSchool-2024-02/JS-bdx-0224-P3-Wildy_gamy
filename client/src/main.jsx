@@ -24,6 +24,7 @@ import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import { fetchApi } from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
+import favoriteGame from "./services/favoriteGame.service";
 import { AuthProvider } from "./context/AuthContext";
 import AuthProtection from "./services/AuthProtection";
 
@@ -40,6 +41,17 @@ const router = createBrowserRouter([
         path: "/catalogue",
         element: <GameListPage />,
         loader: () => fetchApi(baseGamesUrl),
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          const data = Object.fromEntries(formData.entries());
+          // console.log(data);
+          const result = await favoriteGame(data);
+
+          if (result.success) {
+            // console.log("let's go");
+          }
+          return null;
+        },
       },
       {
         path: "/demo",
