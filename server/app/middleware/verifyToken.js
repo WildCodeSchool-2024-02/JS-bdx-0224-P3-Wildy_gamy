@@ -21,7 +21,8 @@ const verifyToken = (req, res, next) => {
     const decodedToken = jwt.verify(token, process.env.APP_SECRET);
     req.auth = {
       role: decodedToken.role,
-      id: decodedToken.email,
+      email: decodedToken.email,
+      id: decodedToken.id,
     };
     next();
   } catch (err) {
