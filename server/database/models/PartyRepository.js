@@ -16,10 +16,16 @@ class PartyRepository extends AbstractRepository {
 
   async getTopScores() {
     const [rows] = await this.database.query(
-      `SELECT score, user_id, game_id
-       FROM ${this.table}
-       ORDER BY score DESC
-       LIMIT 3`
+      `SELECT 
+            p.score,
+            u.pseudo
+        FROM 
+            party p
+        JOIN 
+            user u ON p.user_id = u.id
+        ORDER BY 
+            p.score DESC
+        LIMIT 3;`
     );
     return rows;
   }

@@ -3,7 +3,7 @@
 import { useContext, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, A11y } from "swiper/modules";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -35,6 +35,7 @@ const podiumImages = [goldImages, silverImages, bronzeImages];
 
 function HomePage() {
   const { setAuth } = useContext(AuthContext);
+  const partiesData = useLoaderData();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -85,9 +86,9 @@ function HomePage() {
       <NavigationChevron route="/#podium" />
       <h2 id="podium">Meilleurs joueurs en ligne</h2>
       <ul className="podium">
-        {podiumImages.map((podiumImage) => (
+        {partiesData.map((party, index) => (
           <li key={uuidv4()} className="podiumCard">
-            <PodiumCard card={podiumImage} />
+            <PodiumCard card={podiumImages[index]} party={party} />
           </li>
         ))}
       </ul>
