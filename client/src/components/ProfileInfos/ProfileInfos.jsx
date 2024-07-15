@@ -5,7 +5,8 @@ import DeleteInfoModale from '../DeleteInfoModale/DeleteInfoModale'
 
 import Avatar from "../../assets/images/avatar/Avatar-basic.svg";
 
-function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, showModalDelete, setShowModalDelete}) {
+function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, showModalDelete, setShowModalDelete, handleClickLogout}) {
+  
   return (
     <>
     <h1>Profile</h1>
@@ -14,15 +15,21 @@ function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, sh
       <button
         type="button"
         onClick={handleClickModal(showModalModify, setShowModalModify)}
-        aria-label="Ouverture de la modale modifier mes informations"
         className="buttonModify"
       >
         Modifier mes infos
       </button>
       <button
         type="button"
+        onClick={handleClickLogout}
+        aria-label="Déconnexion"
+        className="buttonModify"
+      >
+        Se déconnecter
+      </button>
+      <button
+        type="button"
         onClick={handleClickModal(showModalDelete, setShowModalDelete)}
-        aria-label="Ouverture de la modale supprimer mes informations"
         className="buttonModify"
       >
         Supprimer mon compte
@@ -51,6 +58,8 @@ ProfileInfos.propTypes = {
     setShowModalModify: PropTypes.func.isRequired,
     showModalDelete: PropTypes.bool.isRequired,
     setShowModalDelete: PropTypes.func.isRequired,
+    handleClickLogout: PropTypes.func.isRequired,
+
   };
 
 export default ProfileInfos
