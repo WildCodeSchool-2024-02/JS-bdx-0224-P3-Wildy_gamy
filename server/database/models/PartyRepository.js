@@ -5,23 +5,24 @@ class PartyRepository extends AbstractRepository {
     super({ table: "party" });
   }
 
-  // The C of CRUD - Create operation
-  async create(party) {
+  async create({ score, userId, gameId }) {
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (score)
-                VALUES (?)`,
-      [party.score]
+      `INSERT INTO ${this.table} (score, user_id, game_id)
+       VALUES (?, ?, ?)`,
+      [score, userId, gameId]
     );
     return result.insertId;
   }
-  // Execute the SQL INSERT query to add a new item to the "item" table
-  // Return the ID of the newly inserted item
-  // The Rs of CRUD - Read operations
 
-  // Execute the SQL UPDATE query to update a specific program
-  // Return how many rows were affected
-  // The D of CRUD - Delete operation
-  // Execute the SQL DELETE query to delete a specific program
-  // Return how many rows were affected
+  async getTopScores() {
+    const [rows] = await this.database.query(
+      `SELECT score, user_id, game_id
+       FROM ${this.table}
+       ORDER BY score DESC
+       LIMIT 3`
+    );
+    return rows;
+  }
 }
+
 module.exports = PartyRepository;
