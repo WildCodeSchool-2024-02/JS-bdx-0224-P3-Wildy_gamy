@@ -1,20 +1,27 @@
 import PropTypes from "prop-types";
 
-import ModifyInfoModale from '../ModifyInfoModale/ModifyInfoModale'
-import DeleteInfoModale from '../DeleteInfoModale/DeleteInfoModale'
+import ModifyInfoModale from "../ModifyInfoModale/ModifyInfoModale";
+import DeleteInfoModale from "../DeleteInfoModale/DeleteInfoModale";
 
 import Avatar from "../../assets/images/avatar/Avatar-basic.svg";
 
-function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, showModalDelete, setShowModalDelete}) {
+function ProfileInfos({
+  handleClickModal,
+  showModalModify,
+  setShowModalModify,
+  showModalDelete,
+  setShowModalDelete,
+  usersData,
+}) {
+  const userInfos = { ...usersData };
   return (
     <>
-    <h1>Profile</h1>
+      <h1>Profil</h1>
       <img src={Avatar} alt="avatar par defaut" className="avatarImg" />
-      <h2>John Doe</h2>
+      <h2>{userInfos[0].pseudo}</h2>
       <button
         type="button"
         onClick={handleClickModal(showModalModify, setShowModalModify)}
-        aria-label="Ouverture de la modale modifier mes informations"
         className="buttonModify"
       >
         Modifier mes infos
@@ -22,7 +29,6 @@ function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, sh
       <button
         type="button"
         onClick={handleClickModal(showModalDelete, setShowModalDelete)}
-        aria-label="Ouverture de la modale supprimer mes informations"
         className="buttonModify"
       >
         Supprimer mon compte
@@ -32,6 +38,7 @@ function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, sh
           handleClickModal={handleClickModal}
           showModalModify={showModalModify}
           setShowModalModify={setShowModalModify}
+          userInfos={userInfos}
         />
       )}
       {showModalDelete && (
@@ -41,16 +48,23 @@ function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, sh
           setShowModalDelete={setShowModalDelete}
         />
       )}
-      </>
-  )
+    </>
+  );
 }
 
 ProfileInfos.propTypes = {
-    handleClickModal: PropTypes.func.isRequired,
-    showModalModify: PropTypes.bool.isRequired,
-    setShowModalModify: PropTypes.func.isRequired,
-    showModalDelete: PropTypes.bool.isRequired,
-    setShowModalDelete: PropTypes.func.isRequired,
-  };
+  handleClickModal: PropTypes.func.isRequired,
+  showModalModify: PropTypes.bool.isRequired,
+  setShowModalModify: PropTypes.func.isRequired,
+  showModalDelete: PropTypes.bool.isRequired,
+  setShowModalDelete: PropTypes.func.isRequired,
+  usersData: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    pseudo: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
-export default ProfileInfos
+export default ProfileInfos;

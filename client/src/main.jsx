@@ -21,7 +21,7 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
-import { fetchApi } from "./services/api.service";
+import { fetchApi, fetchMultipleApis, sendData } from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
 import { AuthProvider } from "./context/AuthContext";
@@ -29,6 +29,8 @@ import AuthProtection from "./services/AuthProtection";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
+const baseUserUrl = "/api/users";
+const urls = [baseGamesUrl, baseUserUrl]
 
 const router = createBrowserRouter([
   {
@@ -91,9 +93,21 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/Profile",
+        path: "/profil/:id",
         element: <ProfilePage />,
-        loader: () => fetchApi(baseGamesUrl),
+        loader: () => fetchMultipleApis(urls),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          const data = Object.fromEntries(formData.entries());
+
+          const method = request.method.toUpperCase();
+
+          const handleMethod = async (httpMethod) => {
+            await sendData(`${baseUserUrl}/${params.id}`, data, httpMethod);
+          };
+          await handleMethod(method);
+          return redirect("/");
+        },
       },
     ],
   },

@@ -1,5 +1,7 @@
 const express = require("express");
 
+const { hashPassword } = require("../../../middleware/hashPassword");
+
 const router = express.Router();
 
 const {
@@ -16,7 +18,7 @@ router.get("/:id", read);
 
 router.put("/:id", edit);
 
-router.post("/", add);
+router.post("/", hashPassword, add);
 
 router.delete("/:id", destroy);
 

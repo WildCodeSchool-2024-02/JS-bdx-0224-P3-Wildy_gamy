@@ -1,7 +1,13 @@
 import PropTypes from "prop-types";
 import "./DeleteInfoModale.scss";
+import { Form } from "react-router-dom";
 
-function DeleteInfoModale({ handleClickModal, showModalDelete, setShowModalDelete }) {
+function DeleteInfoModale({
+  handleClickModal,
+  showModalDelete,
+  setShowModalDelete,
+}) {
+
   return (
     <dialog open className="modalDelete">
       <p>
@@ -15,9 +21,14 @@ function DeleteInfoModale({ handleClickModal, showModalDelete, setShowModalDelet
       >
         Annuler
       </button>
-      <button type="button" className="deleteButton">
+      <Form method="DELETE">
+      <button
+        type="submit"
+        className="deleteButton"
+      >
         Supprimer mon compte
       </button>
+      </Form>
     </dialog>
   );
 }
