@@ -13,7 +13,7 @@ const sendScore = async (data) => {
       toast.success("Votre score a bien été enregistré !");
       return { success: true };
     }
-    throw new Error("Erreur lors de l'envoi du score");
+    throw new Error("Error sending score");
   } catch (error) {
     toast.error(error.message);
     return { success: false };

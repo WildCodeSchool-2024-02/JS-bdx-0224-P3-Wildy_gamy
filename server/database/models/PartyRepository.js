@@ -5,7 +5,7 @@ class PartyRepository extends AbstractRepository {
     super({ table: "party" });
   }
 
-  async create({ score, userId, gameId = 1 }) {
+  async create({ score, userId, gameId }) {
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (score, user_id, game_id)
        VALUES (?, ?, ?)`,
