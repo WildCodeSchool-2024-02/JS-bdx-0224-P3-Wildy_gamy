@@ -11,81 +11,77 @@ function RegistrationPage() {
     setShowPassword(!showPassword);
   };
 
-  const registrationFields = [
-    {
-      id: "firstname",
-      label: "Prénom",
-      type: "text",
-      placeholder: "Prénom",
-      required: true,
-    },
-    {
-      id: "lastname",
-      label: "Nom",
-      type: "text",
-      placeholder: "Nom",
-      required: true,
-    },
-    {
-      id: "pseudo",
-      label: "Pseudo",
-      type: "text",
-      placeholder: "Pseudo",
-      required: true,
-    },
-    {
-      id: "email",
-      label: "Email",
-      type: "email",
-      placeholder: "Email",
-      pattern: "^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
-      required: true,
-    },
-    {
-      id: "password",
-      label: "Mot de passe",
-      type: showPassword ? "text" : "password",
-      placeholder: "Mot de passe",
-      pattern:
-        "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$",
-      minLength: 8,
-      required: true,
-    },
-  ];
-
   return (
     <main>
-      <h1 className="registration-title">Inscription</h1>
+      <h1 className="registration-title">Inscription </h1>
       <Form method="post" className="registration-form">
-        {registrationFields.map((field) => (
-          <>
-            <label
-              key={field.id}
-              className="label-registration"
-              htmlFor={field.id}
-            >
-              {field.label}
-              {field.id === "password" && (
-                <FontAwesomeIcon
-                  onClick={toggleShowPassword}
-                  className="password-toggle-icon"
-                  icon={showPassword ? faEyeSlash : faEye}
-                />
-              )}
-            </label>
-            <input
-              className="input-registration"
-              type={field.type}
-              id={field.id}
-              name={field.id}
-              placeholder={field.placeholder}
-              pattern={field.pattern}
-              minLength={field.minLength}
-              required={field.required}
-            />
-          </>
-        ))}
-        <button className="validation-button" type="submit">
+        <label className="label-registration" htmlFor="firstname">
+          Prénom
+        </label>
+        <input
+          className="input-registration"
+          type="text"
+          id="firstname"
+          name="firstname"
+          placeholder="Prénom"
+          required
+        />
+        <label className="label-registration" htmlFor="lastname">
+          Nom
+        </label>
+        <input
+          className="input-registration"
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Nom"
+          required
+        />
+        <label className="label-registration" htmlFor="pseudo">
+          Pseudo
+        </label>
+        <input
+          className="input-registration"
+          type="text"
+          id="pseudo"
+          name="pseudo"
+          placeholder="Pseudo"
+          required
+        />
+        <label className="label-registration" htmlFor="email">
+          Email
+        </label>
+        <input
+          className="input-registration"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+          required
+        />
+        <label className="label-registration" htmlFor="password">
+          Mot de passe
+          <FontAwesomeIcon
+            onClick={toggleShowPassword}
+            className="password-toggle-icon"
+            icon={showPassword ? faEyeSlash : faEye}
+          />
+        </label>
+        <input
+          className="input-registration"
+          type={showPassword ? "text" : "password"}
+          minLength="8"
+          id="password"
+          name="password"
+          placeholder="Mot de passe"
+          pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
+          required
+        />
+        <button
+          className="validation-button"
+          type="submit"
+        >
           Valider
         </button>
         <Link to="/connexion" className="link-connexion">
