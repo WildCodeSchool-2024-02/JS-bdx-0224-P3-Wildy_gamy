@@ -21,7 +21,7 @@ function Header({ links }) {
         </ul>
       </nav>
       <span className="wg-written">Wildy Gamy</span>
-      <NavLink to={auth ? "/Profile" : "/connexion"} className="account-link">
+      <NavLink to={auth ? `/profil/:id` : "/connexion"} className="account-link">
         Compte
       </NavLink>
     </header>

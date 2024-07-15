@@ -14,11 +14,9 @@ const authRouter = require("./auth/router");
 const favoritesRouter = require("./favorites/router")
 const contactsRouter = require("./contacts/router");
 
-const { hashPassword } = require("../../middleware/hashPassword");
-
 router.use("/games", gamesRouter);
 router.use("/rewards", rewardsRouter);
-router.use("/users", hashPassword, usersRouter);
+router.use("/users", usersRouter);
 router.use("/login", authRouter);
 router.use("/parties", partiesRouter);
 router.use("/favorites", favoritesRouter);

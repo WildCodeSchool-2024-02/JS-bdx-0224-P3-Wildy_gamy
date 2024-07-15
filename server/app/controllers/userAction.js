@@ -46,13 +46,13 @@ const add = async (req, res, next) => {
   }
 };
 
-const destroy = async (req, res, next) => {
+const destroy = async (req, res) => {
   try {
     await tables.user.delete(req.params.id);
 
     res.sendStatus(204);
   } catch (err) {
-    next(err);
+    res.sendStatus(500);
   }
 };
 
