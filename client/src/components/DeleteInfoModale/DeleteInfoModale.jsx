@@ -7,7 +7,6 @@ function DeleteInfoModale({
   showModalDelete,
   setShowModalDelete,
 }) {
-
   return (
     <dialog open className="modalDelete">
       <p>
@@ -21,13 +20,10 @@ function DeleteInfoModale({
       >
         Annuler
       </button>
-      <Form method="DELETE">
-      <button
-        type="submit"
-        className="deleteButton"
-      >
-        Supprimer mon compte
-      </button>
+      <Form method="DELETE" className="deleteForm">
+        <button type="submit" className="deleteButton">
+          Supprimer mon compte
+        </button>
       </Form>
     </dialog>
   );
