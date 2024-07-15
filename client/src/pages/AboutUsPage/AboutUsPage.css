@@ -1,0 +1,150 @@
+@font-face {
+  font-family: "Jersey20";
+  src: url("/src/assets/fonts/Jersey20-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/assets/fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+}
+@keyframes triangleMoveAndRotate {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+  10% {
+    transform: translateX(2rem) translateY(-8rem) rotate(-120deg) scale(1.2);
+  }
+  15% {
+    transform: translateX(2rem) translateY(-8rem) rotate(-120deg) scale(1);
+  }
+  20% {
+    transform: translateX(-4rem) translateY(-9rem) rotate(-240deg) scale(1.2);
+  }
+  25% {
+    transform: translateX(-4rem) translateY(-9rem) rotate(-240deg) scale(1);
+  }
+  30%,
+  100% {
+    transform: translateX(0) translateY(0) rotate(-360deg) scale(1);
+  }
+}
+@keyframes animateCrawl {
+  0% {
+    transform: rotateX(30deg) translateY(22rem);
+  }
+  100% {
+    transform: rotateX(30deg) translateY(-30rem);
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #12022b;
+  color: #fffafa;
+  padding-bottom: 4.3rem;
+}
+@media (min-width: 768px) {
+  body {
+    padding-top: 3.9rem;
+    padding-bottom: 0;
+  }
+}
+
+main {
+  min-height: calc(100vh - 8.2rem);
+}
+
+h1,
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-family: "Jersey20", "Arial Black", sans-serif;
+  text-align: center;
+  color: #fffafa;
+  font-weight: 400;
+  margin: 1rem;
+  text-shadow:
+    -0.025rem -0.025rem #232323,
+    0.025rem -0.025rem #232323,
+    -0.025rem 0.025rem #232323,
+    0.025rem 0.025rem #232323,
+    0.05rem 0.05rem #232323;
+}
+@media (min-width: 768px) {
+  h1,
+  h2 {
+    margin: 2rem;
+  }
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  text-align: left;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fdc23e;
+  border-radius: 0.5rem;
+  overflow-x: none;
+}
+
+.about-us-page {
+  overflow: hidden;
+  background-image: url("../../assets/images/stars-sky.jpg");
+  background-size: cover;
+  height: 100vh;
+  perspective: 20rem;
+}
+
+.scrolling-text {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: #fdc23e;
+  font-weight: bold;
+  line-height: 2;
+  width: 20rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .scrolling-text {
+    animation: animateCrawl 30s infinite ease-in-out;
+  }
+} /*# sourceMappingURL=AboutUsPage.css.map */

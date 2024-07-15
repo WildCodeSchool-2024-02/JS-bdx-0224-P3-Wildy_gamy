@@ -37,10 +37,10 @@ export async function handleFormAction(request, actionFunction, redirectPath) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData.entries());
   const result = await actionFunction(data);
-  
+
   if (result.success && redirectPath) {
     return redirect(redirectPath);
   }
-  
+
   return result;
 }

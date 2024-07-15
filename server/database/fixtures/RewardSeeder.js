@@ -44,7 +44,8 @@ class RewardSeeder extends AbstractSeeder {
       },
       {
         name: "Coque de téléphone Totoro",
-        description: "Une protection adorable pour votre téléphone inspirée de Totoro.",
+        description:
+          "Une protection adorable pour votre téléphone inspirée de Totoro.",
         remaining_quantity: 53,
         price: 2,
         image: "case.jpg",
@@ -58,7 +59,8 @@ class RewardSeeder extends AbstractSeeder {
       },
       {
         name: "Set de dés",
-        description: "Un set de dés avec différents nombres de faces pour tous vos jeux.",
+        description:
+          "Un set de dés avec différents nombres de faces pour tous vos jeux.",
         remaining_quantity: 79,
         price: 1,
         image: "dice.jpg",
@@ -72,7 +74,8 @@ class RewardSeeder extends AbstractSeeder {
       },
       {
         name: "Figurine rétro",
-        description: "Choisissez une figurine de jeu rétro parmi notre collection.",
+        description:
+          "Choisissez une figurine de jeu rétro parmi notre collection.",
         remaining_quantity: 15,
         price: 3,
         image: "figurine_retro.jpg",
@@ -100,7 +103,8 @@ class RewardSeeder extends AbstractSeeder {
       },
       {
         name: "Boîte de Jenga",
-        description: "Une boîte de Jenga pour des parties amusantes avec des amis.",
+        description:
+          "Une boîte de Jenga pour des parties amusantes avec des amis.",
         remaining_quantity: 30,
         price: 2,
         image: "jenga.jpg",
@@ -156,14 +160,16 @@ class RewardSeeder extends AbstractSeeder {
       },
       {
         name: "Paquet de cartes Pokémon",
-        description: "Un paquet de cartes Pokémon pour enrichir votre collection.",
+        description:
+          "Un paquet de cartes Pokémon pour enrichir votre collection.",
         remaining_quantity: 111,
         price: 1,
         image: "pokemon_card.jpg",
       },
       {
         name: "Paquet de cartes de poker",
-        description: "Un paquet de cartes de poker pour vos parties entre amis.",
+        description:
+          "Un paquet de cartes de poker pour vos parties entre amis.",
         remaining_quantity: 71,
         price: 1,
         image: "poker_card.jpg",
@@ -219,7 +225,8 @@ class RewardSeeder extends AbstractSeeder {
       },
       {
         name: "Tamagochi",
-        description: "Un Tamagochi de première génération pour les nostalgiques.",
+        description:
+          "Un Tamagochi de première génération pour les nostalgiques.",
         remaining_quantity: 20,
         price: 2,
         image: "tamagotchi.jpg",

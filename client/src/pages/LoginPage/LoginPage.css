@@ -1,0 +1,197 @@
+@font-face {
+  font-family: "Jersey20";
+  src: url("/src/assets/fonts/Jersey20-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/assets/fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+}
+@keyframes triangleMoveAndRotate {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+  10% {
+    transform: translateX(2rem) translateY(-8rem) rotate(-120deg) scale(1.2);
+  }
+  15% {
+    transform: translateX(2rem) translateY(-8rem) rotate(-120deg) scale(1);
+  }
+  20% {
+    transform: translateX(-4rem) translateY(-9rem) rotate(-240deg) scale(1.2);
+  }
+  25% {
+    transform: translateX(-4rem) translateY(-9rem) rotate(-240deg) scale(1);
+  }
+  30%,
+  100% {
+    transform: translateX(0) translateY(0) rotate(-360deg) scale(1);
+  }
+}
+@keyframes animateCrawl {
+  0% {
+    transform: rotateX(30deg) translateY(22rem);
+  }
+  100% {
+    transform: rotateX(30deg) translateY(-30rem);
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #12022b;
+  color: #fffafa;
+  padding-bottom: 4.3rem;
+}
+@media (min-width: 768px) {
+  body {
+    padding-top: 3.9rem;
+    padding-bottom: 0;
+  }
+}
+
+main {
+  min-height: calc(100vh - 8.2rem);
+}
+
+h1,
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-family: "Jersey20", "Arial Black", sans-serif;
+  text-align: center;
+  color: #fffafa;
+  font-weight: 400;
+  margin: 1rem;
+  text-shadow:
+    -0.025rem -0.025rem #232323,
+    0.025rem -0.025rem #232323,
+    -0.025rem 0.025rem #232323,
+    0.025rem 0.025rem #232323,
+    0.05rem 0.05rem #232323;
+}
+@media (min-width: 768px) {
+  h1,
+  h2 {
+    margin: 2rem;
+  }
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  text-align: left;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fdc23e;
+  border-radius: 0.5rem;
+  overflow-x: none;
+}
+
+.connexion-title {
+  text-align: center;
+}
+
+.connexion-form {
+  display: flex;
+  flex-direction: column;
+  margin: 1.2rem;
+  border-radius: 0.4rem;
+}
+@media (min-width: 768px) {
+  .connexion-form {
+    margin: auto 5rem;
+  }
+}
+
+.label-connexion {
+  font-weight: 600;
+  margin: 0.5rem;
+}
+@media (min-width: 768px) {
+  .label-connexion {
+    margin: 0.5rem 10rem;
+  }
+}
+
+.input-connexion {
+  margin: 0.1rem 0.4rem 2rem 0.4rem;
+  padding: 0.8rem;
+  border: 0.2rem outset #fdc23e;
+  border-radius: 0.2rem;
+  height: 1.5rem;
+}
+@media (min-width: 768px) {
+  .input-connexion {
+    margin: 0.1rem 10rem 1rem;
+  }
+}
+
+.login-button {
+  margin: 3rem auto 0.5rem;
+  border: 0.2rem outset #fdc23e;
+  border-radius: 0.7rem;
+  width: 10rem;
+  height: 1.6rem;
+}
+
+.link-registration {
+  text-align: center;
+  text-decoration: none;
+  color: #232323;
+  background-color: #fffafa;
+  margin: 1rem auto;
+  padding-top: 0.15rem;
+  border: 0.2rem outset #fdc23e;
+  border-radius: 0.7rem;
+  width: 10rem;
+  height: 1.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.link-registration:hover {
+  background-color: #dddddd;
+}
+
+.password-toggle-icon {
+  margin-left: 1rem;
+} /*# sourceMappingURL=LoginPage.css.map */

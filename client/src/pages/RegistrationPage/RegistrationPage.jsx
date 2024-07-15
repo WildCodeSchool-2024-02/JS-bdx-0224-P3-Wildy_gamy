@@ -78,10 +78,7 @@ function RegistrationPage() {
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
           required
         />
-        <button
-          className="validation-button"
-          type="submit"
-        >
+        <button className="validation-button" type="submit">
           Valider
         </button>
         <Link to="/connexion" className="link-connexion">

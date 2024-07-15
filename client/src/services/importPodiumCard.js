@@ -23,28 +23,28 @@ import bronzeTrophy from "../assets/images/podium-card-bronze/Third-Place-Ribbon
 import bronzeFlowerRight from "../assets/images/podium-card-bronze/third-flower-right.svg";
 
 export const goldImages = {
-    ornLeft: goldOrnLeft,
-    orn: goldOrn,
-    ornRight: goldOrnRight,
-    flowerLeft: goldFlowerLeft,
-    trophy: goldTrophy,
-    flowerRight: goldFlowerRight,
-  };
-  
-  export const silverImages = {
-    ornLeft: silverOrnLeft,
-    orn: silverOrn,
-    ornRight: silverOrnRight,
-    flowerLeft: silverFlowerLeft,
-    trophy: silverTrophy,
-    flowerRight: silverFlowerRight,
-  };
-  
-  export const bronzeImages = {
-    ornLeft: bronzeOrnLeft,
-    orn: bronzeOrn,
-    ornRight: bronzeOrnRight,
-    flowerLeft: bronzeFlowerLeft,
-    trophy: bronzeTrophy,
-    flowerRight: bronzeFlowerRight,
-  };
+  ornLeft: goldOrnLeft,
+  orn: goldOrn,
+  ornRight: goldOrnRight,
+  flowerLeft: goldFlowerLeft,
+  trophy: goldTrophy,
+  flowerRight: goldFlowerRight,
+};
+
+export const silverImages = {
+  ornLeft: silverOrnLeft,
+  orn: silverOrn,
+  ornRight: silverOrnRight,
+  flowerLeft: silverFlowerLeft,
+  trophy: silverTrophy,
+  flowerRight: silverFlowerRight,
+};
+
+export const bronzeImages = {
+  ornLeft: bronzeOrnLeft,
+  orn: bronzeOrn,
+  ornRight: bronzeOrnRight,
+  flowerLeft: bronzeFlowerLeft,
+  trophy: bronzeTrophy,
+  flowerRight: bronzeFlowerRight,
+};

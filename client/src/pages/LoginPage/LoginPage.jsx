@@ -43,10 +43,7 @@ function LoginPage() {
           pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$"
           required
         />
-        <button
-          className="login-button"
-          type="submit"
-        >
+        <button className="login-button" type="submit">
           Se connecter
         </button>
         <Link to="/inscription" className="link-registration">

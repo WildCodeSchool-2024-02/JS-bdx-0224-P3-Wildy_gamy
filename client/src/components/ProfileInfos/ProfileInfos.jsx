@@ -1,15 +1,21 @@
 import PropTypes from "prop-types";
 
-import ModifyInfoModale from '../ModifyInfoModale/ModifyInfoModale'
-import DeleteInfoModale from '../DeleteInfoModale/DeleteInfoModale'
+import ModifyInfoModale from "../ModifyInfoModale/ModifyInfoModale";
+import DeleteInfoModale from "../DeleteInfoModale/DeleteInfoModale";
 
 import Avatar from "../../assets/images/avatar/Avatar-basic.svg";
 
-function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, showModalDelete, setShowModalDelete, handleClickLogout}) {
-  
+function ProfileInfos({
+  handleClickModal,
+  showModalModify,
+  setShowModalModify,
+  showModalDelete,
+  setShowModalDelete,
+  handleClickLogout,
+}) {
   return (
     <>
-    <h1>Profile</h1>
+      <h1>Profile</h1>
       <img src={Avatar} alt="avatar par defaut" className="avatarImg" />
       <h2>John Doe</h2>
       <button
@@ -48,18 +54,17 @@ function ProfileInfos({handleClickModal, showModalModify, setShowModalModify, sh
           setShowModalDelete={setShowModalDelete}
         />
       )}
-      </>
-  )
+    </>
+  );
 }
 
 ProfileInfos.propTypes = {
-    handleClickModal: PropTypes.func.isRequired,
-    showModalModify: PropTypes.bool.isRequired,
-    setShowModalModify: PropTypes.func.isRequired,
-    showModalDelete: PropTypes.bool.isRequired,
-    setShowModalDelete: PropTypes.func.isRequired,
-    handleClickLogout: PropTypes.func.isRequired,
+  handleClickModal: PropTypes.func.isRequired,
+  showModalModify: PropTypes.bool.isRequired,
+  setShowModalModify: PropTypes.func.isRequired,
+  showModalDelete: PropTypes.bool.isRequired,
+  setShowModalDelete: PropTypes.func.isRequired,
+  handleClickLogout: PropTypes.func.isRequired,
+};
 
-  };
-
-export default ProfileInfos
+export default ProfileInfos;

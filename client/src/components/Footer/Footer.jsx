@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Footer.scss";
 
-function Footer({links}) {
-
+function Footer({ links }) {
   return (
     <footer>
       {links.map((link) => (

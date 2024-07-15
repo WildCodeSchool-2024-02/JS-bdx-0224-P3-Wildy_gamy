@@ -1,5 +1,5 @@
 const login = async (req, res, next) => {
-  const {token} = req;
+  const { token } = req;
 
   try {
     res.json({ token });

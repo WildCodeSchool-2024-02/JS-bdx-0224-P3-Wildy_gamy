@@ -6,15 +6,15 @@ function FlipCard({ reward }) {
   const { name, image, description, price } = reward;
 
   return (
-      <figure className="flip-card">
-          <img
-            src={`${BASE_URL}/reward/${image}`}
-            alt={`Illustration de la récompense ${name}`}
-          />
-          <figcaption>
-            {`${description} À échanger en salle contre ${price} ${price > 1 ? "jetons" : "jeton"}.`}
-          </figcaption>
-      </figure>
+    <figure className="flip-card">
+      <img
+        src={`${BASE_URL}/reward/${image}`}
+        alt={`Illustration de la récompense ${name}`}
+      />
+      <figcaption>
+        {`${description} À échanger en salle contre ${price} ${price > 1 ? "jetons" : "jeton"}.`}
+      </figcaption>
+    </figure>
   );
 }
 

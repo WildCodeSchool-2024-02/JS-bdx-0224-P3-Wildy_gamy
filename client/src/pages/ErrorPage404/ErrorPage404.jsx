@@ -5,7 +5,7 @@ function ErrorPage404() {
     <main>
       <h1 className="titleError404">Erreur 404</h1>
       <Link to="/" className="linkError">
-        Retour au menu 
+        Retour au menu
       </Link>
     </main>
   );

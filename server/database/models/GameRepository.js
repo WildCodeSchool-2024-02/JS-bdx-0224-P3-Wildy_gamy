@@ -32,7 +32,7 @@ class GameRepository extends AbstractRepository {
     );
     return rows[0];
   }
-  
+
   async readAll() {
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
     return rows;

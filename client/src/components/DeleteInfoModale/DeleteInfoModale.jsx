@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
 import "./DeleteInfoModale.scss";
 
-function DeleteInfoModale({ handleClickModal, showModalDelete, setShowModalDelete }) {
+function DeleteInfoModale({
+  handleClickModal,
+  showModalDelete,
+  setShowModalDelete,
+}) {
   return (
     <dialog open className="modalDelete">
       <p>

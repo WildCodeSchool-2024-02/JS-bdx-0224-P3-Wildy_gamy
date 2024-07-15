@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { useAuth } from "../../context/AuthContext";
 
 function Header({ links }) {
-
   const { auth } = useAuth();
 
   return (
