@@ -37,7 +37,10 @@ CREATE TABLE transactionHistory (
 
 CREATE TABLE coin (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	obtention_date TIMESTAMP NOT NULL
+	obtention_date TIMESTAMP NOT NULL,
+	user_id INT UNSIGNED NOT NULL,
+	CONSTRAINT fk_coin_user      
+        FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 CREATE TABLE party (

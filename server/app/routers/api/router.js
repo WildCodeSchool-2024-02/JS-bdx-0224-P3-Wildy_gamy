@@ -12,6 +12,7 @@ const rewardsRouter = require("./rewards/router");
 const partiesRouter = require("./parties/router");
 const authRouter = require("./auth/router");
 const contactsRouter = require("./contacts/router");
+const coinsRouter = require ("./coins/router")
 
 const { hashPassword } = require("../../middleware/hashPassword");
 
@@ -21,6 +22,7 @@ router.use("/users", hashPassword, usersRouter);
 router.use("/login", authRouter);
 router.use("/parties", partiesRouter);
 router.use("/contacts", contactsRouter);
+router.use("/coins", coinsRouter);
 
 /* ************************************************************************* */
 
