@@ -25,6 +25,10 @@ body {
   }
 }
 
+main {
+  min-height: calc(100vh - ($nav-mobile-height + $header-height));
+}
+
 h1 {
   @include clamp-title;
   font-family: $title-font;

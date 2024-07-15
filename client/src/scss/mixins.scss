@@ -52,6 +52,15 @@
   }
 }
 
+@keyframes animateCrawl {
+  0% {
+    transform: rotateX(30deg) translateY(22rem);
+  }
+  100% {
+    transform: rotateX(30deg) translateY(-30rem);
+  }
+}
+
 @mixin custom-border($border-color) {
   border: 0.25rem solid $border-color;
   box-shadow: 0 0 0.8rem 0.01rem $border-color;

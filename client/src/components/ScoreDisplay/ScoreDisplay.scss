@@ -1,0 +1,14 @@
+@import "../../scss/index.scss";
+
+.tableScore {
+  color: $black-color;
+  width: 100%;
+
+  thead {
+    visibility: hidden;
+  }
+
+  .tdRight {
+    text-align: end;
+  }
+}

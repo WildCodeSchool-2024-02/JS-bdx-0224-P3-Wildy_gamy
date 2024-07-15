@@ -1,18 +1,17 @@
 import { toast } from "react-toastify";
 import { sendData } from "./api.service";
 
-const login = async (data) => {
+const sendEmail = async (data) => {
   try {
-    const { email, password } = data;
-    if (!email || !password) {
+    const { firstname, lastname, email, message } = data;
+    if (!firstname || !lastname || !email || !message) {
       throw new Error("All fields are required");
     }
-    const url = "/api/login";
+    const url = "/api/contacts";
     const response = await sendData(url, data, "POST");
     if (response.status === 200) {
-      toast.success("Connexion réussie 👾");
-      const auth = await response.json();
-      return { success: true, auth };
+      toast.success("Merci pour votre message 👾");
+      return { success: true };
     }
     throw new Error("Invalid response from server");
   } catch (error) {
@@ -21,4 +20,4 @@ const login = async (data) => {
   }
 };
 
-export default login;
+export default sendEmail;
