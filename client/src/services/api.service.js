@@ -33,6 +33,20 @@ export async function sendData(url, data, http) {
   }
 }
 
+export async function fetchMultipleApis(urls) {
+  const baseUrl = import.meta.env.VITE_API_URL;
+  const fullUrls = urls.map((url) => baseUrl + url);
+
+  const responses = await Promise.all(fullUrls.map((url) => fetch(url)));
+  const dataPromises = responses.map((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  });
+  return Promise.all(dataPromises);
+}
+
 export async function handleFormAction(request, actionFunction, redirectPath) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData.entries());

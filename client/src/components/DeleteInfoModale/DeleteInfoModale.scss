@@ -20,6 +20,10 @@
     border-radius: 0.5rem;
   }
 
+  .deleteForm {
+    display: flex;
+  }
+
   .deleteButton {
     @include form-button;
     border: 0.2rem outset $red-color;

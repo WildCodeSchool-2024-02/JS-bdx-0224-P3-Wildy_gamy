@@ -21,17 +21,17 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
-import { fetchApi, handleFormAction } from "./services/api.service";
+import { fetchApi, handleFormAction, sendData } from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
 import sendEmail from "./services/contact.service";
 import sendScore from "./services/score.service";
-import { AuthProvider } from "./context/AuthContext";
 import AuthProtection from "./services/AuthProtection";
 import decodeToken from "./services/decodeToken";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
+const baseUserUrl = "/api/users";
 
 const router = createBrowserRouter([
   {
@@ -101,9 +101,25 @@ const router = createBrowserRouter([
           handleFormAction(request, register, `/connexion`),
       },
       {
-        path: "/Profile",
-        element: <ProfilePage />,
-        loader: () => fetchApi(baseGamesUrl),
+        path: "/profil/:id",
+        element: (
+          <AuthProtection>
+            <ProfilePage />
+          </AuthProtection>
+        ),
+        loader: () => fetchApi(baseUserUrl),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          const data = Object.fromEntries(formData.entries());
+
+          const method = request.method.toUpperCase();
+
+          const handleMethod = async (httpMethod) => {
+            await sendData(`${baseUserUrl}/${params.id}`, data, httpMethod);
+          };
+          await handleMethod(method);
+          return redirect("/");
+        },
       },
     ],
   },
@@ -113,21 +129,19 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition:Bounce
-      />
-    </AuthProvider>
+    <RouterProvider router={router} />
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      transition:Bounce
+    />
   </React.StrictMode>
 );
