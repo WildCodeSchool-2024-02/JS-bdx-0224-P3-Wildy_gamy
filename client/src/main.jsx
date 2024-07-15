@@ -81,7 +81,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profil/:id",
-        element: <ProfilePage />,
+        element: (
+          <AuthProtection>
+            <ProfilePage />
+          </AuthProtection>
+        ),
         loader: () => fetchApi(baseUserUrl),
         action: async ({ request, params }) => {
           const formData = await request.formData();

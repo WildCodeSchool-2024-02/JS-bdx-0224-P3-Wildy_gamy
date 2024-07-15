@@ -15,7 +15,7 @@ function ModifyInfoModale({
           Prénom
           <input
             type="text"
-            placeholder={userInfos[0].firstname}
+            placeholder={userInfos.firstname}
             className="placeholder"
           />
         </label>
@@ -23,7 +23,7 @@ function ModifyInfoModale({
           Nom
           <input
             type="text"
-            placeholder={userInfos[0].lastname}
+            placeholder={userInfos.lastname}
             className="placeholder"
           />
         </label>
@@ -31,17 +31,17 @@ function ModifyInfoModale({
           Pseudo
           <input
             type="text"
-            placeholder={userInfos[0].pseudo}
+            placeholder={userInfos.pseudo}
             className="placeholder"
           />
         </label>
         <label>
           Email
-          <input type="email" placeholder={userInfos[0].email} />
+          <input type="email" placeholder={userInfos.email} />
         </label>
         <label>
           Mot de passe
-          <input type="password" placeholder="**********" />
+          <input type="password" placeholder="Mot de passe" />
         </label>
       </Form>
       <button

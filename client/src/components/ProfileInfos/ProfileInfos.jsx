@@ -20,7 +20,7 @@ function ProfileInfos({
     <>
       <h1>Profil</h1>
       <img src={Avatar} alt="avatar par defaut" className="avatarImg" />
-      <h2>{userInfos[0].pseudo}</h2>
+      <h2>{userInfos.pseudo}</h2>
       <button
         type="button"
         onClick={handleClickModal(showModalModify, setShowModalModify)}
