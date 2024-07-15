@@ -1,5 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import { Form } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import shipImg from "../../assets/images/space-invaders-assets/ship.png";
 import alienMagenta from "../../assets/images/space-invaders-assets/alien-magenta.png";
 import alienCyan from "../../assets/images/space-invaders-assets/alien-cyan.png";
@@ -15,6 +18,7 @@ function DemoPage() {
   const [score, setScore] = useState(0);
   const [showStartPopup, setShowStartPopup] = useState(true);
   const [showEndPopup, setShowEndPopup] = useState(false);
+  const [toastShown, setToastShown] = useState(false); // Track if toast has been shown
   const scoreRef = useRef(score);
   const animationIdRef = useRef(null);
   const tileSize = 32;
@@ -214,6 +218,7 @@ function DemoPage() {
     setScore(0);
     scoreRef.current = 0;
     setGameOver(false);
+    setToastShown(false); // Reset the toastShown state
     alienRows = 2;
     alienColumns = 3;
     alienVelocityX = 1;
@@ -286,6 +291,13 @@ function DemoPage() {
       handleGameOver();
     }
   }, [gameOver]);
+
+  useEffect(() => {
+    if (scoreRef.current >= 15000 && !toastShown) {
+      toast.success("🏆Vous avez gagné un jeton ! 🎉 ");
+      setToastShown(true); 
+    }
+  }, [score]); 
 
   return (
     <main>
