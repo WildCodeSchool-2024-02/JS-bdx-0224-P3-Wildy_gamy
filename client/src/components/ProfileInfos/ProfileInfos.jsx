@@ -11,9 +11,11 @@ function ProfileInfos({
   setShowModalModify,
   showModalDelete,
   setShowModalDelete,
+  handleClickLogout,
   usersData,
 }) {
   const userInfos = { ...usersData };
+
   return (
     <>
       <h1>Profil</h1>
@@ -25,6 +27,14 @@ function ProfileInfos({
         className="buttonModify"
       >
         Modifier mes infos
+      </button>
+      <button
+        type="button"
+        onClick={handleClickLogout}
+        aria-label="Déconnexion"
+        className="buttonModify"
+      >
+        Se déconnecter
       </button>
       <button
         type="button"
@@ -65,6 +75,7 @@ ProfileInfos.propTypes = {
     pseudo: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }).isRequired,
+  handleClickLogout: PropTypes.func.isRequired,
 };
 
 export default ProfileInfos;

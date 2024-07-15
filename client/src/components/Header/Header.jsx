@@ -1,8 +1,12 @@
 import "./Header.scss";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useAuth } from "../../context/AuthContext";
 
 function Header({ links }) {
+
+  const { auth } = useAuth();
+
   return (
     <header>
       <nav role="navigation">
@@ -17,7 +21,7 @@ function Header({ links }) {
         </ul>
       </nav>
       <span className="wg-written">Wildy Gamy</span>
-      <NavLink to="/connexion" className="account-link">
+      <NavLink to={auth ? "/Profile" : "/connexion"} className="account-link">
         Compte
       </NavLink>
     </header>

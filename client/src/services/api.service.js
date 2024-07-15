@@ -1,3 +1,4 @@
+import { redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export async function fetchApi(url) {
@@ -21,6 +22,7 @@ export async function sendData(url, data, http) {
       method: http,
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(data),
     });
@@ -34,13 +36,31 @@ export async function sendData(url, data, http) {
 export async function fetchMultipleApis(urls) {
   const baseUrl = import.meta.env.VITE_API_URL;
   const fullUrls = urls.map((url) => baseUrl + url);
-  
-    const responses = await Promise.all(fullUrls.map((url) => fetch(url)));
-    const dataPromises = responses.map((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    });
-    return Promise.all(dataPromises);
+
+  const responses = await Promise.all(fullUrls.map((url) => fetch(url)));
+  const dataPromises = responses.map((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  });
+  return Promise.all(dataPromises);
+}
+
+export async function handleFormAction(
+  request,
+  actionFunction,
+  successRedirectPath,
+  localStorageHandler = null
+) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData.entries());
+  const result = await actionFunction(data);
+  if (result.success) {
+    if (localStorageHandler) {
+      localStorageHandler(result);
+    }
+    return redirect(successRedirectPath);
+  }
+  return null;
 }

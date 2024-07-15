@@ -1,5 +1,7 @@
+
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { useAuth, AuthContext } from "../../context/AuthContext";
 
 import "../../scss/index.scss";
 import "./ProfilePage.scss";
@@ -10,10 +12,10 @@ import GameList from "../../components/GameList/GameList";
 import GameListModal from "../../components/GameListModal/GameListModal";
 import ProfileInfos from "../../components/ProfileInfos/ProfileInfos";
 import decodeToken from "../../services/decodeToken";
-import { AuthContext } from "../../context/AuthContext";
 
 function ProfilePage() {
   const [gamesData, usersData] = useLoaderData();
+  const navigate = useNavigate();
   const [showModalModify, setShowModalModify] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -27,6 +29,12 @@ function ProfilePage() {
       setAuth(userData);
     }
   }, []);
+  const { logout } = useAuth();
+
+  const handleClickLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   const handleClickModal = (booleanState, setBooleanState) => () => {
     setBooleanState(!booleanState);
@@ -65,6 +73,7 @@ function ProfilePage() {
         showModalDelete={showModalDelete}
         setShowModalDelete={setShowModalDelete}
         usersData={usersData}
+        handleClickLogout={handleClickLogout}
       />
       <ul className="coinContainer">
         <li>

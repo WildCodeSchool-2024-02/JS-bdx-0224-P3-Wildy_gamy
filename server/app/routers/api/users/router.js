@@ -4,6 +4,8 @@ const { hashPassword } = require("../../../middleware/hashPassword");
 
 const router = express.Router();
 
+const { verifyToken } = require("../../../middleware/verifyToken");
+
 const {
   browse,
   read,
@@ -14,9 +16,9 @@ const {
 
 router.get("/", browse);
 
-router.get("/:id", read);
+router.get("/:id", verifyToken, read);
 
-router.put("/:id", edit);
+router.put("/:id", verifyToken, edit);
 
 router.post("/", hashPassword, add);
 

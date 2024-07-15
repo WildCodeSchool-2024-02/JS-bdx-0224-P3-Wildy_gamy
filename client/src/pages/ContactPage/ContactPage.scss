@@ -1,0 +1,25 @@
+@import "../../scss/index.scss";
+
+.input-message {
+  height: auto;
+}
+
+.validation-message {
+  margin: 0 auto 3rem;
+
+  @include for-desktop-up {
+    margin-top: 2rem;
+  }
+}
+
+.leaflet-container {
+  display: block;
+  margin: 0 auto 2rem;
+  height: 20rem;
+  width: 80%;
+  z-index: 0;
+
+  @include for-desktop-up {
+    height: 30rem;
+  }
+}
