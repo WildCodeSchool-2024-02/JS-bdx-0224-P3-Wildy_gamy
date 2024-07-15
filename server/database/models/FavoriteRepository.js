@@ -7,8 +7,8 @@ class FavoriteRepository extends AbstractRepository {
 
   async create(favorite) {
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (is_favorite, user_id, game_id) VALUES (?, ?, ?)`,
-      [favorite.is_favorite, favorite.user_id, favorite.game_id]
+      `INSERT INTO ${this.table} (user_id, game_id, is_favorite) VALUES (?, ?, ?)`,
+      [favorite.userId, favorite.gameId, favorite.favoriteCheckbox]
     );
     return result.insertId;
   }
