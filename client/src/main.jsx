@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,17 +21,15 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
-import { fetchApi, handleFormAction, fetchMultipleApis, sendData } from "./services/api.service";
+import { fetchApi, handleFormAction, sendData } from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
 import sendEmail from "./services/contact.service";
-import { AuthProvider } from "./context/AuthContext";
 import AuthProtection from "./services/AuthProtection";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
 const baseUserUrl = "/api/users";
-const urls = [baseGamesUrl, baseUserUrl]
 
 const router = createBrowserRouter([
   {
@@ -80,7 +82,7 @@ const router = createBrowserRouter([
       {
         path: "/profil/:id",
         element: <ProfilePage />,
-        loader: () => fetchMultipleApis(urls),
+        loader: () => fetchApi(baseUserUrl),
         action: async ({ request, params }) => {
           const formData = await request.formData();
           const data = Object.fromEntries(formData.entries());
@@ -102,21 +104,19 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition:Bounce
-      />
-    </AuthProvider>
+    <RouterProvider router={router} />
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      transition:Bounce
+    />
   </React.StrictMode>
 );
