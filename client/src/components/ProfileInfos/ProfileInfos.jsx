@@ -12,9 +12,9 @@ function ProfileInfos({
   showModalDelete,
   setShowModalDelete,
   handleClickLogout,
-  usersData,
+  userData,
 }) {
-  const userInfos = { ...usersData };
+  const userInfos = { ...userData };
 
   return (
     <>
@@ -68,7 +68,7 @@ ProfileInfos.propTypes = {
   setShowModalModify: PropTypes.func.isRequired,
   showModalDelete: PropTypes.bool.isRequired,
   setShowModalDelete: PropTypes.func.isRequired,
-  usersData: PropTypes.shape({
+  userData: PropTypes.shape({
     id: PropTypes.number.isRequired,
     firstname: PropTypes.string.isRequired,
     lastname: PropTypes.string.isRequired,

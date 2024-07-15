@@ -13,5 +13,7 @@
 
   img {
     margin-right: 0.5rem;
+    animation: bounceRotate3D 3s infinite ease-in-out;
+    transform-style: preserve-3d;
   }
 }
