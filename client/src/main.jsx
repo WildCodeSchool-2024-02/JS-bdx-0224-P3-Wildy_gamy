@@ -26,6 +26,7 @@ import login from "./services/login.service";
 import register from "./services/register.service";
 import sendEmail from "./services/contact.service";
 import sendScore from "./services/score.service";
+import sendCoin from "./services/coin.service";
 import AuthProtection from "./services/AuthProtection";
 import decodeToken from "./services/decodeToken";
 
@@ -64,7 +65,11 @@ const router = createBrowserRouter([
             gameId: 1,
           };
 
-          return sendScore(requestData);
+          const scoreResponse = await sendScore(requestData);
+
+          if (score >= 100) await sendCoin(userData.id);
+
+          return scoreResponse;
         },
       },
       {
