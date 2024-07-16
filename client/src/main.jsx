@@ -112,7 +112,7 @@ const router = createBrowserRouter([
             <ProfilePage />
           </AuthProtection>
         ),
-        loader: () => fetchApi(baseUserUrl),
+        loader: async ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
         action: async ({ request, params }) => {
           const formData = await request.formData();
           const data = Object.fromEntries(formData.entries());

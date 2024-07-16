@@ -10,7 +10,7 @@ import ScoreDisplay from "../../components/ScoreDisplay/ScoreDisplay";
 import ProfileInfos from "../../components/ProfileInfos/ProfileInfos";
 
 function ProfilePage() {
-  const [usersData] = useLoaderData();
+  const userData = useLoaderData();
   const navigate = useNavigate();
   const [showModalModify, setShowModalModify] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
@@ -34,7 +34,7 @@ function ProfilePage() {
         setShowModalModify={setShowModalModify}
         showModalDelete={showModalDelete}
         setShowModalDelete={setShowModalDelete}
-        usersData={usersData}
+        userData={userData}
         handleClickLogout={handleClickLogout}
       />
       <ul className="coinContainer">
