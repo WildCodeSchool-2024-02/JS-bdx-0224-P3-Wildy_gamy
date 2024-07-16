@@ -33,13 +33,16 @@ import decodeToken from "./services/decodeToken";
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
 const baseUserUrl = "/api/users";
+const basePartyUrl = "/api/parties";
 
 const router = createBrowserRouter([
   {
     element: <App />,
     errorElement: <ErrorPage404 />,
     children: [
-      { path: "/", element: <HomePage /> },
+      { path: "/", element: <HomePage />, 
+        loader: () => fetchApi(basePartyUrl)
+      },
       {
         path: "/catalogue",
         element: <GameListPage />,

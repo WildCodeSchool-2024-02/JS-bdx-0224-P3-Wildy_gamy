@@ -2,7 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 
-const { add } = require("../../../controllers/partyActions");
+const { browse, add } = require("../../../controllers/partyActions");
+
+router.get("/", browse);
 
 router.post("/", add);
 
