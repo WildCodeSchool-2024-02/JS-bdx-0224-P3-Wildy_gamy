@@ -21,7 +21,12 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
-import { fetchApi, handleFormAction, sendData } from "./services/api.service";
+import {
+  fetchApi,
+  fetchMultipleApis,
+  handleFormAction,
+  sendData,
+} from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
 import sendEmail from "./services/contact.service";
@@ -40,8 +45,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage404 />,
     children: [
-      { path: "/", element: <HomePage />, 
-        loader: () => fetchApi(basePartyUrl)
+      {
+        path: "/",
+        element: <HomePage />,
+        loader: () => fetchApi(basePartyUrl),
       },
       {
         path: "/catalogue",
@@ -70,7 +77,7 @@ const router = createBrowserRouter([
 
           const scoreResponse = await sendScore(requestData);
 
-          if (score >= 100) await sendCoin(userData.id);
+          if (score >= 15000) await sendCoin(userData.id);
 
           return scoreResponse;
         },
@@ -115,7 +122,8 @@ const router = createBrowserRouter([
             <ProfilePage />
           </AuthProtection>
         ),
-        loader: async ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
+        loader: async ({ params }) =>
+          fetchMultipleApis([`${baseUserUrl}/${params.id}`, basePartyUrl]),
         action: async ({ request, params }) => {
           const formData = await request.formData();
           const data = Object.fromEntries(formData.entries());

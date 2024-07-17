@@ -78,12 +78,7 @@ class UserRepository extends AbstractRepository {
         lastname = ?,
         pseudo = ?,
         email = ?`,
-      [
-        user.firstname,
-        user.lastname,
-        user.pseudo,
-        user.email,
-      ]
+      [user.firstname, user.lastname, user.pseudo, user.email]
     );
 
     // Return how many rows were affected

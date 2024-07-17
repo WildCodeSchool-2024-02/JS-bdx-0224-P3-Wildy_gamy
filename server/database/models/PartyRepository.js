@@ -29,6 +29,23 @@ class PartyRepository extends AbstractRepository {
     );
     return rows;
   }
+
+  async getScore() {
+    const [rows] = await this.database.query(
+      `SELECT 
+            p.user_id,
+            p.score
+        FROM 
+            party p
+        JOIN 
+            user u ON p.user_id = u.id
+            WHERE 
+      p.user_id = ?
+        ORDER BY 
+            p.score DESC;`
+    );
+    return rows;
+  }
 }
 
 module.exports = PartyRepository;

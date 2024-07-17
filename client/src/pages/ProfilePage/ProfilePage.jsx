@@ -10,7 +10,8 @@ import ScoreDisplay from "../../components/ScoreDisplay/ScoreDisplay";
 import ProfileInfos from "../../components/ProfileInfos/ProfileInfos";
 
 function ProfilePage() {
-  const userData = useLoaderData();
+  const [userData ]= useLoaderData();
+  // console.log(scoreData);
   const navigate = useNavigate();
   const [showModalModify, setShowModalModify] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
