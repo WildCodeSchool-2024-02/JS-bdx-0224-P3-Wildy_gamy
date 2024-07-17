@@ -117,3 +117,19 @@
   width: 10rem;
   height: 1.6rem;
 }
+
+@keyframes bounceRotate3D {
+  0%,
+  100% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-10%) rotateY(90deg);
+  }
+  50% {
+    transform: translateY(-20%) rotateY(180deg);
+  }
+  75% {
+    transform: translateY(-10%) rotateY(90deg);
+  }
+}

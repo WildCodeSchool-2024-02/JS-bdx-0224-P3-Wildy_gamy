@@ -1,11 +1,14 @@
 import { useRef, useEffect, useState } from "react";
+import { Form } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import shipImg from "../../assets/images/space-invaders-assets/ship.png";
 import alienMagenta from "../../assets/images/space-invaders-assets/alien-magenta.png";
 import alienCyan from "../../assets/images/space-invaders-assets/alien-cyan.png";
 import alienYellow from "../../assets/images/space-invaders-assets/alien-yellow.png";
 import alienDefault from "../../assets/images/space-invaders-assets/alien.png";
 import "./demoPage.scss";
-import { sendData } from "../../services/api.service";
 
 function DemoPage() {
   const canvasRef = useRef(null);
@@ -15,7 +18,7 @@ function DemoPage() {
   const [score, setScore] = useState(0);
   const [showStartPopup, setShowStartPopup] = useState(true);
   const [showEndPopup, setShowEndPopup] = useState(false);
-  const [gameEnded, setGameEnded] = useState(false);
+  const [toastShown, setToastShown] = useState(false); // Track if toast has been shown
   const scoreRef = useRef(score);
   const animationIdRef = useRef(null);
   const tileSize = 32;
@@ -215,7 +218,7 @@ function DemoPage() {
     setScore(0);
     scoreRef.current = 0;
     setGameOver(false);
-    setGameEnded(false);
+    setToastShown(false); // Reset the toastShown state
     alienRows = 2;
     alienColumns = 3;
     alienVelocityX = 1;
@@ -272,7 +275,6 @@ function DemoPage() {
   function handleGameOver() {
     cancelAnimationFrame(animationIdRef.current);
     setShowEndPopup(true);
-    setGameEnded(true);
   }
 
   function startGame() {
@@ -291,11 +293,11 @@ function DemoPage() {
   }, [gameOver]);
 
   useEffect(() => {
-    if (gameEnded && score !== 0) {
-      const scoreData = { score };
-      sendData("/api/parties", scoreData, "POST");
+    if (scoreRef.current >= 15000 && !toastShown) {
+      toast.success("🏆Vous avez gagné un jeton ! 🎉 ");
+      setToastShown(true); 
     }
-  }, [score, gameEnded]);
+  }, [score]); 
 
   return (
     <main>
@@ -323,9 +325,12 @@ function DemoPage() {
             >
               <h2>Game Over</h2>
               <p>Score final: {score}</p>
-              <button type="button" onClick={restartGame}>
-                Rejouer
-              </button>
+              <Form method="post">
+                <input type="hidden" name="score" value={score} />
+                <button type="submit" onClick={restartGame}>
+                  Enregistrer le score
+                </button>
+              </Form>
             </section>
           </aside>
         )}
