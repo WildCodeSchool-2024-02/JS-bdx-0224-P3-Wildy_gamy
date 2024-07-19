@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import App from "./App";
@@ -157,7 +157,7 @@ root.render(
       draggable
       pauseOnHover
       theme="light"
-      transition:Bounce
+      transition={Bounce}
     />
   </React.StrictMode>
 );
