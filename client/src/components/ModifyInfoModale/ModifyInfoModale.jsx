@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import "./ModifyInfoModale.scss";
 import { Form } from "react-router-dom";
+import { useState } from "react";
+import inputFields from "../../services/inputFields";
 
 function ModifyInfoModale({
   handleClickModal,
@@ -8,47 +10,47 @@ function ModifyInfoModale({
   setShowModalModify,
   userInfos,
 }) {
+  const [formData, setFormData] = useState({
+    firstname: userInfos.firstname,
+    lastname: userInfos.lastname,
+    pseudo: userInfos.pseudo,
+    email: userInfos.email,
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  
+
+
   return (
     <dialog className="dialog" open>
       <Form method="PUT">
-        <label>
-          Prénom
-          <input
-            type="text"
-            placeholder={userInfos.firstname}
-            className="placeholder"
-          />
-        </label>
-        <label>
-          Nom
-          <input
-            type="text"
-            placeholder={userInfos.lastname}
-            className="placeholder"
-          />
-        </label>
-        <label>
-          Pseudo
-          <input
-            type="text"
-            placeholder={userInfos.pseudo}
-            className="placeholder"
-          />
-        </label>
-        <label>
-          Email
-          <input type="email" placeholder={userInfos.email} />
-        </label>
-        <label>
-          Mot de passe
-          <input type="password" placeholder="Mot de passe" />
-        </label>
+        {inputFields.map((field) => (
+          <label key={field.name}>
+            {field.label}
+            <input
+              type={field.type}
+              name={field.name}
+              value={formData[field.name]}
+              onChange={handleChange}
+              placeholder={field.placeholder}
+              className={field.className}
+            />
+          </label>
+          ))}
+        <button type="submit">Modifier mes informations</button>
       </Form>
       <button
         type="button"
         onClick={handleClickModal(showModalModify, setShowModalModify)}
       >
-        Appliquer les modifications
+        Annuler
       </button>
     </dialog>
   );

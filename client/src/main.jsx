@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import App from "./App";
@@ -27,19 +27,23 @@ import register from "./services/register.service";
 import favoriteGame from "./services/favoriteGame.service";
 import sendEmail from "./services/contact.service";
 import sendScore from "./services/score.service";
+import sendCoin from "./services/coin.service";
 import AuthProtection from "./services/AuthProtection";
 import decodeToken from "./services/decodeToken";
 
 const baseUrlReward = "/api/rewards";
 const baseGamesUrl = "/api/games";
 const baseUserUrl = "/api/users";
+const basePartyUrl = "/api/parties";
 
 const router = createBrowserRouter([
   {
     element: <App />,
     errorElement: <ErrorPage404 />,
     children: [
-      { path: "/", element: <HomePage /> },
+      { path: "/", element: <HomePage />, 
+        loader: () => fetchApi(basePartyUrl)
+      },
       {
         path: "/catalogue",
         element: <GameListPage />,
@@ -66,7 +70,11 @@ const router = createBrowserRouter([
             gameId: 1,
           };
 
-          return sendScore(requestData);
+          const scoreResponse = await sendScore(requestData);
+
+          if (score >= 100) await sendCoin(userData.id);
+
+          return scoreResponse;
         },
       },
       {
@@ -109,14 +117,19 @@ const router = createBrowserRouter([
             <ProfilePage />
           </AuthProtection>
         ),
-        loader: () => fetchApi(baseUserUrl),
-        action: async ({ request, params }) =>
-          handleFormAction(
-            request,
-            (data, method) =>
-              sendData(`${baseUserUrl}/${params.id}`, data, method),
-            "/"
-          ),
+        loader: async ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          const data = Object.fromEntries(formData.entries());
+
+          const method = request.method.toUpperCase();
+
+          const handleMethod = async (httpMethod) => {
+            await sendData(`${baseUserUrl}/${params.id}`, data, httpMethod);
+          };
+          await handleMethod(method);
+          return redirect("/");
+        },
       },
     ],
   },
@@ -138,7 +151,7 @@ root.render(
       draggable
       pauseOnHover
       theme="light"
-      transition:Bounce
+      transition={Bounce}
     />
   </React.StrictMode>
 );

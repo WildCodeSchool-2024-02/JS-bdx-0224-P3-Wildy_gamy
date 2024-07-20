@@ -13,6 +13,7 @@ const partiesRouter = require("./parties/router");
 const authRouter = require("./auth/router");
 const favoritesRouter = require("./favorites/router")
 const contactsRouter = require("./contacts/router");
+const coinsRouter = require("./coins/router");
 
 router.use("/games", gamesRouter);
 router.use("/rewards", rewardsRouter);
@@ -21,6 +22,7 @@ router.use("/login", authRouter);
 router.use("/parties", partiesRouter);
 router.use("/favorites", favoritesRouter);
 router.use("/contacts", contactsRouter);
+router.use("/coins", coinsRouter);
 
 /* ************************************************************************* */
 

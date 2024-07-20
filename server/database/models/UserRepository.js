@@ -76,17 +76,13 @@ class UserRepository extends AbstractRepository {
       SET 
         firstname = ?,
         lastname = ?,
-        avatar_image = ?,
         pseudo = ?,
-        email = ?,
-        hashed_password = ?`,
+        email = ?`,
       [
         user.firstname,
         user.lastname,
-        user.avatar_image,
         user.pseudo,
         user.email,
-        user.hashedPassword,
       ]
     );
 
