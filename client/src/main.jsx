@@ -41,8 +41,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage404 />,
     children: [
-      { path: "/", element: <HomePage />, 
-        loader: () => fetchApi(basePartyUrl)
+      {
+        path: "/",
+        element: <HomePage />,
+        loader: () => fetchApi(basePartyUrl),
       },
       {
         path: "/catalogue",
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
 
           const scoreResponse = await sendScore(requestData);
 
-          if (score >= 100) await sendCoin(userData.id);
+          if (score >= 15000) await sendCoin(userData.id);
 
           return scoreResponse;
         },
@@ -118,18 +120,13 @@ const router = createBrowserRouter([
           </AuthProtection>
         ),
         loader: async ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
-        action: async ({ request, params }) => {
-          const formData = await request.formData();
-          const data = Object.fromEntries(formData.entries());
-
-          const method = request.method.toUpperCase();
-
-          const handleMethod = async (httpMethod) => {
-            await sendData(`${baseUserUrl}/${params.id}`, data, httpMethod);
-          };
-          await handleMethod(method);
-          return redirect("/");
-        },
+        action: async ({ request, params }) =>
+          handleFormAction(
+            request,
+            (data, method) =>
+              sendData(`${baseUserUrl}/${params.id}`, data, method),
+            "/"
+          ),
       },
     ],
   },

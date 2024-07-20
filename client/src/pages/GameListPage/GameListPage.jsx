@@ -11,7 +11,6 @@ function GameListPage() {
   const [selectedGame, setSelectedGame] = useState(null);
   const { auth, setAuth } = useContext(AuthContext);
   const gamesData = useLoaderData();
-  // console.log(gamesData);
 
   const openModal = (gameName) => {
     const normalizedGameName = gameName.toLowerCase();
