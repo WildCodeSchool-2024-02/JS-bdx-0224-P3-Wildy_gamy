@@ -11,6 +11,7 @@ function GameListPage() {
   const [selectedGame, setSelectedGame] = useState(null);
   const { auth, setAuth } = useContext(AuthContext);
   const gamesData = useLoaderData();
+  // console.log(gamesData);
 
   const openModal = (gameName) => {
     const normalizedGameName = gameName.toLowerCase();
@@ -28,6 +29,7 @@ function GameListPage() {
       description: foundGame.description,
       image_demo: foundGame.image_demo,
       demoLink: foundGame.demoLink,
+      isFavorite: foundGame.is_favorite,
     });
     setShowModal(true);
   };
@@ -45,7 +47,9 @@ function GameListPage() {
     }
   }, []);
 
-
+  if (!gamesData) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <main>
       <GameList gamesData={gamesData} openModal={openModal} />

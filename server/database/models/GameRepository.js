@@ -5,7 +5,6 @@ class GameRepository extends AbstractRepository {
     super({ table: "game" });
   }
 
-  // The C of CRUD - Create operation
   async create(game) {
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (name, description, image_demo, image_game, is_playable, release_date)
@@ -21,9 +20,6 @@ class GameRepository extends AbstractRepository {
     );
     return result.insertId;
   }
-  // Execute the SQL INSERT query to add a new item to the "item" table
-  // Return the ID of the newly inserted item
-  // The Rs of CRUD - Read operations
 
   async read(id) {
     const [rows] = await this.database.query(
@@ -32,15 +28,24 @@ class GameRepository extends AbstractRepository {
     );
     return rows[0];
   }
-  
+
   async readAll() {
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
     return rows;
   }
-  // Execute the SQL UPDATE query to update a specific program
-  // Return how many rows were affected
-  // The D of CRUD - Delete operation
-  // Execute the SQL DELETE query to delete a specific program
-  // Return how many rows were affected
+
+  async readAllWithFavorites(userId) {
+    const [rows] = await this.database.query(
+      `SELECT 
+        game.*,
+        IF(f.user_id IS NULL, FALSE, TRUE) AS is_favorite
+      FROM ${this.table} AS game
+      LEFT JOIN favorite f ON game.id = f.game_id AND f.user_id = ?
+      `,
+      [userId]
+    );
+    return rows;
+  }
 }
+
 module.exports = GameRepository;

@@ -44,17 +44,7 @@ const router = createBrowserRouter([
         path: "/catalogue",
         element: <GameListPage />,
         loader: () => fetchApi(baseGamesUrl),
-        action: async ({ request }) => {
-          const formData = await request.formData();
-          const data = Object.fromEntries(formData.entries());
-          // console.log(data);
-          const result = await favoriteGame(data);
-
-          if (result.success) {
-            // console.log("let's go");
-          }
-          return null;
-        },
+        action: async ({ request }) => handleFormAction(request, favoriteGame),
       },
       {
         path: "/demo",
@@ -120,18 +110,13 @@ const router = createBrowserRouter([
           </AuthProtection>
         ),
         loader: () => fetchApi(baseUserUrl),
-        action: async ({ request, params }) => {
-          const formData = await request.formData();
-          const data = Object.fromEntries(formData.entries());
-
-          const method = request.method.toUpperCase();
-
-          const handleMethod = async (httpMethod) => {
-            await sendData(`${baseUserUrl}/${params.id}`, data, httpMethod);
-          };
-          await handleMethod(method);
-          return redirect("/");
-        },
+        action: async ({ request, params }) =>
+          handleFormAction(
+            request,
+            (data, method) =>
+              sendData(`${baseUserUrl}/${params.id}`, data, method),
+            "/"
+          ),
       },
     ],
   },

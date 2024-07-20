@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const verifyToken = (req, res, next) => {
+const verifyToken = (isRequired) => (req, res, next) => {
   try {
     // Vérifier la présence de l'en-tête "Authorization" dans la requête
     const authorizationHeader = req.get("Authorization");
@@ -26,8 +26,12 @@ const verifyToken = (req, res, next) => {
     };
     next();
   } catch (err) {
-    res.sendStatus(401);
-    next(err);
+    if (isRequired) {
+      res.sendStatus(401);
+      next(err);
+    } else {
+      next(); // Allow the request to pass through if not required
+    }
   }
 };
 

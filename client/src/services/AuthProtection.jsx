@@ -18,7 +18,9 @@ function AuthProtection({ children }) {
 
   useEffect(() => {
     if (!token && auth?.role !== "user") {
-      toast.error('👻 Veuillez vous connecter 👻')
+      toast.error("👻 Veuillez vous connecter 👻", {
+        toastId: "error1",
+      });
       navigate("/connexion");
     }
   }, [auth, navigate]);

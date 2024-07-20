@@ -63,7 +63,6 @@ CREATE TABLE obtaining (
 
 CREATE TABLE favorite (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	is_favorite BOOLEAN DEFAULT false,
 	user_id INT UNSIGNED NOT NULL,
 	game_id INT UNSIGNED NOT NULL,
 	CONSTRAINT fk_favorite_user      

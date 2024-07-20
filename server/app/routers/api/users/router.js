@@ -16,9 +16,9 @@ const {
 
 router.get("/", browse);
 
-router.get("/:id", verifyToken, read);
+router.get("/:id", verifyToken(true), read);
 
-router.put("/:id", verifyToken, edit);
+router.put("/:id", verifyToken(true), edit);
 
 router.post("/", hashPassword, add);
 
