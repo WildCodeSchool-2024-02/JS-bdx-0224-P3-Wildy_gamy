@@ -11,7 +11,6 @@ const browse = async (req, res, next) => {
       res.json(games);
     }
   } catch (err) {
-    console.error("Browse error:", err);
     next(err);
   }
 };
