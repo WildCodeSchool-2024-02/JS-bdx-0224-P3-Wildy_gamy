@@ -1,88 +1,107 @@
-# wildygamy
+# 🎮 Wildy Gamy - Arcade Fun in France! 🇫🇷
 
-This project uses Harmonia. Harmonia is a framework meant to serve as a foundation for every project following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+Welcome to **Wildy Gamy**, a project by students from the Wild Code School! This project is a showcase website for a fictional arcade expanding in France, designed to attract customers with the unique feature of playing a game online to earn virtual tokens that can be exchanged for prizes in-store. 
 
-## Setup & Use
+## 📜 Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributors](#contributors)
+- [Special Thanks](#special-thanks)
+- [License](#license)
 
-**Windows users:** be sure to run these commands in a git terminal to avoid [issues with newline formats](https://en.wikipedia.org/wiki/Newline#Issues_with_different_newline_formats):
+## 📖 Overview
 
-```
-git config --global core.eol lf
-git config --global core.autocrlf false
-```
+Wildy Gamy is a playful and engaging website created to draw in arcade enthusiasts. The website offers a virtual taste of the arcade experience, allowing users to play a game reminiscent of Space Invaders. Achieving high scores in this game earns virtual tokens, which can be redeemed for exciting prizes at the arcade. 
 
-- In VSCode, install plugins **Prettier - Code formatter** and **ESLint** and configure them
-- Clone this repo, enter it
-- Run command `npm install`
-- Create environment files (`.env`) in both `server` and `client`: you can copy `.env.sample` files as starters (**don't** delete them)
+## 🌟 Features
 
-### Available Commands
+- **Home Page**: Showcases a photo gallery of the arcade and a podium.
+- **Catalog Page**: Lists all playable games available at the arcade.
+- **Demo Page**: Features a playable Space Invaders-style game.
+- **Prizes Page**: Displays exchangeable prizes for virtual tokens won.
+- **User Account**: Allows users to create accounts, log in, view their favorite games, and track their best scores.
 
-- `db:migrate` : Run the database migration script
-- `db:seed` : Run the database seed script
-- `dev` : Starts both servers (client + server) in one terminal
-- `dev:client` : Starts the React client
-- `dev:back` : Starts the Express server
-- `lint` : Runs validation tools (will be executed on every _commit_, and refuse unclean code)
+## 🛠 Technologies
 
-## FAQ
+- **Frontend**: React, React Router DOM, SASS, Swiper, Toastify
+- **Backend**: Node.js, Express
+- **Database**: MySQL with mysql2
+- **Security**: Argon2, JWT
+- **Email**: Node Mailer
+- **Map Integration**: Leaflet
+- **Methodology**: Agile (Scrum)
+- **Code Quality**: Prettier, ESLint
 
-### Tools
+## 📦 Installation
 
-- _Concurrently_ : Allows for several commands to run concurrently in the same CLI
-- _Husky_ : Allows to execute specific commands that trigger on _git_ events
-- _Vite_ : Alternative to _Create-React-App_, packaging less tools for a more fluid experience
-- _ESLint_ : "Quality of code" tool, ensures chosen rules will be enforced
-- _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
-- _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
+To get started with the Wildy Gamy project, follow these steps:
 
-## Deployment with Traefik
+1. **Clone the repository**:
+    ```bash
+    git clone git@github.com:WildCodeSchool-2024-02/JS-bdx-0224-P3-Wildy_gamy.git
+    cd JS-bdx-0224-P3-Wildy_gamy
+    ```
 
-> ⚠️ Prerequisites : You must have installed and configured Traefik on your VPS beforehand.
-> https://github.com/WildCodeSchool/vps-traefik-starter-kit/
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-For deployment, you have to go to `secrets` → app `actions` on the github repo to insert via `New repository secret` :
+3. **Set up the database**:
+    - Create a MySQL database.
+    - Configure your database settings in the `.env` file in both `server` and `client`: you can copy `.env.sample` files as starters and add your environment variables.
+    - To initialize the wildy_gamy database:
+    ```bash
+    npm run db:migrate
+    ```
+    - To run seeders:
+    ```bash
+    npm run db:seed
+    ```
 
-- SSH_HOST : IP address of your VPS
-- SSH_USER : SSH login to your VPS
-- SSH_PASSWORD : SSH connection password to your VPS
+4. **Run the application**:
+    ```bash
+    npm run dev
+    ```
 
-And a public variable from the tab `/settings/variables/actions` :
+## 🚀 Usage
 
-- PROJECT_NAME : the name of the project used to create the subdomain.
+- Navigate to the home page to explore the arcade through the photo gallery.
+- Visit the catalog to see the list of games available at the arcade.
+- Play the demo game on the demo page to earn virtual tokens.
+- Check out the prizes page to see what you can win with your tokens.
+- Create an account to get coins, save your high scores and favorite games.
 
-> ⚠️ Warning : underscores are not allowed. They can cause trouble with the let's encrypt certificate
+## 🛠 This Project Uses Harmonia
 
-Use this same tab to add the other environment variables required for the project if any.
+Harmonia is a framework meant to serve as a foundation for every project following the React-Express-MySQL stack, as learned in Wild Code School. It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
 
-Only the server will be accessible. The root path `"/"` will redirect to the dist folder of your client. In order to allow that, please uncomment the line as explained in `server/src/app.js` (Line 102).
-Because the server will also serve the client, the global variable VITE_SERVER_URL will be set with an empty string.
+## 👥 Contributors
 
-Your url will be ` https://${PROJECT-NAME}.${subdomain}.wilders.dev/`.
+- [@JadeJolivet](https://github.com/JadeJolivet)
+- [@pjroggy](https://github.com/pjroggy)
+- [@PaulBOURY](https://github.com/PaulBOURY)
+- [@FGAT3](https://github.com/FGAT3)
 
-### About the database
+## 😎 Special Thanks
 
-The database is automaticaly deployed with the name of your repo. During the build of the projet (`docker-entry.sh`), the `node migrate.js` command is executed in the server. If you want to seed automaticaly your database using the `seed.js` script, replace the `cd ./server && node ./bin/migrate.js && node index.js` by `cd ./server && node ./bin/migrate.js && node ./bin/seed.js && node index.js`
+Thank you for your dedication and your invaluable teachings.
 
-### About public assets (pictures, fonts...)
+- [@Elea641](https://github.com/Elea641)
+- [@KevinDavoust](https://github.com/KevinDavoust)
+- [@Yoann-Fortin](https://github.com/Yoann-Fortin)
 
-Don't use any public folder on your client. This folder won't be accessible online. You may move your public assets in the `server/public` folder. Prefer [static assets](https://vitejs.dev/guide/assets) when possible.
+## 📄 License
 
-### About Specific Environment Variables (e.g., Email)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Students should use the template provided in the `*.env.sample*` file as `<PROJECT_NAME><SPECIFIC_NAME>=<THE_VARIABLE>`.
+---
 
-> ⚠️ **Warning:** The `PROJECT_NAME` should match the one used in the Git public variable.
+Made with ❤️ by the Wildy Gamy team at Wild Code School!
 
-To add it during deployment, follow these 2 steps:
+---
 
-- Add the following variable to the `docker-compose.prod.yml` file (as shown in the example: `PROJECT_NAME_SPECIFIC_NAME: ${PROJECT_NAME_SPECIFIC_NAME}`).
-- Connect to your server via SSH. Open the global `.env` file in Traefik (`nano ./traefik/data/.env`). Add the variable with the correct value and save the file.
-- Afterward, you can initiate automatic deployment. Docker will not refresh during this process.
-
-### About Logs
-
-If you want to access the logs of your online projet (to follow the deployement or to watch any bug error), connect to your VPS (`ssh user@host`).
-Then, go on your specific project and run  `docker compose logs -t -f`.
-# JS-bdx-0224-P3-Wildy_gamy
+Feel free to reach out for any questions or suggestions! Enjoy your arcade experience! 🎉
