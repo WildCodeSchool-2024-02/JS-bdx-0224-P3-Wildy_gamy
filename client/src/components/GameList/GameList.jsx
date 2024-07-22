@@ -5,8 +5,6 @@ const BASE_URL = import.meta.env.VITE_API_URL;
 
 function GameList({ gamesData, openModal }) {
   return (
-    <>
-      <h1>Découvrez la liste des jeux disponibles dans nos salles</h1>
       <ul className="image-list">
         {gamesData.map((game) => (
           <li key={game.id} className="game-image">
@@ -23,7 +21,6 @@ function GameList({ gamesData, openModal }) {
           </li>
         ))}
       </ul>
-    </>
   );
 }
 

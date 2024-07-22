@@ -1,14 +1,26 @@
-import Coin from "../../assets/images/icon/Coin.svg"
+import PropTypes from "prop-types";
+import Coin from "../../assets/images/icon/Coin.svg";
 
-import "./DisplayCoin.scss"
+import "./DisplayCoin.scss";
 
-function DisplayCoin() {
+function DisplayCoin({ expirationDate }) {
   return (
     <figure className="coinCard">
-        <img src={Coin} alt="Jeton" />
-        <figcaption>Vous avez jusqu’au 01/01/2024 pour échanger ce jeton contre un de nos prix</figcaption>
-      </figure>
-  )
+      <img src={Coin} alt="Jeton" />
+      <figcaption>
+        Vous avez jusqu’au {expirationDate} pour échanger ce jeton contre un de
+        nos prix
+      </figcaption>
+    </figure>
+  );
 }
 
-export default DisplayCoin
+DisplayCoin.propTypes = {
+  expirationDate: PropTypes.string,
+};
+
+DisplayCoin.defaultProps = {
+  expirationDate: "",
+};
+
+export default DisplayCoin;

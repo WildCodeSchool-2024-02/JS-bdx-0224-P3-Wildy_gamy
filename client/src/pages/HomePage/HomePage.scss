@@ -78,6 +78,21 @@
   height: 2rem;
 }
 
+.home-title {
+  margin: 0;
+
+  @include for-desktop-up {
+    margin: 2rem;
+    padding-top: 2rem;
+  }
+}
+
 .instruction-homepage {
   @extend h2;
+  padding: 1rem;
+  margin: 0rem;
+
+  @include for-desktop-up {
+    margin: 1rem;
+  }
 }

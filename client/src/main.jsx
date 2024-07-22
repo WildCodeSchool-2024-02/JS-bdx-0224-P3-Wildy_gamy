@@ -21,7 +21,12 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
-import { fetchApi, handleFormAction, sendData } from "./services/api.service";
+import {
+  fetchApi,
+  fetchMultipleApis,
+  handleFormAction,
+  sendData,
+} from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
 import favoriteGame from "./services/favoriteGame.service";
@@ -119,14 +124,22 @@ const router = createBrowserRouter([
             <ProfilePage />
           </AuthProtection>
         ),
-        loader: async ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
-        action: async ({ request, params }) =>
-          handleFormAction(
-            request,
-            (data, method) =>
-              sendData(`${baseUserUrl}/${params.id}`, data, method),
-            "/"
-          ),
+        loader: async ({ params }) =>
+          fetchMultipleApis([`${baseUserUrl}/${params.id}`, baseGamesUrl]),
+        action: async ({ request, params }) => {
+          const formData = await request.formData();
+          const formDataObject = Object.fromEntries(formData.entries());
+          const method = request.method.toUpperCase();
+
+          const isFavoriteGameAction = 'gameId' in formDataObject && 'isFavorite' in formDataObject;
+
+          if (isFavoriteGameAction) {
+            const responseFavorite = await favoriteGame(formDataObject, method);
+            return responseFavorite;
+          }
+          const responseUser = await sendData(`${baseUserUrl}/${params.id}`, formDataObject, method)
+          return responseUser;
+        },
       },
     ],
   },

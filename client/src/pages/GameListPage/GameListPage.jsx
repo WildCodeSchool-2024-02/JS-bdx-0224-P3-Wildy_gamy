@@ -39,6 +39,7 @@ function GameListPage() {
 
   return (
     <main>
+      <h1>Découvrez la liste des jeux disponibles dans nos salles</h1>
       <GameList gamesData={gamesData} openModal={openModal} />
       <GameListModal
         isOpen={showModal}

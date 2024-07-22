@@ -4,8 +4,8 @@ const router = express.Router();
 
 const { browse } = require("../../../controllers/gameActions");
 
-const { verifyToken } = require("../../../middleware/verifyToken");
+const { getUserId } = require("../../../middleware/getUserId");
 
-router.get("/", verifyToken(false), browse);
+router.get("/", getUserId, browse);
 
 module.exports = router;

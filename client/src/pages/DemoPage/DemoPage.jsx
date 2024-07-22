@@ -283,7 +283,9 @@ function DemoPage() {
   }
 
   function restartGame() {
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   }
 
   useEffect(() => {
