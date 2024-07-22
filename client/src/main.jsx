@@ -40,8 +40,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage404 />,
     children: [
-      { path: "/", element: <HomePage />, 
-        loader: () => fetchApi(basePartyUrl)
+      {
+        path: "/",
+        element: <HomePage />,
+        loader: () => fetchApi(basePartyUrl),
       },
       {
         path: "/catalogue",
@@ -70,7 +72,7 @@ const router = createBrowserRouter([
 
           const scoreResponse = await sendScore(requestData);
 
-          if (score >= 100) await sendCoin(userData.id);
+          if (score >= 15000) await sendCoin(userData.id);
 
           return scoreResponse;
         },
