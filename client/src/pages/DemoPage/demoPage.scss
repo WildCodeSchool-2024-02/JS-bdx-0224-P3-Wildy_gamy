@@ -1,10 +1,13 @@
 @import "../../scss/index.scss";
 
+.demo-page {
+  background-image: url("../../assets/images/stars-sky.jpg");
+  background-size: cover;
+}
 .game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $primary-color;
   color: $white-color;
   overflow: hidden;
   scroll-behavior: none;

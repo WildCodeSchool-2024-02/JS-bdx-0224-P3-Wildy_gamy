@@ -21,12 +21,7 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
-import {
-  fetchApi,
-  fetchMultipleApis,
-  handleFormAction,
-  sendData,
-} from "./services/api.service";
+import { fetchApi, handleFormAction, sendData } from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
 import sendEmail from "./services/contact.service";
@@ -122,8 +117,7 @@ const router = createBrowserRouter([
             <ProfilePage />
           </AuthProtection>
         ),
-        loader: async ({ params }) =>
-          fetchMultipleApis([`${baseUserUrl}/${params.id}`, basePartyUrl]),
+        loader: async ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
         action: async ({ request, params }) => {
           const formData = await request.formData();
           const data = Object.fromEntries(formData.entries());

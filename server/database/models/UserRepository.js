@@ -49,6 +49,28 @@ class UserRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readUserScore(id) {
+    const [rows] = await this.database.query(
+      `SELECT user.id, user.firstname, user.lastname, user.avatar_image, user.pseudo, user.email, user.hashed_password, party.score FROM ${this.table} 
+      JOIN party ON user.id = party.user_id WHERE user.id = ? ORDER BY 
+            party.score DESC
+        LIMIT 3`,
+      [id]
+    );
+    const user = {
+      id: rows[0].id,
+      firstname: rows[0].firstname,
+      lastname: rows[0].lastname,
+      avatar_image: rows[0].avatar_image,
+      pseudo: rows[0].pseudo,
+      email: rows[0].email,
+      hashed_password: rows[0].hashed_password,
+      scores: rows.map((row) => row.score),
+    };
+
+    return user;
+  }
+
   async readAll() {
     // Execute the SQL SELECT query to retrieve all programs from the "user" table
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
@@ -77,8 +99,9 @@ class UserRepository extends AbstractRepository {
         firstname = ?,
         lastname = ?,
         pseudo = ?,
-        email = ?`,
-      [user.firstname, user.lastname, user.pseudo, user.email]
+        email = ?
+      WHERE id = ?`,
+      [user.firstname, user.lastname, user.pseudo, user.email, user.id]
     );
 
     // Return how many rows were affected

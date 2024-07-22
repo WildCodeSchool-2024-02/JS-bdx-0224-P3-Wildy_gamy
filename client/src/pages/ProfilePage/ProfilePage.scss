@@ -12,20 +12,23 @@
   margin: 1rem auto;
 }
 
+.bestScore,
+.favoriteGame {
+  margin: 1rem;
+}
+
 .scoreContainer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 
   li {
-    display: flex;
-    justify-content: space-between;
-    background-color: $white-color;
+    display: block;
+    list-style: none;
     border-radius: 0.5rem;
     width: 90vw;
-    padding: 0.25rem;
+    padding: 0.7rem;
     margin-bottom: 1rem;
+    border: 0.2rem outset $secondary-color;
 
     p {
       color: $black-color;

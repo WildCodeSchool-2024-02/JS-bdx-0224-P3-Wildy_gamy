@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import { useAuth } from "../../context/AuthContext";
 
 import "../../scss/index.scss";
@@ -10,8 +11,7 @@ import ScoreDisplay from "../../components/ScoreDisplay/ScoreDisplay";
 import ProfileInfos from "../../components/ProfileInfos/ProfileInfos";
 
 function ProfilePage() {
-  const [userData ]= useLoaderData();
-  // console.log(scoreData);
+  const userData = useLoaderData();
   const navigate = useNavigate();
   const [showModalModify, setShowModalModify] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
@@ -26,7 +26,6 @@ function ProfilePage() {
   const handleClickModal = (booleanState, setBooleanState) => () => {
     setBooleanState(!booleanState);
   };
-
   return (
     <>
       <ProfileInfos
@@ -44,14 +43,17 @@ function ProfilePage() {
         </li>
       </ul>
 
-      <p>Meilleurs scores</p>
+      <p className="bestScore">Mes 3 meilleurs scores</p>
       <ul className="scoreContainer">
         <li>
-          <ScoreDisplay />
+          {userData.scores &&
+            userData.scores.map((score) => (
+              <ScoreDisplay key={uuidv4()} score={score} />
+            ))}
         </li>
       </ul>
 
-      <p>Jeux favoris</p>
+      <p className="favoriteGame">Jeux favoris</p>
     </>
   );
 }
