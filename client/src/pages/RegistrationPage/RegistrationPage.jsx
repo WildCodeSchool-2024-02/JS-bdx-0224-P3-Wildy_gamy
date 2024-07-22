@@ -83,6 +83,12 @@ function RegistrationPage() {
               minLength={field.minLength}
               required={field.required}
             />
+            {field.id === "password" && (
+              <p className="message" aria-live="polite">
+                Le mot de passe doit contenir au moins 8 caractères, dont une
+                minuscule, une majuscule, un chiffre et un caractère spécial.
+              </p>
+            )}
           </>
         ))}
         <button className="validation-button" type="submit">
