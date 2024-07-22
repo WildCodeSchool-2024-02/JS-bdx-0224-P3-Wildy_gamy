@@ -62,7 +62,7 @@ function ProfilePage() {
   };
 
   return (
-    <>
+    <main>
       <ProfileInfos
         handleClickModal={handleClickModal}
         showModalModify={showModalModify}
@@ -106,7 +106,7 @@ function ProfilePage() {
         </>
       )}
       <NavigationChevron isUp />
-    </>
+    </main>
   );
 }
 
