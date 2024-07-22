@@ -51,12 +51,16 @@ class UserRepository extends AbstractRepository {
 
   async readUserScore(id) {
     const [rows] = await this.database.query(
-      `SELECT user.id, user.firstname, user.lastname, user.avatar_image, user.pseudo, user.email, user.hashed_password, party.score FROM ${this.table} 
-      JOIN party ON user.id = party.user_id WHERE user.id = ? ORDER BY 
-            party.score DESC
-        LIMIT 3`,
+      `SELECT user.id, user.firstname, user.lastname, user.avatar_image, user.pseudo, user.email, user.hashed_password,
+      party.score, favorite.game_id
+      FROM user
+      LEFT JOIN party ON user.id = party.user_id
+      LEFT JOIN favorite ON user.id = favorite.user_id
+      WHERE user.id = ?
+      ORDER BY party.score DESC;`,
       [id]
     );
+
     const user = {
       id: rows[0].id,
       firstname: rows[0].firstname,
@@ -66,6 +70,7 @@ class UserRepository extends AbstractRepository {
       email: rows[0].email,
       hashed_password: rows[0].hashed_password,
       scores: rows.map((row) => row.score),
+      favorites: rows.map((row) => row.game_id),
     };
 
     return user;
