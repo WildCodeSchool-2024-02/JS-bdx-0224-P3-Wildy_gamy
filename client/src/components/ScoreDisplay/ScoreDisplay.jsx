@@ -1,6 +1,8 @@
 import "./ScoreDisplay.scss";
 
-function ScoreDisplay() {
+import PropTypes from "prop-types";
+
+function ScoreDisplay({ score }) {
   return (
     <table className="tableScore">
       <thead>
@@ -12,11 +14,14 @@ function ScoreDisplay() {
       <tbody>
         <tr>
           <td>Space Invaders</td>
-          <td className="tdRight">2000 points</td>
+          <td className="tdRight">{score} points</td>
         </tr>
       </tbody>
     </table>
   );
 }
 
+ScoreDisplay.propTypes = {
+  score: PropTypes.number.isRequired,
+};
 export default ScoreDisplay;

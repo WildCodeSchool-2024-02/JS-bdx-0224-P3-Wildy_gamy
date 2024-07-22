@@ -1,12 +1,16 @@
 import PropTypes from "prop-types";
 import "./DeleteInfoModale.scss";
 import { Form } from "react-router-dom";
+import {useAuth} from "../../context/AuthContext"
 
 function DeleteInfoModale({
   handleClickModal,
   showModalDelete,
   setShowModalDelete,
 }) {
+
+  const {logout} = useAuth();
+
   return (
     <dialog open className="modalDelete">
       <p>
@@ -21,7 +25,7 @@ function DeleteInfoModale({
         Annuler
       </button>
       <Form method="DELETE" className="deleteForm">
-        <button type="submit" className="deleteButton">
+        <button type="submit" className="deleteButton" onClick={logout}>
           Supprimer mon compte
         </button>
       </Form>

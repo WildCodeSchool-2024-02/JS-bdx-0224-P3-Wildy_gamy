@@ -12,8 +12,7 @@ const browse = async (req, res, next) => {
 
 const read = async (req, res, next) => {
   try {
-    const user = await tables.user.read(req.params.id);
-
+    const user = await tables.user.readUserScore(req.params.id);
     if (user == null) {
       res.sendStatus(404);
     } else {
@@ -49,7 +48,6 @@ const add = async (req, res, next) => {
 const destroy = async (req, res) => {
   try {
     await tables.user.delete(req.params.id);
-
     res.sendStatus(204);
   } catch (err) {
     res.sendStatus(500);
