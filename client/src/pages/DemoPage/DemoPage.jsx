@@ -295,12 +295,12 @@ function DemoPage() {
   useEffect(() => {
     if (scoreRef.current >= 15000 && !toastShown) {
       toast.success("🏆Vous avez gagné un jeton ! 🎉 ");
-      setToastShown(true); 
+      setToastShown(true);
     }
-  }, [score]); 
+  }, [score]);
 
   return (
-    <main>
+    <main className="demo-page">
       <h1>Retrouvez Space Invaders dans nos salles d'arcade !</h1>
       <section className="game-container">
         <canvas ref={canvasRef} aria-label="Espace de jeu Space Invaders" />
