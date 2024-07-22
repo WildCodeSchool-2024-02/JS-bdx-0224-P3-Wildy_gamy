@@ -94,6 +94,8 @@ Thank you for your dedication and your invaluable teachings.
 - [@KevinDavoust](https://github.com/KevinDavoust)
 - [@Yoann-Fortin](https://github.com/Yoann-Fortin)
 
+Thanks to Kenny Yip Coding for his video [Code Space Invaders in Javascript HTML CSS](https://www.youtube.com/watch?v=v74X5dtDLvg) which helped us to code the game of the demo page.
+
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
