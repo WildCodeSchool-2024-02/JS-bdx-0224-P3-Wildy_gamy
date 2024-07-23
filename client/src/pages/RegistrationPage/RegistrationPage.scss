@@ -24,3 +24,16 @@
 .password-toggle-icon {
   margin-left: 1rem;
 }
+.message {
+  text-align: center;
+  display: none;
+}
+
+input:user-invalid + .message,
+.instructions:focus + .message {
+  display: block;
+}
+
+input:user-invalid + .message {
+  color: red;
+}
