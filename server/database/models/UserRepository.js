@@ -1,3 +1,4 @@
+const { addDays, format } = require('date-fns');
 const AbstractRepository = require("./AbstractRepository");
 
 class UserRepository extends AbstractRepository {
@@ -50,22 +51,51 @@ class UserRepository extends AbstractRepository {
   }
 
   async readUserScore(id) {
-    const [rows] = await this.database.query(
-      `SELECT user.id, user.firstname, user.lastname, user.avatar_image, user.pseudo, user.email, user.hashed_password, party.score FROM ${this.table} 
-      JOIN party ON user.id = party.user_id WHERE user.id = ? ORDER BY 
-            party.score DESC
-        LIMIT 3`,
+    const [userRows] = await this.database.query(
+      `SELECT user.id, user.firstname, user.lastname, user.avatar_image, user.pseudo, user.email, user.hashed_password 
+      FROM ${this.table} 
+      WHERE user.id = ?`,
       [id]
     );
+
+    if (userRows.length === 0) {
+      return null;
+    }
+
+    const [scoreRows] = await this.database.query(
+      `SELECT party.id AS party_id, party.score 
+      FROM party 
+      WHERE party.user_id = ? 
+      ORDER BY party.score DESC 
+      LIMIT 3`,
+      [id]
+    );
+
+    const [coinRows] = await this.database.query(
+      `SELECT coin.id AS coin_id, coin.obtention_date 
+      FROM coin 
+      WHERE coin.user_id = ? 
+      ORDER BY coin.obtention_date ASC 
+      LIMIT 3`,
+      [id]
+    );
+
     const user = {
-      id: rows[0].id,
-      firstname: rows[0].firstname,
-      lastname: rows[0].lastname,
-      avatar_image: rows[0].avatar_image,
-      pseudo: rows[0].pseudo,
-      email: rows[0].email,
-      hashed_password: rows[0].hashed_password,
-      scores: rows.map((row) => row.score),
+      id: userRows[0].id,
+      firstname: userRows[0].firstname,
+      lastname: userRows[0].lastname,
+      avatar_image: userRows[0].avatar_image,
+      pseudo: userRows[0].pseudo,
+      email: userRows[0].email,
+      hashed_password: userRows[0].hashed_password,
+      parties: scoreRows.map((row) => ({
+        party_id: row.party_id,
+        score: row.score,
+      })),
+      coins: coinRows.map((row) => ({
+        coin_id: row.coin_id,
+        expiration_date: format(addDays(new Date(row.obtention_date), 15), 'dd/MM/yyyy'),
+      })),
     };
 
     return user;

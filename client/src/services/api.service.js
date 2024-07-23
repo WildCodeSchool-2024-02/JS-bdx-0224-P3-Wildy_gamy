@@ -58,7 +58,9 @@ export async function fetchMultipleApis(urls) {
 export async function handleFormAction(request, actionFunction, redirectPath) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData.entries());
-  const result = await actionFunction(data);
+  const method = request.method.toUpperCase();
+
+  const result = await actionFunction(data, method);
 
   if (result.success && redirectPath) {
     return redirect(redirectPath);

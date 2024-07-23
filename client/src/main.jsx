@@ -21,9 +21,15 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 
-import { fetchApi, handleFormAction, sendData } from "./services/api.service";
+import {
+  fetchApi,
+  fetchMultipleApis,
+  handleFormAction,
+  sendData,
+} from "./services/api.service";
 import login from "./services/login.service";
 import register from "./services/register.service";
+import favoriteGame from "./services/favoriteGame.service";
 import sendEmail from "./services/contact.service";
 import sendScore from "./services/score.service";
 import sendCoin from "./services/coin.service";
@@ -49,6 +55,7 @@ const router = createBrowserRouter([
         path: "/catalogue",
         element: <GameListPage />,
         loader: () => fetchApi(baseGamesUrl),
+        action: async ({ request }) => handleFormAction(request, favoriteGame),
       },
       {
         path: "/demo",
@@ -117,18 +124,21 @@ const router = createBrowserRouter([
             <ProfilePage />
           </AuthProtection>
         ),
-        loader: async ({ params }) => fetchApi(`${baseUserUrl}/${params.id}`),
+        loader: async ({ params }) =>
+          fetchMultipleApis([`${baseUserUrl}/${params.id}`, baseGamesUrl]),
         action: async ({ request, params }) => {
           const formData = await request.formData();
-          const data = Object.fromEntries(formData.entries());
-
+          const formDataObject = Object.fromEntries(formData.entries());
           const method = request.method.toUpperCase();
 
-          const handleMethod = async (httpMethod) => {
-            await sendData(`${baseUserUrl}/${params.id}`, data, httpMethod);
-          };
-          await handleMethod(method);
-          return redirect("/");
+          const isFavoriteGameAction = 'gameId' in formDataObject && 'isFavorite' in formDataObject;
+
+          if (isFavoriteGameAction) {
+            const responseFavorite = await favoriteGame(formDataObject, method);
+            return responseFavorite;
+          }
+          const responseUser = await sendData(`${baseUserUrl}/${params.id}`, formDataObject, method)
+          return responseUser;
         },
       },
     ],

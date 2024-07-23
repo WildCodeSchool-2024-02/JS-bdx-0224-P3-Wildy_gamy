@@ -47,7 +47,7 @@ function HomePage() {
 
   return (
     <main>
-      <h1>
+      <h1 className="home-title">
         Rejoignez notre communauté de joueurs passionnés et découvrez nos bornes
         d'arcade !
       </h1>
