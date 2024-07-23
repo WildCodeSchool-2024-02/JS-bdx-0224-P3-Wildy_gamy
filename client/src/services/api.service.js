@@ -37,7 +37,15 @@ export async function fetchMultipleApis(urls) {
   const baseUrl = import.meta.env.VITE_API_URL;
   const fullUrls = urls.map((url) => baseUrl + url);
 
-  const responses = await Promise.all(fullUrls.map((url) => fetch(url)));
+  const responses = await Promise.all(
+    fullUrls.map((url) =>
+      fetch(url, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+    )
+  );
   const dataPromises = responses.map((response) => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -50,11 +58,13 @@ export async function fetchMultipleApis(urls) {
 export async function handleFormAction(request, actionFunction, redirectPath) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData.entries());
-  const result = await actionFunction(data);
-  
+  const method = request.method.toUpperCase();
+
+  const result = await actionFunction(data, method);
+
   if (result.success && redirectPath) {
     return redirect(redirectPath);
   }
-  
+
   return result;
 }

@@ -20,13 +20,13 @@ body {
   padding-bottom: $nav-mobile-height;
 
   @include for-desktop-up {
-    padding-top: $header-height;
+    padding-top: 2.2rem;
     padding-bottom: 0;
   }
 }
 
 main {
-  min-height: calc(100vh - ($nav-mobile-height + $header-height));
+  min-height: calc(100vh - 7.1rem);
 }
 
 h1 {
@@ -35,11 +35,13 @@ h1 {
   text-align: center;
   color: $white-color;
   font-weight: 400;
-  margin: 1rem;
+  margin: 0.5rem;
+  padding: 1rem 0;
   text-shadow: $font-stroke;
 
   @include for-desktop-up {
     margin: 2rem;
+    padding-top: 2rem;
   }
 }
 

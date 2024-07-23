@@ -1,11 +1,18 @@
 @import "../../scss/index.scss";
 
 .tableScore {
-  color: $black-color;
+  margin-top: 0;
+  color: $white-color;
+  font-family: $title-font;
   width: 100%;
+  font-size: 1.3rem;
+  @include for-desktop-up {
+    font-size: 1.5rem;
+  }
 
   thead {
     visibility: hidden;
+    font-size: 0;
   }
 
   .tdRight {
