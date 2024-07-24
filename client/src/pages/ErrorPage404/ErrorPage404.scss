@@ -1,0 +1,16 @@
+@import "../../scss/index.scss";
+
+.error-page-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleError404 {
+  color: $secondary-color;
+}
+
+.linkError {
+  margin: 2rem;
+  color: $secondary-color;
+}
