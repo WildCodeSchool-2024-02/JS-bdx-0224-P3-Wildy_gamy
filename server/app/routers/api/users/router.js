@@ -5,23 +5,13 @@ const { hashPassword } = require("../../../middleware/hashPassword");
 const router = express.Router();
 
 const { verifyToken } = require("../../../middleware/verifyToken");
+const { checkId } = require("../../../middleware/checkId");
 
-const {
-  browse,
-  read,
-  edit,
-  add,
-  destroy,
-} = require("../../../controllers/userAction");
+const { read, edit, add, destroy } = require("../../../controllers/userAction");
 
-router.get("/", browse);
-
-router.get("/:id", verifyToken, read);
-
-router.put("/:id", verifyToken, edit);
-
+router.get("/:id", verifyToken, checkId, read);
+router.put("/:id", verifyToken, checkId, edit);
 router.post("/", hashPassword, add);
-
-router.delete("/:id", destroy);
+router.delete("/:id", verifyToken, checkId, destroy);
 
 module.exports = router;

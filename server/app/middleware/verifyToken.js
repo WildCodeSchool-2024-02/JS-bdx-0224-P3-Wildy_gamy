@@ -1,33 +1,30 @@
 const jwt = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
+  const authorizationHeader = req.get("Authorization");
+
+  if (!authorizationHeader) {
+    return res.status(401).json({ error: "Authorization header is missing" });
+  }
+
+  const [type, token] = authorizationHeader.split(" ");
+
+  if (type !== "Bearer") {
+    return res
+      .status(401)
+      .json({ error: "Authorization header must be of type 'Bearer'" });
+  }
   try {
-    // Vérifier la présence de l'en-tête "Authorization" dans la requête
-    const authorizationHeader = req.get("Authorization");
-
-    if (authorizationHeader == null) {
-      throw new Error("Authorization header is missing");
-    }
-
-    // Vérifier que l'en-tête a la forme "Bearer <token>"
-    const [type, token] = authorizationHeader.split(" ");
-
-    if (type !== "Bearer") {
-      throw new Error("Authorization header has not the 'Bearer' type");
-    }
-
-    // Vérifier la validité du token (son authenticité et sa date d'expériation)
-    // En cas de succès, le payload est extrait et décodé
     const decodedToken = jwt.verify(token, process.env.APP_SECRET);
     req.auth = {
       role: decodedToken.role,
       email: decodedToken.email,
       id: decodedToken.id,
     };
-    next();
+
+    return next();
   } catch (err) {
-    res.sendStatus(401);
-    next(err);
+    return res.status(401).json({ error: "Invalid or expired token" });
   }
 };
 

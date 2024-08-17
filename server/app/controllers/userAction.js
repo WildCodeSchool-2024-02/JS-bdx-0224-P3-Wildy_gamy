@@ -1,15 +1,5 @@
 const tables = require("../../database/tables");
 
-const browse = async (req, res, next) => {
-  try {
-    const users = await tables.user.readAll();
-
-    res.status(200).json(users);
-  } catch (err) {
-    next(err);
-  }
-};
-
 const read = async (req, res, next) => {
   try {
     const user = await tables.user.readUserScore(req.params.id);
@@ -55,7 +45,6 @@ const destroy = async (req, res) => {
 };
 
 module.exports = {
-  browse,
   read,
   edit,
   add,
