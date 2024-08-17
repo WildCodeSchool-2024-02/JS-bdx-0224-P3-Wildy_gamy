@@ -2,7 +2,8 @@ const tables = require("../../database/tables");
 
 const read = async (req, res, next) => {
   try {
-    const user = await tables.user.readUserScore(req.params.id);
+    const user = await tables.user.readUserScoreCoin(req.params.id);
+
     if (user == null) {
       res.sendStatus(404);
     } else {
