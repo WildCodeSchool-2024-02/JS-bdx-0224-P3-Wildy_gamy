@@ -4,27 +4,21 @@ const AbstractRepository = require("./AbstractRepository");
 class UserRepository extends AbstractRepository {
   constructor() {
     super({ table: "user" });
-    this.avatar_image = "client/src/assets/images/avatar/Avatar-basic.svg";
+    this.avatar_image = 
+    "client/src/assets/images/avatar/Avatar-basic.svg";
   }
 
   async create(user) {
     const avatarImage = this.avatar_image;
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (
-        firstname,
-        lastname,
-        avatar_image,
-        pseudo,
-        email,
-        hashed_password
+        firstname, lastname, avatar_image,
+        pseudo, email, hashed_password
         ) values (?, ?, ?, ?, ?, ?)`,
       [
-        user.firstname,
-        user.lastname,
-        avatarImage,
-        user.pseudo,
-        user.email,
-        user.hashedPassword,
+        user.firstname, user.lastname,
+        avatarImage, user.pseudo,
+        user.email, user.hashedPassword,
       ]
     );
     return result.insertId;
@@ -33,14 +27,9 @@ class UserRepository extends AbstractRepository {
   async readUserScoreCoin(id) {
     const [scoreRows] = await this.database.query(
       `SELECT 
-        user.id, 
-        user.firstname, 
-        user.lastname, 
-        user.avatar_image, 
-        user.pseudo, 
-        user.email, 
-        party.id AS party_id, 
-        party.score
+        user.id, user.firstname, user.lastname, 
+        user.avatar_image, user.pseudo, user.email, 
+        party.id AS party_id, party.score
       FROM ${this.table} 
       LEFT JOIN party ON user.id = party.user_id 
       WHERE user.id = ? 
@@ -51,8 +40,7 @@ class UserRepository extends AbstractRepository {
 
     const [coinRows] = await this.database.query(
       `SELECT 
-        user.id, 
-        coin.id AS coin_id, 
+        user.id, coin.id AS coin_id, 
         coin.obtention_date
       FROM ${this.table} 
       LEFT JOIN coin ON user.id = coin.user_id 
@@ -101,12 +89,11 @@ class UserRepository extends AbstractRepository {
     const [result] = await this.database.query(
       `UPDATE ${this.table} 
       SET 
-        firstname = ?,
-        lastname = ?,
-        pseudo = ?,
-        email = ?
+        firstname = ?, lastname = ?,
+        pseudo = ?, email = ?
       WHERE id = ?`,
-      [user.firstname, user.lastname, user.pseudo, user.email, user.id]
+      [user.firstname, user.lastname, 
+        user.pseudo, user.email, user.id]
     );
     return result.affectedRows;
   }

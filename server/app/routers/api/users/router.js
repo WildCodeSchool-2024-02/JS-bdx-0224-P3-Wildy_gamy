@@ -1,9 +1,8 @@
 const express = require("express");
 
-const { hashPassword } = require("../../../middleware/hashPassword");
-
 const router = express.Router();
 
+const { hashPassword } = require("../../../middleware/hashPassword");
 const { verifyToken } = require("../../../middleware/verifyToken");
 const { checkId } = require("../../../middleware/checkId");
 

@@ -1,21 +1,20 @@
 import PropTypes from "prop-types";
 import "./DeleteInfoModale.scss";
 import { Form } from "react-router-dom";
-import {useAuth} from "../../context/AuthContext"
+import { useAuth } from "../../context/AuthContext";
 
 function DeleteInfoModale({
   handleClickModal,
   showModalDelete,
   setShowModalDelete,
 }) {
-
-  const {logout} = useAuth();
+  const { logout } = useAuth();
 
   return (
     <dialog open className="modalDelete">
       <p>
         Êtes-vous sûr de vouloir supprimer votre compte ? Vous perdrez
-        définitevement tous vos scores et jetons.
+        définitivement tous vos scores et jetons.
       </p>
       <button
         type="button"
